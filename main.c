@@ -129,6 +129,8 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
+    PIE1bits.SSP1IE = 0; 
+    PIE2bits.BCL1IE = 0;
 
     I2C_Master_Init();
     LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
