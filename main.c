@@ -11,7 +11,7 @@
 */
 
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+ï¿½ [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -97,6 +97,21 @@ void shift_out_to_motors(uint8_t byte);
 double distance;
 double temperature;
 
+/*
+    I2C_Master_Init();
+    LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
+      
+    LCD_Clear();
+    LCD_Set_Cursor(1, 1);
+    LCD_Write_String("Master Camp 2024");
+    LCD_Set_Cursor(2, 1);
+    LCD_Write_String("  EFREI Paris ");
+    __delay_ms(2500);
+*/
+
+
+#define SPEED 500
+
 int main(void)
 {
     SYSTEM_Initialize();
@@ -104,10 +119,6 @@ int main(void)
     // Disable I2C Interrupts
     PIE1bits.SSP1IE = 0; 
     PIE2bits.BCL1IE = 0; 
-    
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts 
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts 
-    // Use the following macros to: 
 
     // Enable the Global Interrupts 
     INTERRUPT_GlobalInterruptEnable(); 
@@ -120,16 +131,9 @@ int main(void)
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
-/*
+
     I2C_Master_Init();
     LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
-      
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    LCD_Write_String("Master Camp 2024");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String("  EFREI Paris ");
-    __delay_ms(2500);*/
     
     //uint8_t i = 250;
     INTCONbits.TMR0IE = 0;
@@ -149,17 +153,17 @@ int main(void)
         __delay_ms(500);*/
 
         //DRIVE_FORWARD(700);
-        DRIVE_FORWARD(700);
+        DRIVE_FORWARD(SPEED);
         __delay_ms(700);
-        DRIVE_BACKWARDS(700);
+        DRIVE_BACKWARDS(SPEED);
         __delay_ms(700);
-        DRIVE_RIGHTWARDS(700);
+        DRIVE_RIGHTWARDS(SPEED);
         __delay_ms(700);
-        DRIVE_LEFTWARDS(700);
+        DRIVE_LEFTWARDS(SPEED);
         __delay_ms(700);
-        TURN_LEFT(700);
+        TURN_LEFT(SPEED);
         __delay_ms(700);
-        TURN_RIGHT(700);
+        TURN_RIGHT(SPEED);
         __delay_ms(700);  
 
 
