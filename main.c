@@ -108,7 +108,7 @@ double temperature;
 */
 
 
-#define SPEED 500
+#define SPEED 300
 
 int main(void)
 {
@@ -132,6 +132,10 @@ int main(void)
 
     I2C_Master_Init();
     LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
+    Backlight();
+    LCD_Clear();
+    LCD_Set_Cursor(1, 1);
+    LCD_Write_String("Master Camp 2024");
     
     //uint8_t i = 250;
     INTCONbits.TMR0IE = 0;
