@@ -18495,7 +18495,7 @@ void shift_out_to_motors(uint8_t byte);
 
 double distance;
 double temperature;
-
+# 113 "main.c"
 int main(void)
 {
     SYSTEM_Initialize();
@@ -18505,10 +18505,6 @@ int main(void)
     PIE2bits.BCL1IE = 0;
 
 
-
-
-
-
     (INTCONbits.GIE = 1);
 
 
@@ -18516,29 +18512,36 @@ int main(void)
 
 
     (INTCONbits.PEIE = 1);
-# 133 "main.c"
+
+
+
+
+    I2C_Master_Init();
+    LCD_Init(0x4E);
+
+
     INTCONbits.TMR0IE = 0;
     do { LATBbits.LATB4 = 0; } while(0);
     do { LATBbits.LATB5 = 0; } while(0);
     do { LATBbits.LATB6 = 0; } while(0);
-    CCP2_LoadDutyValue(500);
+    CCP2_LoadDutyValue(300);
 
     while(1)
     {
-# 150 "main.c"
-        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(700);} while(0);
+# 154 "main.c"
+        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(700);} while(0);
+        do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(700);} while(0);
+        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(700);} while(0);
+        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(700);} while(0);
+        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(700);} while(0);
+        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
         _delay((unsigned long)((700)*(4000000/4000.0)));
-# 239 "main.c"
+# 243 "main.c"
     }
 }
 
@@ -18594,7 +18597,6 @@ uint8_t get_distance_from_supersonic()
 
 float get_temperature()
 {
-
     float temperature_in_c = ((float)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
     return temperature_in_c;
 }
@@ -18616,7 +18618,6 @@ void UART_Custom_ISR(uint8_t Rx_Code)
     sprintf(buffer, "Sent code: %hhx", Rx_Code);
     LCD_Write_String(buffer);
     _delay((unsigned long)((350)*(4000000/4000.0)));
-
 }
 
 void TMR0_Custom_ISR(void)

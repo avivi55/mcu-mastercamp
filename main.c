@@ -138,7 +138,7 @@ int main(void)
     SR_DATA_SetLow();
     SR_SEND_SetLow();
     SR_CLOCK_SetLow();
-    CCP2_LoadDutyValue(500);
+    CCP2_LoadDutyValue(300);
     
     while(1)
     {    
