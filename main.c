@@ -138,19 +138,19 @@ int main(void)
     
     while(1)
     {    
-        //DRIVE_FORWARD(700);
-        DRIVE_FORWARD(SPEED);
-        __delay_ms(700);
-        DRIVE_BACKWARDS(SPEED);
-        __delay_ms(700);
-        DRIVE_RIGHTWARDS(SPEED);
-        __delay_ms(700);
-        DRIVE_LEFTWARDS(SPEED);
-        __delay_ms(700);
-        TURN_LEFT(SPEED);
-        __delay_ms(700);
-        TURN_RIGHT(SPEED);
-        __delay_ms(700);
+        // //DRIVE_FORWARD(700);
+        // DRIVE_FORWARD(SPEED);
+        // __delay_ms(700);
+        // DRIVE_BACKWARDS(SPEED);
+        // __delay_ms(700);
+        // DRIVE_RIGHTWARDS(SPEED);
+        // __delay_ms(700);
+        // DRIVE_LEFTWARDS(SPEED);
+        // __delay_ms(700);
+        // TURN_LEFT(SPEED);
+        // __delay_ms(700);
+        // TURN_RIGHT(SPEED);
+        // __delay_ms(700);
     }
 }
 
@@ -240,7 +240,11 @@ float get_temperature()
 
 void UART_Custom_ISR(uint8_t Rx_Code)
 {
+    LCD_Clear();
+    LCD_Set_Cursor(1, 1);
+    LCD_Write_String("uart");
     control_motors_with_uart(Rx_Code);
+    __delay_ms(1000);
 }
 
 
@@ -250,7 +254,7 @@ void TMR0_Custom_ISR(void)
 
     uint8_t distance = get_distance_from_supersonic();
 
-    if(distance >= 2 && distance <= 255) // Check whether the result is valid or not
+    if(distance >= 2 && distance <= 250) // Check whether the result is valid or not
     { 
         LCD_Clear();
         LCD_Set_Cursor(1, 1);
@@ -262,45 +266,5 @@ void TMR0_Custom_ISR(void)
         LCD_Clear();
         LCD_Set_Cursor(1, 1);
         LCD_Write_String("Out of Range");
-    }
-    
-    // TMR1H = 0x00;
-    // TMR1L = 0x00;
-    // // Generate a 10 microseconds pulse on Trig output
-    // Trig_SetHigh();
-    // __delay_us(10);
-    // Trig_SetLow();
-    // // Wait for Echo pin rising edge
-    // while(Echo_PORT == LOW);
-    // // Start measuring Echo pulse width in seconds
-    // TMR1_Start();
-    // // Wait for Echo pin falling edge
-    // while(Echo_PORT == HIGH);
-    // // Stop the timer 
-    // TMR1_Stop();
-    // // Estimate the distance in CM
-    // distance = ((double)((TMR1H<<8) + TMR1L))/58.82;
-    // if(distance >= 2 && distance <= 400) // Check whether the result is valid or not
-    // { 
-    //     LCD_Clear();
-    //     LCD_Set_Cursor(1, 1);
-    //     sprintf(buffer, "Dist.: %.2f cm", distance);
-    //     LCD_Write_String(buffer);  // Display the distance on the LCD
-    // }
-    // else 
-    // {
-    //     LCD_Clear();
-    //     LCD_Set_Cursor(1, 1);
-    //     LCD_Write_String("Out of Range");
-    // }
-
-    // temperature = ((double)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
-    // ADCON0bits.ADON = 0;
-
-    // LCD_Set_Cursor(2, 1); 
-    // sprintf(buffer, "Temp.: %.2f C", temperature);
-    // LCD_Write_String(buffer);  // Display the distance on the LCD
-    
-    // __delay_ms(1000);
-    
+    }    
 }
