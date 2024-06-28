@@ -243,7 +243,7 @@ void UART_Custom_ISR(uint8_t Rx_Code)
     LCD_Clear();
     LCD_Set_Cursor(1, 1);
     LCD_Write_String("uart");
-    control_motors_with_uart(Rx_Code);
+    control_motors_with_uart((DIRECTIONS) Rx_Code);
     __delay_ms(1000);
 }
 
