@@ -316,7 +316,7 @@ void TMR0_Custom_ISR(void)
     { 
         LCD_Clear();
         LCD_Set_Cursor(1, 1);
-        sprintf(buffer, "Dist.: %.2f cm", distance);
+        sprintf(buffer, "Dist.: %d cm", distance);
         LCD_Write_String(buffer);  // Display the distance on the LCD
     }
     else 
