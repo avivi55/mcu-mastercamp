@@ -85,11 +85,11 @@
                                                     | MOTOR_BACK_LEFT_RECULER);\
                                 CCP2_LoadDutyValue(pwm);} while(0)
 
-#define BREAK(pwm) do { shift_out_to_motors(MOTOR_FRONT_RIGHT_AVANCER | MOTOR_FRONT_RIGHT_RECULER\
+#define STOP(pwm) do { shift_out_to_motors(MOTOR_FRONT_RIGHT_AVANCER | MOTOR_FRONT_RIGHT_RECULER\
                                             | MOTOR_FRONT_LEFT_AVANCER | MOTOR_FRONT_LEFT_RECULER\
                                             | MOTOR_BACK_RIGHT_AVANCER | MOTOR_BACK_RIGHT_RECULER\
                                             | MOTOR_BACK_LEFT_AVANCER | MOTOR_BACK_LEFT_RECULER\
-                                            )\
+                                            );\
                                 CCP2_LoadDutyValue(pwm);} while(0)
 
 
@@ -107,7 +107,7 @@ typedef enum {
     DRIVE_LEFTWARDS = 3,
     TURN_LEFT = 4,
     TURN_RIGHT = 5,
-    BREAK = 6
+    STOP = 6
 } DIRECTIONS;
 
 int main(void)
@@ -131,20 +131,23 @@ int main(void)
     //INTERRUPT_PeripheralInterruptDisable(); 
     PIE1bits.SSP1IE = 0; 
     PIE2bits.BCL1IE = 0;
-
+    INTCONbits.TMR0IE = 0;
     I2C_Master_Init();
     LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
     Backlight();
     LCD_Clear();
     LCD_Set_Cursor(1, 1);
     LCD_Write_String("Master Camp 2024");
+    LCD_Set_Cursor(2, 1);
+    LCD_Write_String("Les nuls");
+    __delay_ms(6000);
     
     INTCONbits.TMR0IE = 1;
     SR_DATA_SetLow();
     SR_SEND_SetLow();
     SR_CLOCK_SetLow();
     CCP2_LoadDutyValue(300);
-    CCP1_LoadDutyValue(0);
+    CCP1_LoadDutyValue(45);
     
     while(1)
     {    
@@ -171,6 +174,9 @@ void control_motors_with_uart(DIRECTIONS dir)
     {
         case DRIVE_FORWARD:
             DRIVE_FORWARD(SPEED);
+            LCD_Clear();
+            LCD_Set_Cursor(1, 1);
+            LCD_Write_String("Les nuls !");
             break;
         case DRIVE_BACKWARDS:
             DRIVE_BACKWARDS(SPEED);
@@ -188,7 +194,7 @@ void control_motors_with_uart(DIRECTIONS dir)
             TURN_RIGHT(SPEED);
             break;
         default:
-            BREAK(SPEED);
+            STOP(SPEED);
             break;
     }
 }
