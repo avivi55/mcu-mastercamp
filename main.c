@@ -85,28 +85,11 @@
                                                     | MOTOR_BACK_LEFT_RECULER);\
                                 CCP2_LoadDutyValue(pwm);} while(0)
 
-
+#define 
 
 void TMR0_Custom_ISR(void);
 void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
-
-
-double distance;
-double temperature;
-
-/*
-    I2C_Master_Init();
-    LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
-      
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    LCD_Write_String("Master Camp 2024");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String("  EFREI Paris ");
-    __delay_ms(2500);
-*/
-
 
 #define SPEED 300
 
@@ -139,23 +122,15 @@ int main(void)
     LCD_Set_Cursor(1, 1);
     LCD_Write_String("Master Camp 2024");
     
-    //uint8_t i = 250;
     INTCONbits.TMR0IE = 0;
     SR_DATA_SetLow();
     SR_SEND_SetLow();
     SR_CLOCK_SetLow();
     CCP2_LoadDutyValue(300);
+    CCP1_LoadDutyValue(0);
     
     while(1)
     {    
-        /*TMR2_Stop();
-        TMR4_Stop();
-        CCP1_LoadDutyValue(0x000F);
-        CCP2_LoadDutyValue(0x000f);
-        TMR2_Start();
-        TMR4_Start();
-        __delay_ms(500);*/
-
         //DRIVE_FORWARD(700);
         DRIVE_FORWARD(SPEED);
         __delay_ms(700);
@@ -168,9 +143,7 @@ int main(void)
         TURN_LEFT(SPEED);
         __delay_ms(700);
         TURN_RIGHT(SPEED);
-        __delay_ms(700);  
-
-
+        __delay_ms(700);
 
     /*
         INTCONbits.TMR0IE = 0; // Disable TMR0 interrupt
@@ -324,6 +297,7 @@ void UART_Custom_ISR(uint8_t Rx_Code)
     __delay_ms(350);
 }
 
+
 void TMR0_Custom_ISR(void)
 {
     char buffer[16];
@@ -335,23 +309,9 @@ void TMR0_Custom_ISR(void)
     LCD_Set_Cursor(2, 1);
     LCD_Write_String(" .. Interrupt");
     __delay_ms(1000);
-    
-    TMR1H = 0x00;
-    TMR1L = 0x00;
-    // Generate a 10 microseconds pulse on Trig output
-    Trig_SetHigh();
-    __delay_us(10);
-    Trig_SetLow();
-    // Wait for Echo pin rising edge
-    while(Echo_PORT == LOW);
-    // Start measuring Echo pulse width in seconds
-    TMR1_Start();
-    // Wait for Echo pin falling edge
-    while(Echo_PORT == HIGH);
-    // Stop the timer 
-    TMR1_Stop();
-    // Estimate the distance in CM
-    distance = ((double)((TMR1H<<8) + TMR1L))/58.82;
+
+    uint8_t distance = get_distance_from_supersonic();
+
     if(distance >= 2 && distance <= 400) // Check whether the result is valid or not
     { 
         LCD_Clear();
@@ -365,14 +325,44 @@ void TMR0_Custom_ISR(void)
         LCD_Set_Cursor(1, 1);
         LCD_Write_String("Out of Range");
     }
-
-    temperature = ((double)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
-    ADCON0bits.ADON = 0;
-
-    LCD_Set_Cursor(2, 1); 
-    sprintf(buffer, "Temp.: %.2f C", temperature);
-    LCD_Write_String(buffer);  // Display the distance on the LCD
     
-    __delay_ms(1000);
+    // TMR1H = 0x00;
+    // TMR1L = 0x00;
+    // // Generate a 10 microseconds pulse on Trig output
+    // Trig_SetHigh();
+    // __delay_us(10);
+    // Trig_SetLow();
+    // // Wait for Echo pin rising edge
+    // while(Echo_PORT == LOW);
+    // // Start measuring Echo pulse width in seconds
+    // TMR1_Start();
+    // // Wait for Echo pin falling edge
+    // while(Echo_PORT == HIGH);
+    // // Stop the timer 
+    // TMR1_Stop();
+    // // Estimate the distance in CM
+    // distance = ((double)((TMR1H<<8) + TMR1L))/58.82;
+    // if(distance >= 2 && distance <= 400) // Check whether the result is valid or not
+    // { 
+    //     LCD_Clear();
+    //     LCD_Set_Cursor(1, 1);
+    //     sprintf(buffer, "Dist.: %.2f cm", distance);
+    //     LCD_Write_String(buffer);  // Display the distance on the LCD
+    // }
+    // else 
+    // {
+    //     LCD_Clear();
+    //     LCD_Set_Cursor(1, 1);
+    //     LCD_Write_String("Out of Range");
+    // }
+
+    // temperature = ((double)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
+    // ADCON0bits.ADON = 0;
+
+    // LCD_Set_Cursor(2, 1); 
+    // sprintf(buffer, "Temp.: %.2f C", temperature);
+    // LCD_Write_String(buffer);  // Display the distance on the LCD
+    
+    // __delay_ms(1000);
     
 }
