@@ -85,13 +85,20 @@
                                                     | MOTOR_BACK_LEFT_RECULER);\
                                 CCP2_LoadDutyValue(pwm);} while(0)
 
-#define 
-
 void TMR0_Custom_ISR(void);
 void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
 
 #define SPEED 300
+
+typedef enum {
+    DRIVE_FORWARD = 0x0,
+    DRIVE_BACKWARDS = 0x1,
+    DRIVE_RIGHTWARDS = 0x2,
+    DRIVE_LEFTWARDS = 0x3,
+    TURN_LEFT = 0x4,
+    TURN_RIGHT = 0x5
+} DIRECTIONS;
 
 int main(void)
 {
@@ -122,103 +129,56 @@ int main(void)
     LCD_Set_Cursor(1, 1);
     LCD_Write_String("Master Camp 2024");
     
-    INTCONbits.TMR0IE = 0;
+    INTCONbits.TMR0IE = 1;
     SR_DATA_SetLow();
     SR_SEND_SetLow();
     SR_CLOCK_SetLow();
     CCP2_LoadDutyValue(300);
     CCP1_LoadDutyValue(0);
     
-    while(1)
-    {    
-        //DRIVE_FORWARD(700);
-        DRIVE_FORWARD(SPEED);
-        __delay_ms(700);
-        DRIVE_BACKWARDS(SPEED);
-        __delay_ms(700);
-        DRIVE_RIGHTWARDS(SPEED);
-        __delay_ms(700);
-        DRIVE_LEFTWARDS(SPEED);
-        __delay_ms(700);
-        TURN_LEFT(SPEED);
-        __delay_ms(700);
-        TURN_RIGHT(SPEED);
-        __delay_ms(700);
+    // while(1)
+    // {    
+    //     //DRIVE_FORWARD(700);
+    //     DRIVE_FORWARD(SPEED);
+    //     __delay_ms(700);
+    //     DRIVE_BACKWARDS(SPEED);
+    //     __delay_ms(700);
+    //     DRIVE_RIGHTWARDS(SPEED);
+    //     __delay_ms(700);
+    //     DRIVE_LEFTWARDS(SPEED);
+    //     __delay_ms(700);
+    //     TURN_LEFT(SPEED);
+    //     __delay_ms(700);
+    //     TURN_RIGHT(SPEED);
+    //     __delay_ms(700);
+    // }
+}
 
-    /*
-        INTCONbits.TMR0IE = 0; // Disable TMR0 interrupt
-        
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("PWR Level 1 !");
-        TMR2_Stop();
-        TMR4_Stop();
-        CCP1_LoadDutyValue(0x000F);
-        CCP2_LoadDutyValue(0x000f);
-        TMR4_Start();
-        TMR2_Start();
-        __delay_ms(1500);
-        
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("PWR Level 2 !");
-        TMR2_Stop();
-        TMR4_Stop();
-        CCP1_LoadDutyValue(0x003F);
-        CCP2_LoadDutyValue(0x001E);
-        TMR2_Start();
-        TMR4_Start();
-        __delay_ms(1500);
-        
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("PWR Level 3 !");
-        TMR2_Stop();
-        TMR4_Stop();
-        CCP1_LoadDutyValue(0x00FF);
-        CCP2_LoadDutyValue(0x002C);
-        TMR2_Start();
-        TMR4_Start();
-        __delay_ms(1500);
-        
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("PWR Level 4 !");
-        TMR2_Stop();
-        TMR4_Stop();
-        CCP1_LoadDutyValue(0x03FF);
-        CCP2_LoadDutyValue(0x003F);
-        TMR2_Start();
-        TMR4_Start();
-        __delay_ms(1500);
-        
-        INTCONbits.TMR0IE = 1; // Enable TMR0 interrupt
-    
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    LCD_Write_String("  EFREI Paris ");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String("Embedded Systems");
-    __delay_ms(2500);
-    
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    LCD_Write_String("  ** Projet **");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String("Solution Factory");
-    __delay_ms(500);
-    Backlight();
-    __delay_ms(250);
-    noBacklight();
-    __delay_ms(250);
-    Backlight();
-    __delay_ms(250);
-    noBacklight();
-    __delay_ms(250);
-    Backlight();
-    __delay_ms(250);
-    } 
-    */
+
+void control_motors_with_uart(DIRECTIONS dir)
+{
+    switch (dir)
+    {
+        case DRIVE_FORWARD:
+            DRIVE_FORWARD(SPEED);
+            break;
+        case DRIVE_BACKWARDS:
+            DRIVE_BACKWARDS(SPEED);
+            break;
+        case DRIVE_RIGHTWARDS:
+            DRIVE_RIGHTWARDS(SPEED);
+            break;
+        case DRIVE_LEFTWARDS:
+            DRIVE_LEFTWARDS(SPEED);
+            break;
+        case TURN_LEFT:
+            TURN_LEFT(SPEED);
+            break;
+        case TURN_RIGHT:
+            TURN_RIGHT(SPEED);
+            break;
+        default:
+            break;
     }
 }
 
@@ -280,21 +240,7 @@ float get_temperature()
 
 void UART_Custom_ISR(uint8_t Rx_Code)
 {
-    char buffer[16];
-    
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    Backlight();
-    LCD_Write_String(" UART ..");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String(" .. Interrupt");
-    __delay_ms(350);
-    
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    sprintf(buffer, "Sent code: %hhx", Rx_Code);
-    LCD_Write_String(buffer);  // Display the code on the LCD
-    __delay_ms(350);
+    control_motors_with_uart(Rx_Code);
 }
 
 
@@ -312,7 +258,7 @@ void TMR0_Custom_ISR(void)
 
     uint8_t distance = get_distance_from_supersonic();
 
-    if(distance >= 2 && distance <= 400) // Check whether the result is valid or not
+    if(distance >= 2 && distance <= 255) // Check whether the result is valid or not
     { 
         LCD_Clear();
         LCD_Set_Cursor(1, 1);
