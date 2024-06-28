@@ -85,6 +85,15 @@
                                                     | MOTOR_BACK_LEFT_RECULER);\
                                 CCP2_LoadDutyValue(pwm);} while(0)
 
+#define BREAK(pwm) do { shift_out_to_motors(MOTOR_FRONT_RIGHT_AVANCER | MOTOR_FRONT_RIGHT_RECULER\
+                                            | MOTOR_FRONT_LEFT_AVANCER | MOTOR_FRONT_LEFT_RECULER\
+                                            | MOTOR_BACK_RIGHT_AVANCER | MOTOR_BACK_RIGHT_RECULER\
+                                            | MOTOR_BACK_LEFT_AVANCER | MOTOR_BACK_LEFT_RECULER\
+                                            )\
+                                CCP2_LoadDutyValue(pwm);} while(0)
+
+
+
 void TMR0_Custom_ISR(void);
 void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
@@ -92,12 +101,13 @@ void shift_out_to_motors(uint8_t byte);
 #define SPEED 300
 
 typedef enum {
-    DRIVE_FORWARD = 0x0,
-    DRIVE_BACKWARDS = 0x1,
-    DRIVE_RIGHTWARDS = 0x2,
-    DRIVE_LEFTWARDS = 0x3,
-    TURN_LEFT = 0x4,
-    TURN_RIGHT = 0x5
+    DRIVE_FORWARD = 0,
+    DRIVE_BACKWARDS = 1,
+    DRIVE_RIGHTWARDS = 2,
+    DRIVE_LEFTWARDS = 3,
+    TURN_LEFT = 4,
+    TURN_RIGHT = 5,
+    BREAK = 6
 } DIRECTIONS;
 
 int main(void)
@@ -178,6 +188,7 @@ void control_motors_with_uart(DIRECTIONS dir)
             TURN_RIGHT(SPEED);
             break;
         default:
+            BREAK(SPEED);
             break;
     }
 }
@@ -248,6 +259,7 @@ void UART_Custom_ISR(uint8_t Rx_Code)
     control_motors_with_uart((DIRECTIONS) Rx_Code);
     __delay_ms(1000);
 }
+
 
 
 void TMR0_Custom_ISR(void)
