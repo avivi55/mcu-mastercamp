@@ -136,22 +136,22 @@ int main(void)
     CCP2_LoadDutyValue(300);
     CCP1_LoadDutyValue(0);
     
-    // while(1)
-    // {    
-    //     //DRIVE_FORWARD(700);
-    //     DRIVE_FORWARD(SPEED);
-    //     __delay_ms(700);
-    //     DRIVE_BACKWARDS(SPEED);
-    //     __delay_ms(700);
-    //     DRIVE_RIGHTWARDS(SPEED);
-    //     __delay_ms(700);
-    //     DRIVE_LEFTWARDS(SPEED);
-    //     __delay_ms(700);
-    //     TURN_LEFT(SPEED);
-    //     __delay_ms(700);
-    //     TURN_RIGHT(SPEED);
-    //     __delay_ms(700);
-    // }
+    while(1)
+    {    
+        //DRIVE_FORWARD(700);
+        DRIVE_FORWARD(SPEED);
+        __delay_ms(700);
+        DRIVE_BACKWARDS(SPEED);
+        __delay_ms(700);
+        DRIVE_RIGHTWARDS(SPEED);
+        __delay_ms(700);
+        DRIVE_LEFTWARDS(SPEED);
+        __delay_ms(700);
+        TURN_LEFT(SPEED);
+        __delay_ms(700);
+        TURN_RIGHT(SPEED);
+        __delay_ms(700);
+    }
 }
 
 
@@ -247,14 +247,6 @@ void UART_Custom_ISR(uint8_t Rx_Code)
 void TMR0_Custom_ISR(void)
 {
     char buffer[16];
-    
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    Backlight();
-    LCD_Write_String(" TMR0 ..");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String(" .. Interrupt");
-    __delay_ms(1000);
 
     uint8_t distance = get_distance_from_supersonic();
 
