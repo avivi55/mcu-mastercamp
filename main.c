@@ -240,9 +240,11 @@ float get_temperature()
 
 void UART_Custom_ISR(uint8_t Rx_Code)
 {
+    char buffer[16];
     LCD_Clear();
     LCD_Set_Cursor(1, 1);
-    LCD_Write_String("uart");
+    sprintf(buffer, "%d", Rx_Code);
+    LCD_Write_String(buffer);
     control_motors_with_uart((DIRECTIONS) Rx_Code);
     __delay_ms(1000);
 }
