@@ -17451,7 +17451,7 @@ void Timer0_OverflowISR(void)
   TMR0 = timer0ReloadVal;
 
 
-  if (++CountCallBack >= 100)
+  if (++CountCallBack >= 10)
   {
 
     if(Timer0_OverflowCallback)

@@ -7,7 +7,6 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 33 "main.c"
 # 1 "./mcc_generated_files/system/system.h" 1
 # 39 "./mcc_generated_files/system/system.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
@@ -18463,7 +18462,7 @@ void INT_DefaultInterruptHandler(void);
 # 53 "./mcc_generated_files/system/../uart/../system/system.h" 2
 # 63 "./mcc_generated_files/system/../uart/../system/system.h"
 void SYSTEM_Initialize(void);
-# 33 "main.c" 2
+# 1 "main.c" 2
 
 # 1 "./I2C_LCD.h" 1
 # 27 "./I2C_LCD.h"
@@ -18486,16 +18485,39 @@ void noBacklight(void);
 void LCD_SR(void);
 void LCD_SL(void);
 void LCD_Clear(void);
-# 34 "main.c" 2
-# 90 "main.c"
+# 2 "main.c" 2
+# 66 "main.c"
 void TMR0_Custom_ISR(void);
+void auto_drive();
 void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
+uint8_t get_distance_from_supersonic();
 
 
-double distance;
-double temperature;
-# 113 "main.c"
+int SPEED = 350;
+
+uint8_t auto_mode = 1;
+uint8_t password_validation_index = 0;
+
+
+uint8_t password[5] = {
+    0x6a,
+    0x7c,
+    0xee,
+    0xe0,
+    0xb0
+};
+
+typedef enum {
+    DRIVE_FORWARD = 0,
+    DRIVE_BACKWARDS = 1,
+    DRIVE_RIGHTWARDS = 2,
+    DRIVE_LEFTWARDS = 3,
+    TURN_LEFT = 4,
+    TURN_RIGHT = 5,
+    STOP = 6
+} DIRECTIONS;
+
 int main(void)
 {
     SYSTEM_Initialize();
@@ -18515,33 +18537,120 @@ int main(void)
 
 
 
+    PIE1bits.SSP1IE = 0;
+    PIE2bits.BCL1IE = 0;
 
     I2C_Master_Init();
     LCD_Init(0x4E);
-
+    Backlight();
+    LCD_Clear();
+    LCD_Set_Cursor(1, 1);
+    LCD_Write_String("Master Camp 2024");
 
     INTCONbits.TMR0IE = 0;
     do { LATBbits.LATB4 = 0; } while(0);
     do { LATBbits.LATB5 = 0; } while(0);
     do { LATBbits.LATB6 = 0; } while(0);
-    CCP2_LoadDutyValue(300);
-
+    CCP2_LoadDutyValue(500);
+    CCP1_LoadDutyValue(42);
+    do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
     while(1)
     {
-# 154 "main.c"
-        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
+        if (auto_mode)
+            auto_drive();
+        else{
+            get_distance_from_supersonic();
+            _delay((unsigned long)((10)*(4000000/4000.0)));
+        }
+    }
+}
+
+
+void speed_motor(uint8_t speed){
+    SPEED = (uint16_t) (speed*128);
+}
+
+void auto_drive(){
+    uint16_t distance = get_distance_from_supersonic();
+    if (distance < 30){
+        do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+        do {CCP1_LoadDutyValue(68);} while(0);
+        _delay((unsigned long)((1500)*(4000000/4000.0)));
+        uint16_t distance_l = get_distance_from_supersonic();
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        do {CCP1_LoadDutyValue(20);} while(0);
+        _delay((unsigned long)((1500)*(4000000/4000.0)));
+        uint16_t distance_r = get_distance_from_supersonic();
+        _delay((unsigned long)((100)*(4000000/4000.0)));
+        do {CCP1_LoadDutyValue(42);} while(0);
+        if (distance_l < distance_r){
+            do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+            _delay((unsigned long)((300)*(4000000/4000.0)));
+            do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+        }else{
+            do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+            _delay((unsigned long)((300)*(4000000/4000.0)));
+            do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+        }
         _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-        _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-        _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
-        _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
-        _delay((unsigned long)((700)*(4000000/4000.0)));
-        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-        _delay((unsigned long)((700)*(4000000/4000.0)));
-# 243 "main.c"
+        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+    }
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+}
+
+void control_motors_with_uart(uint8_t code)
+{
+    DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+
+    switch (dir)
+    {
+        case DRIVE_FORWARD:
+            do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_BACKWARDS:
+            do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_RIGHTWARDS:
+            do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_LEFTWARDS:
+            do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case TURN_LEFT:
+            do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case TURN_RIGHT:
+            do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        default:
+            do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+    }
+}
+
+void control_speed(uint8_t code)
+{
+    uint8_t speed = code >> 3;
+    speed &= 0b00000111;
+    speed_motor(speed);
+}
+
+void control_servo(uint8_t code)
+{
+    auto angle = code >> 6;
+    switch (angle)
+    {
+        case 0b00:
+            do {CCP1_LoadDutyValue(68);} while(0);
+            break;
+        case 0b01:
+            do {CCP1_LoadDutyValue(42);} while(0);
+            break;
+        case 0b10:
+            do {CCP1_LoadDutyValue(20);} while(0);
+            break;
+        default:
+            break;
     }
 }
 
@@ -18590,8 +18699,23 @@ uint8_t get_distance_from_supersonic()
 
     TMR1_Stop();
 
-    uint8_t distance_in_cm = (uint8_t)(((TMR1H<<8) + TMR1L)/58.82);
-
+    uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
+    char buffer[16];
+    if(distance_in_cm >= 2 && distance_in_cm <= 250)
+    {
+        LCD_Clear();
+        LCD_Set_Cursor(1, 1);
+        sprintf(buffer, "Dist.: %d cm", distance_in_cm);
+        LCD_Write_String(buffer);
+        EUSART_Write((uint16_t) distance_in_cm);
+    }
+    else
+    {
+        distance_in_cm = 700;
+        LCD_Clear();
+        LCD_Set_Cursor(1, 1);
+        LCD_Write_String("Out of Range");
+    }
     return distance_in_cm;
 }
 
@@ -18601,74 +18725,44 @@ float get_temperature()
     return temperature_in_c;
 }
 
+uint8_t verify_password(uint8_t password_part)
+{
+    if (password_validation_index == 5)
+    {
+        password_validation_index = 0;
+        return 1;
+    }
+
+    if (password_part == password[password_validation_index])
+        password_validation_index++;
+    else
+        password_validation_index = 0;
+
+    return 0;
+}
+
 void UART_Custom_ISR(uint8_t Rx_Code)
 {
-    char buffer[16];
+    if (!verify_password(Rx_Code))
+        return;
 
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    Backlight();
-    LCD_Write_String(" UART ..");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String(" .. Interrupt");
-    _delay((unsigned long)((350)*(4000000/4000.0)));
+    auto_mode = 0;
+    control_speed(Rx_Code);
+    control_motors_with_uart(Rx_Code);
+    control_servo(Rx_Code);
 
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    sprintf(buffer, "Sent code: %hhx", Rx_Code);
-    LCD_Write_String(buffer);
-    _delay((unsigned long)((350)*(4000000/4000.0)));
+    if (Rx_Code == 0b11111111)
+    {
+        auto_mode = 1;
+        SPEED = 350;
+        do {CCP1_LoadDutyValue(42);} while(0);
+        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+    }
+
+    _delay((unsigned long)((5)*(4000000/4000.0)));
 }
 
 void TMR0_Custom_ISR(void)
 {
-    char buffer[16];
-
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    Backlight();
-    LCD_Write_String(" TMR0 ..");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String(" .. Interrupt");
-    _delay((unsigned long)((1000)*(4000000/4000.0)));
-
-    TMR1H = 0x00;
-    TMR1L = 0x00;
-
-    do { LATCbits.LATC2 = 1; } while(0);
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
-    do { LATCbits.LATC2 = 0; } while(0);
-
-    while(PORTCbits.RC1 == 0);
-
-    TMR1_Start();
-
-    while(PORTCbits.RC1 == 1);
-
-    TMR1_Stop();
-
-    distance = ((double)((TMR1H<<8) + TMR1L))/58.82;
-    if(distance >= 2 && distance <= 400)
-    {
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        sprintf(buffer, "Dist.: %.2f cm", distance);
-        LCD_Write_String(buffer);
-    }
-    else
-    {
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("Out of Range");
-    }
-
-    temperature = ((double)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
-    ADCON0bits.ADON = 0;
-
-    LCD_Set_Cursor(2, 1);
-    sprintf(buffer, "Temp.: %.2f C", temperature);
-    LCD_Write_String(buffer);
-
-    _delay((unsigned long)((1000)*(4000000/4000.0)));
-
+    return;
 }

@@ -37,7 +37,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define Timer0_INTERRUPT_TICKER_FACTOR    100
+#define Timer0_INTERRUPT_TICKER_FACTOR    10
 
 /**
  * @ingroup tmr0

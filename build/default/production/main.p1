@@ -47,6 +47,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;./I2C_LCD.h: 34: void LCD_Init(unsigned char I2C_Add);
 [v _LCD_Init `(v ~T0 @X0 0 ef1`uc ]
+"41
+[; ;./I2C_LCD.h: 41: void Backlight(void);
+[v _Backlight `(v ~T0 @X0 0 ef ]
+"45
+[; ;./I2C_LCD.h: 45: void LCD_Clear(void);
+[v _LCD_Clear `(v ~T0 @X0 0 ef ]
+"38
+[; ;./I2C_LCD.h: 38: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
+[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"40
+[; ;./I2C_LCD.h: 40: void LCD_Write_String(char*);
+[v _LCD_Write_String `(v ~T0 @X0 0 ef1`*uc ]
 "2687 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2687:     struct {
 [s S139 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -61,13 +73,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62 ./mcc_generated_files/system/../pwm/ccp2.h
 [; ;./mcc_generated_files/system/../pwm/ccp2.h: 62: void CCP2_LoadDutyValue(uint16_t dutyValue);
 [v _CCP2_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
-"92 main.c
-[; ;main.c: 92: void shift_out_to_motors(uint8_t byte);
+"62 ./mcc_generated_files/system/../pwm/ccp1.h
+[; ;./mcc_generated_files/system/../pwm/ccp1.h: 62: void CCP1_LoadDutyValue(uint16_t dutyValue);
+[v _CCP1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"69 main.c
+[; ;main.c: 69: void shift_out_to_motors(uint8_t byte);
 [v _shift_out_to_motors `(v ~T0 @X0 0 ef1`uc ]
+"67
+[; ;main.c: 67: void auto_drive();
+[v _auto_drive `(v ~T0 @X0 0 e? ]
+"70
+[; ;main.c: 70: uint8_t get_distance_from_supersonic();
+[v _get_distance_from_supersonic `(uc ~T0 @X0 0 e? ]
 [v F202 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
 [v __delay `JF202 ~T0 @X0 0 e ]
 [p i __delay ]
+"179 main.c
+[; ;main.c: 179:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+[c E10681 0 1 2 3 4 5 6 .. ]
+[n E10681 . DRIVE_FORWARD DRIVE_BACKWARDS DRIVE_RIGHTWARDS DRIVE_LEFTWARDS TURN_LEFT TURN_RIGHT STOP  ]
 "915 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 915: extern volatile unsigned char TMR1H __attribute__((address(0x017)));
 [v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
@@ -102,47 +127,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74
 [; ;./mcc_generated_files/system/../timer/tmr1.h: 74: void TMR1_Stop(void);
 [v _TMR1_Stop `(v ~T0 @X0 0 ef ]
-"298 main.c
-[; ;main.c: 298:     float temperature_in_c = ((float)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
+"121 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"299 ./mcc_generated_files/system/../uart/eusart.h
+[; ;./mcc_generated_files/system/../uart/eusart.h: 299: void EUSART_Write(uint8_t txData);
+[v _EUSART_Write `(v ~T0 @X0 0 ef1`uc ]
+"300 main.c
+[; ;main.c: 300:     float temperature_in_c = ((float)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
 [c E9888 29 30 31 0 .. ]
 [n E9888 . channel_Temp channel_DAC channel_FVR channel_AN0  ]
 "126 ./mcc_generated_files/system/../adc/adc.h
 [; ;./mcc_generated_files/system/../adc/adc.h: 126: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [v _ADC_GetConversion `(us ~T0 @X0 0 ef1`E9888 ]
-"45 ./I2C_LCD.h
-[; ;./I2C_LCD.h: 45: void LCD_Clear(void);
-[v _LCD_Clear `(v ~T0 @X0 0 ef ]
-"38
-[; ;./I2C_LCD.h: 38: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
-[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"41
-[; ;./I2C_LCD.h: 41: void Backlight(void);
-[v _Backlight `(v ~T0 @X0 0 ef ]
-"40
-[; ;./I2C_LCD.h: 40: void LCD_Write_String(char*);
-[v _LCD_Write_String `(v ~T0 @X0 0 ef1`*uc ]
-"121 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"2437 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2437:     struct {
-[s S127 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
-[n S127 . ADON GO_nDONE CHS ]
-"2442
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2442:     struct {
-[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S128 . . ADGO CHS0 CHS1 CHS2 CHS3 CHS4 ]
-"2451
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2451:     struct {
-[s S129 :1 `uc 1 :1 `uc 1 ]
-[n S129 . . GO ]
-"2436
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2436: typedef union {
-[u S126 `S127 1 `S128 1 `S129 1 ]
-[n S126 . . . . ]
-"2456
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 2456: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x09D)));
-[v _ADCON0bits `VS126 ~T0 @X0 0 e@157 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1619.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1484,503 +1481,894 @@ Version 4.0 HI-TECH Software Intermediate Code
 "324 ./mcc_generated_files/system/../uart/eusart.h
 [; ;./mcc_generated_files/system/../uart/eusart.h: 324: void (*EUSART_RxInterruptHandler)(void);
 [v _EUSART_RxInterruptHandler `*F10363 ~T0 @X0 1 e ]
-"95 main.c
-[; ;main.c: 95: double distance;
-[v _distance `d ~T0 @X0 1 e ]
-"96
-[; ;main.c: 96: double temperature;
-[v _temperature `d ~T0 @X0 1 e ]
+"73 main.c
+[; ;main.c: 73: int SPEED = 350;
+[v _SPEED `i ~T0 @X0 1 e ]
+[i _SPEED
+-> 350 `i
+]
+"75
+[; ;main.c: 75: uint8_t auto_mode = 1;
+[v _auto_mode `uc ~T0 @X0 1 e ]
+[i _auto_mode
+-> -> 1 `i `uc
+]
+"76
+[; ;main.c: 76: uint8_t password_validation_index = 0;
+[v _password_validation_index `uc ~T0 @X0 1 e ]
+[i _password_validation_index
+-> -> 0 `i `uc
+]
+"79
+[; ;main.c: 79: uint8_t password[5] = {
+[v _password `uc ~T0 @X0 -> 5 `i e ]
+[i _password
+:U ..
+-> -> 106 `i `uc
+-> -> 124 `i `uc
+-> -> 238 `i `uc
+-> -> 224 `i `uc
+-> -> 176 `i `uc
+..
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"113
-[; ;main.c: 113: int main(void)
+"97
+[; ;main.c: 97: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"114
-[; ;main.c: 114: {
+"98
+[; ;main.c: 98: {
 {
 [e :U _main ]
 [f ]
-"115
-[; ;main.c: 115:     SYSTEM_Initialize();
+"99
+[; ;main.c: 99:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"118
-[; ;main.c: 118:     PIE1bits.SSP1IE = 0;
+"102
+[; ;main.c: 102:     PIE1bits.SSP1IE = 0;
 [e = . . _PIE1bits 0 3 -> -> 0 `i `uc ]
-"119
-[; ;main.c: 119:     PIE2bits.BCL1IE = 0;
+"103
+[; ;main.c: 103:     PIE2bits.BCL1IE = 0;
 [e = . . _PIE2bits 0 3 -> -> 0 `i `uc ]
-"122
-[; ;main.c: 122:     (INTCONbits.GIE = 1);
+"106
+[; ;main.c: 106:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"128
-[; ;main.c: 128:     (INTCONbits.PEIE = 1);
+"112
+[; ;main.c: 112:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"133
-[; ;main.c: 133:     I2C_Master_Init();
+"116
+[; ;main.c: 116:     PIE1bits.SSP1IE = 0;
+[e = . . _PIE1bits 0 3 -> -> 0 `i `uc ]
+"117
+[; ;main.c: 117:     PIE2bits.BCL1IE = 0;
+[e = . . _PIE2bits 0 3 -> -> 0 `i `uc ]
+"119
+[; ;main.c: 119:     I2C_Master_Init();
 [e ( _I2C_Master_Init ..  ]
-"134
-[; ;main.c: 134:     LCD_Init(0x4E);
+"120
+[; ;main.c: 120:     LCD_Init(0x4E);
 [e ( _LCD_Init (1 -> -> 78 `i `uc ]
-"137
-[; ;main.c: 137:     INTCONbits.TMR0IE = 0;
+"121
+[; ;main.c: 121:     Backlight();
+[e ( _Backlight ..  ]
+"122
+[; ;main.c: 122:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"123
+[; ;main.c: 123:     LCD_Set_Cursor(1, 1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"124
+[; ;main.c: 124:     LCD_Write_String("Master Camp 2024");
+[e ( _LCD_Write_String (1 :s 1C ]
+"126
+[; ;main.c: 126:     INTCONbits.TMR0IE = 0;
 [e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138:     do { LATBbits.LATB4 = 0; } while(0);
+"127
+[; ;main.c: 127:     do { LATBbits.LATB4 = 0; } while(0);
 [e :U 1282 ]
 {
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 }
 [e :U 1281 ]
-"139
-[; ;main.c: 139:     do { LATBbits.LATB5 = 0; } while(0);
+"128
+[; ;main.c: 128:     do { LATBbits.LATB5 = 0; } while(0);
 [e :U 1285 ]
 {
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 }
 [e :U 1284 ]
-"140
-[; ;main.c: 140:     do { LATBbits.LATB6 = 0; } while(0);
+"129
+[; ;main.c: 129:     do { LATBbits.LATB6 = 0; } while(0);
 [e :U 1288 ]
 {
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 1287 ]
-"141
-[; ;main.c: 141:     CCP2_LoadDutyValue(300);
-[e ( _CCP2_LoadDutyValue (1 -> -> 300 `i `us ]
-"143
-[; ;main.c: 143:     while(1)
-[e :U 1290 ]
-"144
-[; ;main.c: 144:     {
-{
-"154
-[; ;main.c: 154:         do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1294 ]
+"130
+[; ;main.c: 130:     CCP2_LoadDutyValue(500);
+[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
+"131
+[; ;main.c: 131:     CCP1_LoadDutyValue(42);
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+"132
+[; ;main.c: 132:     do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1291 ]
 {
 [e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
 }
+[e :U 1290 ]
+"133
+[; ;main.c: 133:     while(1)
 [e :U 1293 ]
-"155
-[; ;main.c: 155:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"156
-[; ;main.c: 156:         do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1297 ]
+"134
+[; ;main.c: 134:     {
 {
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 1 `i -> 64 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
+"135
+[; ;main.c: 135:         if (auto_mode)
+[e $ ! != -> _auto_mode `i -> 0 `i 1295  ]
+"136
+[; ;main.c: 136:             auto_drive();
+[e ( _auto_drive ..  ]
+[e $U 1296  ]
+"137
+[; ;main.c: 137:         else{
+[e :U 1295 ]
+{
+"138
+[; ;main.c: 138:             get_distance_from_supersonic();
+[e ( _get_distance_from_supersonic ..  ]
+"139
+[; ;main.c: 139:             _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"140
+[; ;main.c: 140:         }
 }
 [e :U 1296 ]
-"157
-[; ;main.c: 157:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"158
-[; ;main.c: 158:         do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1300 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 128 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
+"141
+[; ;main.c: 141:     }
 }
-[e :U 1299 ]
-"159
-[; ;main.c: 159:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"160
-[; ;main.c: 160:         do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1303 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 64 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
-}
-[e :U 1302 ]
-"161
-[; ;main.c: 161:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"162
-[; ;main.c: 162:         do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1306 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 64 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
-}
-[e :U 1305 ]
-"163
-[; ;main.c: 163:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"164
-[; ;main.c: 164:         do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(500);} while(0);
-[e :U 1309 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 128 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
-}
-[e :U 1308 ]
-"165
-[; ;main.c: 165:         _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"243
-[; ;main.c: 243:     }
-}
-[e :U 1289 ]
-[e $U 1290  ]
-[e :U 1291 ]
-"244
-[; ;main.c: 244: }
+[e :U 1292 ]
+[e $U 1293  ]
+[e :U 1294 ]
+"142
+[; ;main.c: 142: }
 [e :UE 1279 ]
 }
-"246
-[; ;main.c: 246: void shift_out_to_motors(uint8_t byte)
+"145
+[; ;main.c: 145: void speed_motor(uint8_t speed){
+[v _speed_motor `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _speed_motor ]
+[v _speed `uc ~T0 @X0 1 r1 ]
+[f ]
+"146
+[; ;main.c: 146:     SPEED = (uint16_t) (speed*128);
+[e = _SPEED -> -> * -> _speed `i -> 128 `i `us `i ]
+"147
+[; ;main.c: 147: }
+[e :UE 1297 ]
+}
+"149
+[; ;main.c: 149: void auto_drive(){
+[v _auto_drive `(v ~T0 @X0 1 ef ]
+{
+[e :U _auto_drive ]
+[f ]
+"150
+[; ;main.c: 150:     uint16_t distance = get_distance_from_supersonic();
+[v _distance `us ~T0 @X0 1 a ]
+[e = _distance -> ( _get_distance_from_supersonic ..  `us ]
+"151
+[; ;main.c: 151:     if (distance < 30){
+[e $ ! < -> _distance `ui -> -> 30 `i `ui 1299  ]
+{
+"152
+[; ;main.c: 152:         do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1302 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1301 ]
+"153
+[; ;main.c: 153:         do {CCP1_LoadDutyValue(68);} while(0);
+[e :U 1305 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 68 `i `us ]
+}
+[e :U 1304 ]
+"154
+[; ;main.c: 154:         _delay((unsigned long)((1500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"155
+[; ;main.c: 155:         uint16_t distance_l = get_distance_from_supersonic();
+[v _distance_l `us ~T0 @X0 1 a ]
+[e = _distance_l -> ( _get_distance_from_supersonic ..  `us ]
+"156
+[; ;main.c: 156:         _delay((unsigned long)((100)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"157
+[; ;main.c: 157:         do {CCP1_LoadDutyValue(20);} while(0);
+[e :U 1308 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 20 `i `us ]
+}
+[e :U 1307 ]
+"158
+[; ;main.c: 158:         _delay((unsigned long)((1500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"159
+[; ;main.c: 159:         uint16_t distance_r = get_distance_from_supersonic();
+[v _distance_r `us ~T0 @X0 1 a ]
+[e = _distance_r -> ( _get_distance_from_supersonic ..  `us ]
+"160
+[; ;main.c: 160:         _delay((unsigned long)((100)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"161
+[; ;main.c: 161:         do {CCP1_LoadDutyValue(42);} while(0);
+[e :U 1311 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+}
+[e :U 1310 ]
+"162
+[; ;main.c: 162:         if (distance_l < distance_r){
+[e $ ! < -> _distance_l `ui -> _distance_r `ui 1312  ]
+{
+"163
+[; ;main.c: 163:             do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1315 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 64 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1314 ]
+"164
+[; ;main.c: 164:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"165
+[; ;main.c: 165:             do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1318 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1317 ]
+"166
+[; ;main.c: 166:         }else{
+}
+[e $U 1319  ]
+[e :U 1312 ]
+{
+"167
+[; ;main.c: 167:             do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1322 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 128 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1321 ]
+"168
+[; ;main.c: 168:             _delay((unsigned long)((300)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"169
+[; ;main.c: 169:             do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1325 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1324 ]
+"170
+[; ;main.c: 170:         }
+}
+[e :U 1319 ]
+"171
+[; ;main.c: 171:         _delay((unsigned long)((700)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"172
+[; ;main.c: 172:         do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1328 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1327 ]
+"173
+[; ;main.c: 173:     }
+}
+[e :U 1299 ]
+"174
+[; ;main.c: 174:     _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"175
+[; ;main.c: 175: }
+[e :UE 1298 ]
+}
+"177
+[; ;main.c: 177: void control_motors_with_uart(uint8_t code)
+[v _control_motors_with_uart `(v ~T0 @X0 1 ef1`uc ]
+"178
+[; ;main.c: 178: {
+{
+[e :U _control_motors_with_uart ]
+"177
+[; ;main.c: 177: void control_motors_with_uart(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"178
+[; ;main.c: 178: {
+[f ]
+"179
+[; ;main.c: 179:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+[v _dir `E10681 ~T0 @X0 1 a ]
+[e = _dir -> & -> _code `i -> 7 `i `E10681 ]
+"181
+[; ;main.c: 181:     switch (dir)
+[e $U 1331  ]
+"182
+[; ;main.c: 182:     {
+{
+"183
+[; ;main.c: 183:         case DRIVE_FORWARD:
+[e :U 1332 ]
+"184
+[; ;main.c: 184:             do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1335 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1334 ]
+"185
+[; ;main.c: 185:             break;
+[e $U 1330  ]
+"186
+[; ;main.c: 186:         case DRIVE_BACKWARDS:
+[e :U 1336 ]
+"187
+[; ;main.c: 187:             do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1339 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 1 `i -> 64 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1338 ]
+"188
+[; ;main.c: 188:             break;
+[e $U 1330  ]
+"189
+[; ;main.c: 189:         case DRIVE_RIGHTWARDS:
+[e :U 1340 ]
+"190
+[; ;main.c: 190:             do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1343 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 128 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1342 ]
+"191
+[; ;main.c: 191:             break;
+[e $U 1330  ]
+"192
+[; ;main.c: 192:         case DRIVE_LEFTWARDS:
+[e :U 1344 ]
+"193
+[; ;main.c: 193:             do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1347 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 64 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1346 ]
+"194
+[; ;main.c: 194:             break;
+[e $U 1330  ]
+"195
+[; ;main.c: 195:         case TURN_LEFT:
+[e :U 1348 ]
+"196
+[; ;main.c: 196:             do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1351 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 64 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1350 ]
+"197
+[; ;main.c: 197:             break;
+[e $U 1330  ]
+"198
+[; ;main.c: 198:         case TURN_RIGHT:
+[e :U 1352 ]
+"199
+[; ;main.c: 199:             do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1355 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 128 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1354 ]
+"200
+[; ;main.c: 200:             break;
+[e $U 1330  ]
+"201
+[; ;main.c: 201:         default:
+[e :U 1356 ]
+"202
+[; ;main.c: 202:             do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1359 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1358 ]
+"203
+[; ;main.c: 203:             break;
+[e $U 1330  ]
+"204
+[; ;main.c: 204:     }
+}
+[e $U 1330  ]
+[e :U 1331 ]
+[e [\ -> _dir `ui , $ -> . `E10681 0 `ui 1332
+ , $ -> . `E10681 1 `ui 1336
+ , $ -> . `E10681 2 `ui 1340
+ , $ -> . `E10681 3 `ui 1344
+ , $ -> . `E10681 4 `ui 1348
+ , $ -> . `E10681 5 `ui 1352
+ 1356 ]
+[e :U 1330 ]
+"205
+[; ;main.c: 205: }
+[e :UE 1329 ]
+}
+"207
+[; ;main.c: 207: void control_speed(uint8_t code)
+[v _control_speed `(v ~T0 @X0 1 ef1`uc ]
+"208
+[; ;main.c: 208: {
+{
+[e :U _control_speed ]
+"207
+[; ;main.c: 207: void control_speed(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"208
+[; ;main.c: 208: {
+[f ]
+"209
+[; ;main.c: 209:     uint8_t speed = code >> 3;
+[v _speed `uc ~T0 @X0 1 a ]
+[e = _speed -> >> -> _code `i -> 3 `i `uc ]
+"210
+[; ;main.c: 210:     speed &= 0b00000111;
+[e =& _speed -> -> 7 `i `uc ]
+"211
+[; ;main.c: 211:     speed_motor(speed);
+[e ( _speed_motor (1 _speed ]
+"212
+[; ;main.c: 212: }
+[e :UE 1360 ]
+}
+"214
+[; ;main.c: 214: void control_servo(uint8_t code)
+[v _control_servo `(v ~T0 @X0 1 ef1`uc ]
+"215
+[; ;main.c: 215: {
+{
+[e :U _control_servo ]
+"214
+[; ;main.c: 214: void control_servo(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"215
+[; ;main.c: 215: {
+[f ]
+"216
+[; ;main.c: 216:     auto angle = code >> 6;
+[v _angle `i ~T0 @X0 1 a ]
+[e = _angle >> -> _code `i -> 6 `i ]
+"217
+[; ;main.c: 217:     switch (angle)
+[e $U 1363  ]
+"218
+[; ;main.c: 218:     {
+{
+"219
+[; ;main.c: 219:         case 0b00:
+[e :U 1364 ]
+"220
+[; ;main.c: 220:             do {CCP1_LoadDutyValue(68);} while(0);
+[e :U 1367 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 68 `i `us ]
+}
+[e :U 1366 ]
+"221
+[; ;main.c: 221:             break;
+[e $U 1362  ]
+"222
+[; ;main.c: 222:         case 0b01:
+[e :U 1368 ]
+"223
+[; ;main.c: 223:             do {CCP1_LoadDutyValue(42);} while(0);
+[e :U 1371 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+}
+[e :U 1370 ]
+"224
+[; ;main.c: 224:             break;
+[e $U 1362  ]
+"225
+[; ;main.c: 225:         case 0b10:
+[e :U 1372 ]
+"226
+[; ;main.c: 226:             do {CCP1_LoadDutyValue(20);} while(0);
+[e :U 1375 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 20 `i `us ]
+}
+[e :U 1374 ]
+"227
+[; ;main.c: 227:             break;
+[e $U 1362  ]
+"228
+[; ;main.c: 228:         default:
+[e :U 1376 ]
+"229
+[; ;main.c: 229:             break;
+[e $U 1362  ]
+"230
+[; ;main.c: 230:     }
+}
+[e $U 1362  ]
+[e :U 1363 ]
+[e [\ _angle , $ -> 0 `i 1364
+ , $ -> 1 `i 1368
+ , $ -> 2 `i 1372
+ 1376 ]
+[e :U 1362 ]
+"231
+[; ;main.c: 231: }
+[e :UE 1361 ]
+}
+"233
+[; ;main.c: 233: void shift_out_to_motors(uint8_t byte)
 [v _shift_out_to_motors `(v ~T0 @X0 1 ef1`uc ]
-"247
-[; ;main.c: 247: {
+"234
+[; ;main.c: 234: {
 {
 [e :U _shift_out_to_motors ]
-"246
-[; ;main.c: 246: void shift_out_to_motors(uint8_t byte)
+"233
+[; ;main.c: 233: void shift_out_to_motors(uint8_t byte)
 [v _byte `uc ~T0 @X0 1 r1 ]
-"247
-[; ;main.c: 247: {
+"234
+[; ;main.c: 234: {
 [f ]
-"248
-[; ;main.c: 248:     for (uint8_t i=0; i < 8; i++){
+"235
+[; ;main.c: 235:     for (uint8_t i=0; i < 8; i++){
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1311  ]
-[e $U 1312  ]
-[e :U 1311 ]
+[e $ < -> _i `i -> 8 `i 1378  ]
+[e $U 1379  ]
+[e :U 1378 ]
 {
-"254
-[; ;main.c: 254:         LATBbits.LATB4 = (byte & (1 << i)) >> i;
+"241
+[; ;main.c: 241:         LATBbits.LATB4 = (byte & (1 << i)) >> i;
 [e = . . _LATBbits 0 1 -> >> & -> _byte `i << -> 1 `i -> _i `i -> _i `i `uc ]
-"256
-[; ;main.c: 256:         _delay((unsigned long)((1)*(4000000/4000.0)));
+"243
+[; ;main.c: 243:         _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"258
-[; ;main.c: 258:         LATBbits.LATB6 = 1;
+"245
+[; ;main.c: 245:         LATBbits.LATB6 = 1;
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-"259
-[; ;main.c: 259:         _delay((unsigned long)((1)*(4000000/4000.0)));
+"246
+[; ;main.c: 246:         _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"261
-[; ;main.c: 261:         LATBbits.LATB4 = 1;
+"248
+[; ;main.c: 248:         LATBbits.LATB4 = 1;
 [e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-"262
-[; ;main.c: 262:         LATBbits.LATB6 = 0;
+"249
+[; ;main.c: 249:         LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-"263
-[; ;main.c: 263:         _delay((unsigned long)((1)*(4000000/4000.0)));
+"250
+[; ;main.c: 250:         _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"264
-[; ;main.c: 264:     }
+"251
+[; ;main.c: 251:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1311  ]
-[e :U 1312 ]
+[e $ < -> _i `i -> 8 `i 1378  ]
+[e :U 1379 ]
 }
-"267
-[; ;main.c: 267:     LATBbits.LATB5 = 1;
+"254
+[; ;main.c: 254:     LATBbits.LATB5 = 1;
 [e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"268
-[; ;main.c: 268:     _delay((unsigned long)((1)*(4000000/4000.0)));
+"255
+[; ;main.c: 255:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"269
-[; ;main.c: 269:     LATBbits.LATB5 = 0;
+"256
+[; ;main.c: 256:     LATBbits.LATB5 = 0;
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-"271
-[; ;main.c: 271:     _delay((unsigned long)((1)*(4000000/4000.0)));
+"258
+[; ;main.c: 258:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"272
-[; ;main.c: 272: }
-[e :UE 1310 ]
+"259
+[; ;main.c: 259: }
+[e :UE 1377 ]
 }
-"274
-[; ;main.c: 274: uint8_t get_distance_from_supersonic()
+"261
+[; ;main.c: 261: uint8_t get_distance_from_supersonic()
 [v _get_distance_from_supersonic `(uc ~T0 @X0 1 ef ]
-"275
-[; ;main.c: 275: {
+"262
+[; ;main.c: 262: {
 {
 [e :U _get_distance_from_supersonic ]
 [f ]
-"276
-[; ;main.c: 276:     TMR1H = 0x00;
+"263
+[; ;main.c: 263:     TMR1H = 0x00;
 [e = _TMR1H -> -> 0 `i `uc ]
-"277
-[; ;main.c: 277:     TMR1L = 0x00;
+"264
+[; ;main.c: 264:     TMR1L = 0x00;
 [e = _TMR1L -> -> 0 `i `uc ]
-"279
-[; ;main.c: 279:     do { LATCbits.LATC2 = 1; } while(0);
-[e :U 1317 ]
+"266
+[; ;main.c: 266:     do { LATCbits.LATC2 = 1; } while(0);
+[e :U 1384 ]
 {
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
 }
-[e :U 1316 ]
-"280
-[; ;main.c: 280:     _delay((unsigned long)((10)*(4000000/4000000.0)));
+[e :U 1383 ]
+"267
+[; ;main.c: 267:     _delay((unsigned long)((10)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"281
-[; ;main.c: 281:     do { LATCbits.LATC2 = 0; } while(0);
-[e :U 1320 ]
+"268
+[; ;main.c: 268:     do { LATCbits.LATC2 = 0; } while(0);
+[e :U 1387 ]
 {
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1319 ]
-"283
-[; ;main.c: 283:     while(PORTCbits.RC1 == 0);
-[e $U 1321  ]
-[e :U 1322 ]
-[e :U 1321 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 1322  ]
-[e :U 1323 ]
-"285
-[; ;main.c: 285:     TMR1_Start();
+[e :U 1386 ]
+"270
+[; ;main.c: 270:     while(PORTCbits.RC1 == 0);
+[e $U 1388  ]
+[e :U 1389 ]
+[e :U 1388 ]
+[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 1389  ]
+[e :U 1390 ]
+"272
+[; ;main.c: 272:     TMR1_Start();
 [e ( _TMR1_Start ..  ]
-"287
-[; ;main.c: 287:     while(PORTCbits.RC1 == 1);
-[e $U 1324  ]
-[e :U 1325 ]
-[e :U 1324 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 1 `i 1325  ]
-[e :U 1326 ]
-"289
-[; ;main.c: 289:     TMR1_Stop();
+"274
+[; ;main.c: 274:     while(PORTCbits.RC1 == 1);
+[e $U 1391  ]
+[e :U 1392 ]
+[e :U 1391 ]
+[e $ == -> . . _PORTCbits 0 1 `i -> 1 `i 1392  ]
+[e :U 1393 ]
+"276
+[; ;main.c: 276:     TMR1_Stop();
 [e ( _TMR1_Stop ..  ]
-"291
-[; ;main.c: 291:     uint8_t distance_in_cm = (uint8_t)(((TMR1H<<8) + TMR1L)/58.82);
-[v _distance_in_cm `uc ~T0 @X0 1 a ]
-[e = _distance_in_cm -> / -> + << -> _TMR1H `i -> 8 `i -> _TMR1L `i `d .58.82 `uc ]
-"293
-[; ;main.c: 293:     return distance_in_cm;
-[e ) _distance_in_cm ]
-[e $UE 1314  ]
-"294
-[; ;main.c: 294: }
-[e :UE 1314 ]
+"278
+[; ;main.c: 278:     uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
+[v _distance_in_cm `us ~T0 @X0 1 a ]
+[e = _distance_in_cm -> / -> + << -> _TMR1H `i -> 8 `i -> _TMR1L `i `d .58.82 `us ]
+"279
+[; ;main.c: 279:     char buffer[16];
+[v _buffer `uc ~T0 @X0 -> 16 `i a ]
+"280
+[; ;main.c: 280:     if(distance_in_cm >= 2 && distance_in_cm <= 250)
+[e $ ! && >= -> _distance_in_cm `ui -> -> 2 `i `ui <= -> _distance_in_cm `ui -> -> 250 `i `ui 1394  ]
+"281
+[; ;main.c: 281:     {
+{
+"282
+[; ;main.c: 282:         LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"283
+[; ;main.c: 283:         LCD_Set_Cursor(1, 1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"284
+[; ;main.c: 284:         sprintf(buffer, "Dist.: %d cm", distance_in_cm);
+[e ( _sprintf (1 , (. , &U _buffer :s 2C -> _distance_in_cm `ui ]
+"285
+[; ;main.c: 285:         LCD_Write_String(buffer);
+[e ( _LCD_Write_String (1 &U _buffer ]
+"286
+[; ;main.c: 286:         EUSART_Write((uint16_t) distance_in_cm);
+[e ( _EUSART_Write (1 -> _distance_in_cm `uc ]
+"287
+[; ;main.c: 287:     }
 }
+[e $U 1395  ]
+"288
+[; ;main.c: 288:     else
+[e :U 1394 ]
+"289
+[; ;main.c: 289:     {
+{
+"290
+[; ;main.c: 290:         distance_in_cm = 700;
+[e = _distance_in_cm -> -> 700 `i `us ]
+"291
+[; ;main.c: 291:         LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"292
+[; ;main.c: 292:         LCD_Set_Cursor(1, 1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"293
+[; ;main.c: 293:         LCD_Write_String("Out of Range");
+[e ( _LCD_Write_String (1 :s 3C ]
+"294
+[; ;main.c: 294:     }
+}
+[e :U 1395 ]
+"295
+[; ;main.c: 295:     return distance_in_cm;
+[e ) -> _distance_in_cm `uc ]
+[e $UE 1381  ]
 "296
-[; ;main.c: 296: float get_temperature()
+[; ;main.c: 296: }
+[e :UE 1381 ]
+}
+"298
+[; ;main.c: 298: float get_temperature()
 [v _get_temperature `(f ~T0 @X0 1 ef ]
-"297
-[; ;main.c: 297: {
+"299
+[; ;main.c: 299: {
 {
 [e :U _get_temperature ]
 [f ]
-"298
-[; ;main.c: 298:     float temperature_in_c = ((float)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
+"300
+[; ;main.c: 300:     float temperature_in_c = ((float)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
 [v _temperature_in_c `f ~T0 @X0 1 a ]
 [e = _temperature_in_c -> * / * -> -> & -> ( _ADC_GetConversion (1 -> -> 0 `i `E9888 `ui -> -> 1023 `i `ui `f `d .3.3 -> -> 1023 `i `d -> -> 100 `i `d `f ]
-"299
-[; ;main.c: 299:     return temperature_in_c;
+"301
+[; ;main.c: 301:     return temperature_in_c;
 [e ) _temperature_in_c ]
-[e $UE 1327  ]
-"300
-[; ;main.c: 300: }
-[e :UE 1327 ]
-}
+[e $UE 1396  ]
 "302
-[; ;main.c: 302: void UART_Custom_ISR(uint8_t Rx_Code)
+[; ;main.c: 302: }
+[e :UE 1396 ]
+}
+"304
+[; ;main.c: 304: uint8_t verify_password(uint8_t password_part)
+[v _verify_password `(uc ~T0 @X0 1 ef1`uc ]
+"305
+[; ;main.c: 305: {
+{
+[e :U _verify_password ]
+"304
+[; ;main.c: 304: uint8_t verify_password(uint8_t password_part)
+[v _password_part `uc ~T0 @X0 1 r1 ]
+"305
+[; ;main.c: 305: {
+[f ]
+"306
+[; ;main.c: 306:     if (password_validation_index == 5)
+[e $ ! == -> _password_validation_index `i -> 5 `i 1398  ]
+"307
+[; ;main.c: 307:     {
+{
+"308
+[; ;main.c: 308:         password_validation_index = 0;
+[e = _password_validation_index -> -> 0 `i `uc ]
+"309
+[; ;main.c: 309:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 1397  ]
+"310
+[; ;main.c: 310:     }
+}
+[e :U 1398 ]
+"312
+[; ;main.c: 312:     if (password_part == password[password_validation_index])
+[e $ ! == -> _password_part `i -> *U + &U _password * -> _password_validation_index `ux -> -> # *U &U _password `ui `ux `i 1399  ]
+"313
+[; ;main.c: 313:         password_validation_index++;
+[e ++ _password_validation_index -> -> 1 `i `uc ]
+[e $U 1400  ]
+"314
+[; ;main.c: 314:     else
+[e :U 1399 ]
+"315
+[; ;main.c: 315:         password_validation_index = 0;
+[e = _password_validation_index -> -> 0 `i `uc ]
+[e :U 1400 ]
+"317
+[; ;main.c: 317:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1397  ]
+"318
+[; ;main.c: 318: }
+[e :UE 1397 ]
+}
+"320
+[; ;main.c: 320: void UART_Custom_ISR(uint8_t Rx_Code)
 [v _UART_Custom_ISR `(v ~T0 @X0 1 ef1`uc ]
-"303
-[; ;main.c: 303: {
+"321
+[; ;main.c: 321: {
 {
 [e :U _UART_Custom_ISR ]
-"302
-[; ;main.c: 302: void UART_Custom_ISR(uint8_t Rx_Code)
+"320
+[; ;main.c: 320: void UART_Custom_ISR(uint8_t Rx_Code)
 [v _Rx_Code `uc ~T0 @X0 1 r1 ]
-"303
-[; ;main.c: 303: {
-[f ]
-"304
-[; ;main.c: 304:     char buffer[16];
-[v _buffer `uc ~T0 @X0 -> 16 `i a ]
-"306
-[; ;main.c: 306:     LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"307
-[; ;main.c: 307:     LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"308
-[; ;main.c: 308:     Backlight();
-[e ( _Backlight ..  ]
-"309
-[; ;main.c: 309:     LCD_Write_String(" UART ..");
-[e ( _LCD_Write_String (1 :s 1C ]
-"310
-[; ;main.c: 310:     LCD_Set_Cursor(2, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"311
-[; ;main.c: 311:     LCD_Write_String(" .. Interrupt");
-[e ( _LCD_Write_String (1 :s 2C ]
-"312
-[; ;main.c: 312:     _delay((unsigned long)((350)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"314
-[; ;main.c: 314:     LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"315
-[; ;main.c: 315:     LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"316
-[; ;main.c: 316:     sprintf(buffer, "Sent code: %hhx", Rx_Code);
-[e ( _sprintf (1 , (. , &U _buffer :s 3C -> _Rx_Code `i ]
-"317
-[; ;main.c: 317:     LCD_Write_String(buffer);
-[e ( _LCD_Write_String (1 &U _buffer ]
-"318
-[; ;main.c: 318:     _delay((unsigned long)((350)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"319
-[; ;main.c: 319: }
-[e :UE 1328 ]
-}
 "321
-[; ;main.c: 321: void TMR0_Custom_ISR(void)
-[v _TMR0_Custom_ISR `(v ~T0 @X0 1 ef ]
+[; ;main.c: 321: {
+[f ]
 "322
-[; ;main.c: 322: {
+[; ;main.c: 322:     if (!verify_password(Rx_Code))
+[e $ ! ! != -> ( _verify_password (1 _Rx_Code `i -> 0 `i 1402  ]
+"323
+[; ;main.c: 323:         return;
+[e $UE 1401  ]
+[e :U 1402 ]
+"325
+[; ;main.c: 325:     auto_mode = 0;
+[e = _auto_mode -> -> 0 `i `uc ]
+"326
+[; ;main.c: 326:     control_speed(Rx_Code);
+[e ( _control_speed (1 _Rx_Code ]
+"327
+[; ;main.c: 327:     control_motors_with_uart(Rx_Code);
+[e ( _control_motors_with_uart (1 _Rx_Code ]
+"328
+[; ;main.c: 328:     control_servo(Rx_Code);
+[e ( _control_servo (1 _Rx_Code ]
+"330
+[; ;main.c: 330:     if (Rx_Code == 0b11111111)
+[e $ ! == -> _Rx_Code `i -> 255 `i 1403  ]
+"331
+[; ;main.c: 331:     {
+{
+"332
+[; ;main.c: 332:         auto_mode = 1;
+[e = _auto_mode -> -> 1 `i `uc ]
+"333
+[; ;main.c: 333:         SPEED = 350;
+[e = _SPEED -> 350 `i ]
+"334
+[; ;main.c: 334:         do {CCP1_LoadDutyValue(42);} while(0);
+[e :U 1406 ]
+{
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+}
+[e :U 1405 ]
+"335
+[; ;main.c: 335:         do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1409 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 -> _SPEED `us ]
+}
+[e :U 1408 ]
+"336
+[; ;main.c: 336:     }
+}
+[e :U 1403 ]
+"338
+[; ;main.c: 338:     _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"339
+[; ;main.c: 339: }
+[e :UE 1401 ]
+}
+"341
+[; ;main.c: 341: void TMR0_Custom_ISR(void)
+[v _TMR0_Custom_ISR `(v ~T0 @X0 1 ef ]
+"342
+[; ;main.c: 342: {
 {
 [e :U _TMR0_Custom_ISR ]
 [f ]
-"323
-[; ;main.c: 323:     char buffer[16];
-[v _buffer `uc ~T0 @X0 -> 16 `i a ]
-"325
-[; ;main.c: 325:     LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"326
-[; ;main.c: 326:     LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"327
-[; ;main.c: 327:     Backlight();
-[e ( _Backlight ..  ]
-"328
-[; ;main.c: 328:     LCD_Write_String(" TMR0 ..");
-[e ( _LCD_Write_String (1 :s 4C ]
-"329
-[; ;main.c: 329:     LCD_Set_Cursor(2, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"330
-[; ;main.c: 330:     LCD_Write_String(" .. Interrupt");
-[e ( _LCD_Write_String (1 :s 5C ]
-"331
-[; ;main.c: 331:     _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"333
-[; ;main.c: 333:     TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
-"334
-[; ;main.c: 334:     TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
-"336
-[; ;main.c: 336:     do { LATCbits.LATC2 = 1; } while(0);
-[e :U 1332 ]
-{
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 1331 ]
-"337
-[; ;main.c: 337:     _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"338
-[; ;main.c: 338:     do { LATCbits.LATC2 = 0; } while(0);
-[e :U 1335 ]
-{
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 1334 ]
-"340
-[; ;main.c: 340:     while(PORTCbits.RC1 == 0);
-[e $U 1336  ]
-[e :U 1337 ]
-[e :U 1336 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 1337  ]
-[e :U 1338 ]
-"342
-[; ;main.c: 342:     TMR1_Start();
-[e ( _TMR1_Start ..  ]
+"343
+[; ;main.c: 343:     return;
+[e $UE 1410  ]
 "344
-[; ;main.c: 344:     while(PORTCbits.RC1 == 1);
-[e $U 1339  ]
-[e :U 1340 ]
-[e :U 1339 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 1 `i 1340  ]
-[e :U 1341 ]
-"346
-[; ;main.c: 346:     TMR1_Stop();
-[e ( _TMR1_Stop ..  ]
-"348
-[; ;main.c: 348:     distance = ((double)((TMR1H<<8) + TMR1L))/58.82;
-[e = _distance / -> + << -> _TMR1H `i -> 8 `i -> _TMR1L `i `d .58.82 ]
-"349
-[; ;main.c: 349:     if(distance >= 2 && distance <= 400)
-[e $ ! && >= _distance -> -> 2 `i `d <= _distance -> -> 400 `i `d 1342  ]
-"350
-[; ;main.c: 350:     {
-{
-"351
-[; ;main.c: 351:         LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"352
-[; ;main.c: 352:         LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"353
-[; ;main.c: 353:         sprintf(buffer, "Dist.: %.2f cm", distance);
-[e ( _sprintf (1 , (. , &U _buffer :s 6C _distance ]
-"354
-[; ;main.c: 354:         LCD_Write_String(buffer);
-[e ( _LCD_Write_String (1 &U _buffer ]
-"355
-[; ;main.c: 355:     }
+[; ;main.c: 344: }
+[e :UE 1410 ]
 }
-[e $U 1343  ]
-"356
-[; ;main.c: 356:     else
-[e :U 1342 ]
-"357
-[; ;main.c: 357:     {
-{
-"358
-[; ;main.c: 358:         LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"359
-[; ;main.c: 359:         LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"360
-[; ;main.c: 360:         LCD_Write_String("Out of Range");
-[e ( _LCD_Write_String (1 :s 7C ]
-"361
-[; ;main.c: 361:     }
-}
-[e :U 1343 ]
-"363
-[; ;main.c: 363:     temperature = ((double)(ADC_GetConversion(0) & 0x3FF) * 3.3/1023)*100;
-[e = _temperature * / * -> & -> ( _ADC_GetConversion (1 -> -> 0 `i `E9888 `ui -> -> 1023 `i `ui `d .3.3 -> -> 1023 `i `d -> -> 100 `i `d ]
-"364
-[; ;main.c: 364:     ADCON0bits.ADON = 0;
-[e = . . _ADCON0bits 0 0 -> -> 0 `i `uc ]
-"366
-[; ;main.c: 366:     LCD_Set_Cursor(2, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"367
-[; ;main.c: 367:     sprintf(buffer, "Temp.: %.2f C", temperature);
-[e ( _sprintf (1 , (. , &U _buffer :s 8C _temperature ]
-"368
-[; ;main.c: 368:     LCD_Write_String(buffer);
-[e ( _LCD_Write_String (1 &U _buffer ]
-"370
-[; ;main.c: 370:     _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"372
-[; ;main.c: 372: }
-[e :UE 1329 ]
-}
-[p f _sprintf 46211072 ]
-[a 3C 83 101 110 116 32 99 111 100 101 58 32 37 104 104 120 0 ]
-[a 2C 32 46 46 32 73 110 116 101 114 114 117 112 116 0 ]
-[a 5C 32 46 46 32 73 110 116 101 114 114 117 112 116 0 ]
-[a 6C 68 105 115 116 46 58 32 37 46 50 102 32 99 109 0 ]
-[a 7C 79 117 116 32 111 102 32 82 97 110 103 101 0 ]
-[a 8C 84 101 109 112 46 58 32 37 46 50 102 32 67 0 ]
-[a 1C 32 85 65 82 84 32 46 46 0 ]
-[a 4C 32 84 77 82 48 32 46 46 0 ]
+[p f _sprintf 8388736 ]
+[a 2C 68 105 115 116 46 58 32 37 100 32 99 109 0 ]
+[a 3C 79 117 116 32 111 102 32 82 97 110 103 101 0 ]
+[a 1C 77 97 115 116 101 114 32 67 97 109 112 32 50 48 50 52 0 ]

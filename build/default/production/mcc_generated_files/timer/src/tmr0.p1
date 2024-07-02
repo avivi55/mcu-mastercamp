@@ -1541,8 +1541,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/timer/src/tmr0.c: 106:   TMR0 = timer0ReloadVal;
 [e = _TMR0 _timer0ReloadVal ]
 "109
-[; ;mcc_generated_files/timer/src/tmr0.c: 109:   if (++CountCallBack >= 100)
-[e $ ! >= -> =+ F9935 -> -> 1 `i `Vus `ui -> -> 100 `i `ui 1276  ]
+[; ;mcc_generated_files/timer/src/tmr0.c: 109:   if (++CountCallBack >= 10)
+[e $ ! >= -> =+ F9935 -> -> 1 `i `Vus `ui -> -> 10 `i `ui 1276  ]
 "110
 [; ;mcc_generated_files/timer/src/tmr0.c: 110:   {
 {

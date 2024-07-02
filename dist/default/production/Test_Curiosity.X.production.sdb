@@ -111,41 +111,35 @@ TMR4_CLC4OUT 12
 TMR4_PWM3OUT 13
 TMR4_PWM4OUT 14
 ]
-"298 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+"179 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+[e E10681 . `uc
+DRIVE_FORWARD 0
+DRIVE_BACKWARDS 1
+DRIVE_RIGHTWARDS 2
+DRIVE_LEFTWARDS 3
+TURN_LEFT 4
+TURN_RIGHT 5
+STOP 6
+]
+"300
 [e E9888 . `uc
 channel_Temp 29
 channel_DAC 30
 channel_FVR 31
 channel_AN0 0
 ]
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__fpclassifyf.c
-[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
-"193 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
-[v _pad pad `(v  1 s 1 pad ]
-"587
-[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
-"1055
-[v _xtoa xtoa `(v  1 s 1 xtoa ]
-"1158
-[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
-"1177
+"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"1177 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 "1817
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
-[v ___fleq __fleq `(b  1 e 0 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\floorf.c
-[v _floorf floorf `(f  1 e 4 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
-"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\labs.c
-[v _labs labs `(l  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memcpy.c
-[v _memcpy memcpy `(*.6v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputs.c
@@ -156,16 +150,10 @@ channel_AN0 0
 [v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"242
-[v ___flsub __flsub `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.6uc  1 e 2 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
@@ -174,27 +162,20 @@ channel_AN0 0
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 "15
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
-[v i1_I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "19
 [v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-[v i1_I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
 "24
 [v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-[v i1_I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
 "29
 [v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
-[v i1_I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
 "41
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 "63
 [v _IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
-[v i1_IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
 "70
 [v _LCD_Write_4Bit LCD_Write_4Bit `(v  1 e 1 0 ]
-[v i1_LCD_Write_4Bit LCD_Write_4Bit `(v  1 e 1 0 ]
 "78
 [v _LCD_CMD LCD_CMD `(v  1 e 1 0 ]
-[v i1_LCD_CMD LCD_CMD `(v  1 e 1 0 ]
 "84
 [v _LCD_Write_Char LCD_Write_Char `(v  1 e 1 0 ]
 "90
@@ -205,13 +186,28 @@ channel_AN0 0
 [v _Backlight Backlight `(v  1 e 1 0 ]
 "133
 [v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
-"113 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+"97 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
 [v _main main `(i  1 e 2 0 ]
-"246
+"145
+[v _speed_motor speed_motor `(v  1 e 1 0 ]
+"149
+[v _auto_drive auto_drive `(v  1 e 1 0 ]
+"177
+[v _control_motors_with_uart control_motors_with_uart `(v  1 e 1 0 ]
+"207
+[v _control_speed control_speed `(v  1 e 1 0 ]
+"214
+[v _control_servo control_servo `(v  1 e 1 0 ]
+"233
 [v _shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
-"302
+[v i1_shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
+"261
+[v _get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
+"304
+[v _verify_password verify_password `(uc  1 e 1 0 ]
+"320
 [v _UART_Custom_ISR UART_Custom_ISR `(v  1 e 1 0 ]
-"321
+"341
 [v _TMR0_Custom_ISR TMR0_Custom_ISR `(v  1 e 1 0 ]
 "53 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/adc/src/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -305,10 +301,14 @@ channel_AN0 0
 [v _I2C1_StatusFlagsClear I2C1_StatusFlagsClear `T(v  1 s 1 I2C1_StatusFlagsClear ]
 "50 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp1.c
 [v _CCP1_Initialize CCP1_Initialize `(v  1 e 1 0 ]
+"67
+[v _CCP1_LoadDutyValue CCP1_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_CCP1_LoadDutyValue CCP1_LoadDutyValue `(v  1 e 1 0 ]
 "50 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp2.c
 [v _CCP2_Initialize CCP2_Initialize `(v  1 e 1 0 ]
 "67
 [v _CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]
 "39 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/clock.c
 [v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
 "40 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/interrupt.c
@@ -432,7 +432,7 @@ channel_AN0 0
 ]
 [u S1017 . 1 `S1003 1 . 1 0 `S1012 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES1017  1 e 1 @11 ]
-[s S2599 . 1 `uc 1 RC0 1 0 :1:0 
+[s S2620 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -442,8 +442,8 @@ channel_AN0 0
 `uc 1 RC7 1 0 :1:7 
 ]
 "535
-[u S2608 . 1 `S2599 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES2608  1 e 1 @14 ]
+[u S2629 . 1 `S2620 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES2629  1 e 1 @14 ]
 [s S27 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -679,18 +679,18 @@ channel_AN0 0
 [v _LATA LATA `VEuc  1 e 1 @268 ]
 "2681
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S2553 . 1 `uc 1 . 1 0 :4:0 
+[s S2557 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LATB4 1 0 :1:4 
 `uc 1 LATB5 1 0 :1:5 
 `uc 1 LATB6 1 0 :1:6 
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2695
-[u S2559 . 1 `S2553 1 . 1 0 ]
-[v _LATBbits LATBbits `VES2559  1 e 1 @269 ]
+[u S2563 . 1 `S2557 1 . 1 0 ]
+[v _LATBbits LATBbits `VES2563  1 e 1 @269 ]
 "2720
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S2578 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S2599 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -700,8 +700,8 @@ channel_AN0 0
 `uc 1 LATC7 1 0 :1:7 
 ]
 "2737
-[u S2587 . 1 `S2578 1 . 1 0 ]
-[v _LATCbits LATCbits `VES2587  1 e 1 @270 ]
+[u S2608 . 1 `S2599 1 . 1 0 ]
+[v _LATCbits LATCbits `VES2608  1 e 1 @270 ]
 "3056
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
 "3331
@@ -997,6 +997,7 @@ channel_AN0 0
 "24026
 [v _RC6PPS RC6PPS `VEuc  1 e 1 @3750 ]
 "35735
+"35735
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1139 ]
 "35738
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1140 ]
@@ -1006,15 +1007,19 @@ channel_AN0 0
 "154
 [v _flags flags `uc  1 s 1 flags ]
 "185
-[v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "3 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\I2C_LCD.c
 [v _RS RS `uc  1 e 1 0 ]
 [v _i2c_add i2c_add `uc  1 e 1 0 ]
 [v _BackLight_State BackLight_State `uc  1 e 1 0 ]
-"95 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
-[v _distance distance `d  1 e 4 0 ]
-"96
-[v _temperature temperature `d  1 e 4 0 ]
+"73 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+[v _SPEED SPEED `i  1 e 2 0 ]
+"75
+[v _auto_mode auto_mode `uc  1 e 1 0 ]
+"76
+[v _password_validation_index password_validation_index `uc  1 e 1 0 ]
+"79
+[v _password password `[5]uc  1 e 5 0 ]
 "95 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/i2c_host/src/mssp.c
 [v _I2C1_Callback I2C1_Callback `*.37(v  1 s 2 I2C1_Callback ]
 [s S231 . 14 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E10201 1 errorState 1 12 `E10210 1 state 1 13 ]
@@ -1064,22 +1069,246 @@ channel_AN0 0
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 e 2 0 ]
 "95
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 e 2 0 ]
-"113 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+"97 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"244
+"142
 } 0
-"246
+"149
+[v _auto_drive auto_drive `(v  1 e 1 0 ]
+{
+"159
+[v auto_drive@distance_r distance_r `us  1 a 2 22 ]
+"155
+[v auto_drive@distance_l distance_l `us  1 a 2 20 ]
+"150
+[v auto_drive@distance distance `us  1 a 2 18 ]
+"175
+} 0
+"233
 [v _shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
 {
 [v shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"248
-[v shift_out_to_motors@i i `uc  1 a 1 4 ]
-"246
+"235
+[v shift_out_to_motors@i i `uc  1 a 1 8 ]
+"233
 [v shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"248
-[v shift_out_to_motors@byte byte `uc  1 a 1 3 ]
-"272
+"235
+[v shift_out_to_motors@byte byte `uc  1 a 1 7 ]
+"259
+} 0
+"261
+[v _get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
+{
+"279
+[v get_distance_from_supersonic@buffer buffer `[16]uc  1 a 16 0 ]
+"278
+[v get_distance_from_supersonic@distance_in_cm distance_in_cm `us  1 a 2 16 ]
+"296
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@s s `*.4uc  1 a 1 wreg ]
+[u S3045 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+"13
+[s S3048 _IO_FILE 11 `S3045 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S3048  1 a 11 44 ]
+"12
+[v sprintf@ap ap `[1]*.4v  1 a 1 42 ]
+"9
+[v sprintf@s s `*.4uc  1 a 1 wreg ]
+[v sprintf@fmt fmt `*.25DCuc  1 p 2 37 ]
+"15
+[v sprintf@s s `*.4uc  1 a 1 43 ]
+"23
+} 0
+"1817 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S3080 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.4S3080  1 a 1 wreg ]
+"1820
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 35 ]
+"1817
+[v vfprintf@fp fp `*.4S3080  1 a 1 wreg ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 30 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 32 ]
+"1822
+"1817
+[v vfprintf@fp fp `*.4S3080  1 a 1 34 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[s S3080 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.4S3080  1 a 1 wreg ]
+[u S3093 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+"1188
+[v vfpfcnvrt@convarg convarg `S3093  1 a 4 25 ]
+"1179
+[v vfpfcnvrt@cp cp `*.25uc  1 a 2 23 ]
+[v vfpfcnvrt@c c `uc  1 a 1 29 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 21 ]
+"1177
+[v vfpfcnvrt@fp fp `*.4S3080  1 a 1 wreg ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 15 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 16 ]
+"1201
+"1177
+[v vfpfcnvrt@fp fp `*.4S3080  1 a 1 22 ]
+"1814
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 4 ]
+[u S3045 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[s S3048 _IO_FILE 11 `S3045 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.4S3048  1 p 1 6 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 11 ]
+"4
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 10 ]
+[v ___awmod@counter counter `uc  1 a 1 9 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 4 ]
+[v ___awmod@dividend dividend `i  1 p 2 6 ]
+"34
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 11 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 10 ]
+[v ___awdiv@counter counter `uc  1 a 1 9 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 4 ]
+[v ___awdiv@dividend dividend `i  1 p 2 6 ]
+"41
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 14 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 13 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 4 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 12 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 53 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 52 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 44 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 38 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 31 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 36 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 43 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 42 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 35 ]
+"8
+[v ___fldiv@a a `d  1 p 4 18 ]
+[v ___fldiv@b b `d  1 p 4 22 ]
+"185
+} 0
+"86 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/timer/src/tmr1.c
+[v _TMR1_Stop TMR1_Stop `(v  1 e 1 0 ]
+{
+"90
+} 0
+"80
+[v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
+{
+"84
+} 0
+"90 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\I2C_LCD.c
+[v _LCD_Write_String LCD_Write_String `(v  1 e 1 0 ]
+{
+"92
+[v LCD_Write_String@i i `i  1 a 2 13 ]
+"90
+[v LCD_Write_String@Str Str `*.26uc  1 p 2 10 ]
+"94
+} 0
+"84
+[v _LCD_Write_Char LCD_Write_Char `(v  1 e 1 0 ]
+{
+[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
+[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
+"86
+[v LCD_Write_Char@Data Data `uc  1 a 1 9 ]
+"89
+} 0
+"95
+[v _LCD_Set_Cursor LCD_Set_Cursor `(v  1 e 1 0 ]
+{
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
+[v LCD_Set_Cursor@COL COL `uc  1 p 1 10 ]
+[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 11 ]
+"112
+} 0
+"133
+[v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
+{
+"137
+} 0
+"313 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/uart/src/eusart.c
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+{
+[v EUSART_Write@txData txData `uc  1 p 1 4 ]
+"316
+} 0
+"67 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp2.c
+[v _CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v CCP2_LoadDutyValue@dutyValue dutyValue `us  1 p 2 4 ]
+"83
+} 0
+"67 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp1.c
+[v _CCP1_LoadDutyValue CCP1_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v CCP1_LoadDutyValue@dutyValue dutyValue `us  1 p 2 4 ]
+"83
 } 0
 "40 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/system.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -1094,7 +1323,7 @@ channel_AN0 0
 "121
 [v _Timer0_OverflowCallbackRegister Timer0_OverflowCallbackRegister `(v  1 e 1 0 ]
 {
-[v Timer0_OverflowCallbackRegister@CallbackHandler CallbackHandler `*.37(v  1 p 2 0 ]
+[v Timer0_OverflowCallbackRegister@CallbackHandler CallbackHandler `*.37(v  1 p 2 4 ]
 "124
 } 0
 "57 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/timer/src/tmr4.c
@@ -1105,7 +1334,7 @@ channel_AN0 0
 "122
 [v _TMR4_OverflowCallbackRegister TMR4_OverflowCallbackRegister `(v  1 e 1 0 ]
 {
-[v TMR4_OverflowCallbackRegister@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+[v TMR4_OverflowCallbackRegister@InterruptHandler InterruptHandler `*.37(v  1 p 2 4 ]
 "125
 } 0
 "57 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/timer/src/tmr2.c
@@ -1116,7 +1345,7 @@ channel_AN0 0
 "122
 [v _TMR2_OverflowCallbackRegister TMR2_OverflowCallbackRegister `(v  1 e 1 0 ]
 {
-[v TMR2_OverflowCallbackRegister@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+[v TMR2_OverflowCallbackRegister@InterruptHandler InterruptHandler `*.37(v  1 p 2 4 ]
 "125
 } 0
 "57 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/timer/src/tmr1.c
@@ -1127,7 +1356,7 @@ channel_AN0 0
 "150
 [v _TMR1_OverflowCallbackRegister TMR1_OverflowCallbackRegister `(v  1 e 1 0 ]
 {
-[v TMR1_OverflowCallbackRegister@CallbackHandler CallbackHandler `*.37(v  1 p 2 0 ]
+[v TMR1_OverflowCallbackRegister@CallbackHandler CallbackHandler `*.37(v  1 p 2 4 ]
 "153
 } 0
 "38 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/pins.c
@@ -1143,7 +1372,7 @@ channel_AN0 0
 "101
 [v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 4 ]
 "103
 } 0
 "114 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/i2c_host/src/mssp.c
@@ -1154,7 +1383,7 @@ channel_AN0 0
 "211
 [v _I2C1_CallbackRegister I2C1_CallbackRegister `(v  1 e 1 0 ]
 {
-[v I2C1_CallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+[v I2C1_CallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 4 ]
 "217
 } 0
 "108 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/uart/src/eusart.c
@@ -1165,19 +1394,19 @@ channel_AN0 0
 "346
 [v _EUSART_RxCompleteCallbackRegister EUSART_RxCompleteCallbackRegister `(v  1 e 1 0 ]
 {
-[v EUSART_RxCompleteCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+[v EUSART_RxCompleteCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 4 ]
 "352
 } 0
 "338
 [v _EUSART_OverrunErrorCallbackRegister EUSART_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
 {
-[v EUSART_OverrunErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+[v EUSART_OverrunErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 4 ]
 "344
 } 0
 "330
 [v _EUSART_FramingErrorCallbackRegister EUSART_FramingErrorCallbackRegister `(v  1 e 1 0 ]
 {
-[v EUSART_FramingErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 0 ]
+[v EUSART_FramingErrorCallbackRegister@callbackHandler callbackHandler `*.37(v  1 p 2 4 ]
 "336
 } 0
 "39 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/clock.c
@@ -1206,7 +1435,7 @@ channel_AN0 0
 [v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 wreg ]
 [v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 wreg ]
 "43
-[v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 7 ]
+[v LCD_Init@I2C_Add I2C_Add `uc  1 a 1 11 ]
 "62
 } 0
 "78
@@ -1215,7 +1444,7 @@ channel_AN0 0
 [v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
 [v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
 "80
-[v LCD_CMD@CMD CMD `uc  1 a 1 5 ]
+[v LCD_CMD@CMD CMD `uc  1 a 1 9 ]
 "83
 } 0
 "70
@@ -1224,8 +1453,18 @@ channel_AN0 0
 [v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
 [v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
 "73
-[v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 3 ]
+[v LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 7 ]
 "77
+} 0
+"6
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+"14
+} 0
+"113
+[v _Backlight Backlight `(v  1 e 1 0 ]
+{
+"117
 } 0
 "63
 [v _IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
@@ -1233,7 +1472,7 @@ channel_AN0 0
 [v IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
 [v IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
 "65
-[v IO_Expander_Write@Data Data `uc  1 a 1 1 ]
+[v IO_Expander_Write@Data Data `uc  1 a 1 5 ]
 "69
 } 0
 "29
@@ -1242,7 +1481,7 @@ channel_AN0 0
 [v I2C_Master_Write@data data `uc  1 a 1 wreg ]
 [v I2C_Master_Write@data data `uc  1 a 1 wreg ]
 "31
-[v I2C_Master_Write@data data `uc  1 a 1 0 ]
+[v I2C_Master_Write@data data `uc  1 a 1 4 ]
 "36
 } 0
 "24
@@ -1259,17 +1498,6 @@ channel_AN0 0
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 {
 "18
-} 0
-"6
-[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
-{
-"14
-} 0
-"67 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp2.c
-[v _CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]
-{
-[v CCP2_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
-"83
 } 0
 "59 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/system/src/interrupt.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
@@ -1303,46 +1531,10 @@ channel_AN0 0
 {
 "131
 } 0
-"321 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+"341 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
 [v _TMR0_Custom_ISR TMR0_Custom_ISR `(v  1 e 1 0 ]
 {
-"323
-[v TMR0_Custom_ISR@buffer buffer `[16]uc  1 a 16 19 ]
-"372
-} 0
-"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-{
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-"13
-[v ___xxtofl@arg arg `ul  1 a 4 2 ]
-"12
-[v ___xxtofl@exp exp `uc  1 a 1 1 ]
-"10
-[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 4 ]
-"15
-[v ___xxtofl@sign sign `uc  1 a 1 0 ]
-"44
-} 0
-"86 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/timer/src/tmr1.c
-[v _TMR1_Stop TMR1_Stop `(v  1 e 1 0 ]
-{
-"90
-} 0
-"80
-[v _TMR1_Start TMR1_Start `(v  1 e 1 0 ]
-{
-"84
-} 0
-"98 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/adc/src/adc.c
-[v _ADC_GetConversion ADC_GetConversion `(us  1 e 2 0 ]
-{
-[v ADC_GetConversion@channel channel `E9885  1 a 1 wreg ]
-[v ADC_GetConversion@channel channel `E9885  1 a 1 wreg ]
-"101
-[v ADC_GetConversion@channel channel `E9885  1 a 1 3 ]
-"119
+"344
 } 0
 "219 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/i2c_host/src/mssp.c
 [v _I2C1_ISR I2C1_ISR `(v  1 e 1 0 ]
@@ -1515,472 +1707,96 @@ channel_AN0 0
 [v _EUSART_ReceiveISR EUSART_ReceiveISR `(v  1 e 1 0 ]
 {
 "272
-[v EUSART_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 37 ]
+[v EUSART_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 12 ]
 "271
-[v EUSART_ReceiveISR@regValue regValue `uc  1 a 1 36 ]
+[v EUSART_ReceiveISR@regValue regValue `uc  1 a 1 11 ]
 "311
 } 0
-"302 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+"320 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
 [v _UART_Custom_ISR UART_Custom_ISR `(v  1 e 1 0 ]
 {
 [v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 wreg ]
-"304
-[v UART_Custom_ISR@buffer buffer `[16]uc  1 a 16 15 ]
-"302
 [v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 wreg ]
+"322
+[v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 10 ]
+"339
+} 0
+"304
+[v _verify_password verify_password `(uc  1 e 1 0 ]
+{
+[v verify_password@password_part password_part `uc  1 a 1 wreg ]
+[v verify_password@password_part password_part `uc  1 a 1 wreg ]
 "306
-[v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 31 ]
-"319
+[v verify_password@password_part password_part `uc  1 a 1 1 ]
+"318
 } 0
-"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
+"207
+[v _control_speed control_speed `(v  1 e 1 0 ]
 {
-[v sprintf@s s `*.5uc  1 a 1 wreg ]
-[u S3028 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-"13
-[s S3031 _IO_FILE 11 `S3028 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S3031  1 a 11 2 ]
-"12
-[v sprintf@ap ap `[1]*.4v  1 a 1 1 ]
-"9
-[v sprintf@s s `*.5uc  1 a 1 wreg ]
-[v sprintf@fmt fmt `*.25DCuc  1 p 2 73 ]
-"15
-[v sprintf@s s `*.5uc  1 a 1 0 ]
-"23
+[v control_speed@code code `uc  1 a 1 wreg ]
+"209
+[v control_speed@speed speed `uc  1 a 1 5 ]
+"207
+[v control_speed@code code `uc  1 a 1 wreg ]
+"209
+[v control_speed@code code `uc  1 a 1 4 ]
+"212
 } 0
-"1817 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"145
+[v _speed_motor speed_motor `(v  1 e 1 0 ]
 {
-[s S3063 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.5S3063  1 a 1 wreg ]
-"1820
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 71 ]
-"1817
-[v vfprintf@fp fp `*.5S3063  1 a 1 wreg ]
-[v vfprintf@fmt fmt `*.25DCuc  1 p 2 66 ]
-[v vfprintf@ap ap `*.5*.4v  1 p 1 68 ]
-"1822
-"1817
-[v vfprintf@fp fp `*.5S3063  1 a 1 70 ]
-"1840
+[v speed_motor@speed speed `uc  1 a 1 wreg ]
+[v speed_motor@speed speed `uc  1 a 1 wreg ]
+[v speed_motor@speed speed `uc  1 a 1 2 ]
+"147
 } 0
-"1177
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"214
+[v _control_servo control_servo `(v  1 e 1 0 ]
 {
-[s S3063 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.5S3063  1 a 1 wreg ]
-[u S3113 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
-"1188
-[v vfpfcnvrt@convarg convarg `S3113  1 a 4 58 ]
-"1179
-[v vfpfcnvrt@cp cp `*.25uc  1 a 2 64 ]
-[v vfpfcnvrt@c c `uc  1 a 1 63 ]
-"1177
-[v vfpfcnvrt@fp fp `*.5S3063  1 a 1 wreg ]
-[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 78 ]
-[v vfpfcnvrt@ap ap `*.5*.4v  1 p 1 79 ]
-"1201
-"1177
-[v vfpfcnvrt@fp fp `*.5S3063  1 a 1 62 ]
-"1814
+[v control_servo@code code `uc  1 a 1 wreg ]
+"216
+[v control_servo@angle angle `i  1 a 2 5 ]
+"214
+[v control_servo@code code `uc  1 a 1 wreg ]
+"216
+[v control_servo@code code `uc  1 a 1 7 ]
+"231
 } 0
-"1055
-[v _xtoa xtoa `(v  1 s 1 xtoa ]
+"67 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp1.c
+[v i1_CCP1_LoadDutyValue CCP1_LoadDutyValue `(v  1 e 1 0 ]
 {
-[s S3063 _IO_FILE 0 ]
-[v xtoa@fp fp `*.5S3063  1 a 1 wreg ]
-"1063
-[v xtoa@i i `i  1 a 2 17 ]
-"1065
-[v xtoa@p p `i  1 a 2 14 ]
-"1063
-[v xtoa@w w `i  1 a 2 11 ]
-"1059
-[v xtoa@c c `uc  1 a 1 16 ]
-"1055
-[v xtoa@fp fp `*.5S3063  1 a 1 wreg ]
-[v xtoa@d d `ui  1 p 2 8 ]
-"1080
-"1055
-[v xtoa@fp fp `*.5S3063  1 a 1 13 ]
-"1153
-} 0
-"1158
-[v _read_prec_or_width read_prec_or_width `(i  1 s 2 read_prec_or_width ]
-{
-[v read_prec_or_width@fmt fmt `*.4*.25DCuc  1 a 1 wreg ]
-"1164
-[v read_prec_or_width@c c `uc  1 a 1 0 ]
-"1159
-[v read_prec_or_width@n n `i  1 a 2 1 ]
-"1158
-[v read_prec_or_width@fmt fmt `*.4*.25DCuc  1 a 1 wreg ]
-[v read_prec_or_width@ap ap `*.5[1]*.4v  1 p 1 6 ]
-[v read_prec_or_width@fmt fmt `*.4*.25DCuc  1 a 1 3 ]
-"1171
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"587 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
-[v _efgtoa efgtoa `(v  1 s 1 efgtoa ]
-{
-[s S3063 _IO_FILE 0 ]
-[v efgtoa@fp fp `*.5S3063  1 a 1 wreg ]
-[u S3076 flui 4 `d 1 f 4 0 `l 1 u 4 0 ]
-"592
-[v efgtoa@u u `S3076  1 a 4 50 ]
-[v efgtoa@g g `S3076  1 a 4 46 ]
-"591
-[v efgtoa@l l `d  1 a 4 39 ]
-[v efgtoa@h h `d  1 a 4 35 ]
-"592
-[v efgtoa@ou ou `S3076  1 a 4 29 ]
-"590
-[v efgtoa@n n `i  1 a 2 44 ]
-[v efgtoa@i i `i  1 a 2 33 ]
-[v efgtoa@w w `i  1 a 2 27 ]
-[v efgtoa@e e `i  1 a 2 25 ]
-[v efgtoa@m m `i  1 a 2 22 ]
-[v efgtoa@d d `i  1 a 2 20 ]
-[v efgtoa@t t `i  1 a 2 13 ]
-[v efgtoa@p p `i  1 a 2 11 ]
-[v efgtoa@ne ne `i  1 a 2 9 ]
-"589
-[v efgtoa@sign sign `uc  1 a 1 43 ]
-[v efgtoa@nmode nmode `uc  1 a 1 19 ]
-[v efgtoa@mode mode `uc  1 a 1 18 ]
-[v efgtoa@pp pp `uc  1 a 1 17 ]
-"587
-[v efgtoa@fp fp `*.5S3063  1 a 1 wreg ]
-[v efgtoa@f f `d  1 p 4 0 ]
-[v efgtoa@c c `uc  1 p 1 4 ]
-"595
-"587
-[v efgtoa@fp fp `*.5S3063  1 a 1 24 ]
-"868
-} 0
-"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\strcpy.c
-[v _strcpy strcpy `(*.6uc  1 e 2 0 ]
-{
-[v strcpy@dest dest `*.6uc  1 a 1 wreg ]
-"5
-[v strcpy@d d `*.6uc  1 a 1 4 ]
-"3
-[v strcpy@dest dest `*.6uc  1 a 1 wreg ]
-[v strcpy@src src `*.25DCuc  1 p 2 0 ]
-"5
-[v strcpy@dest dest `*.6uc  1 a 1 5 ]
-"8
-} 0
-"193 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\doprnt.c
-[v _pad pad `(v  1 s 1 pad ]
-{
-[s S3063 _IO_FILE 0 ]
-[v pad@fp fp `*.5S3063  1 a 1 wreg ]
-"195
-[v pad@i i `i  1 a 2 5 ]
-"193
-[v pad@fp fp `*.5S3063  1 a 1 wreg ]
-[v pad@buf buf `*.6uc  1 p 1 11 ]
-[v pad@p p `i  1 p 2 12 ]
-"205
-"193
-[v pad@fp fp `*.5S3063  1 a 1 7 ]
-"226
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-[v fputs@s s `*.6DCuc  1 a 1 wreg ]
-"11
-[v fputs@i i `i  1 a 2 1 ]
-"10
-[v fputs@c c `uc  1 a 1 0 ]
-"8
-[v fputs@s s `*.6DCuc  1 a 1 wreg ]
-[u S3028 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-[s S3031 _IO_FILE 11 `S3028 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.5S3031  1 p 1 8 ]
-"13
-[v fputs@s s `*.6DCuc  1 a 1 3 ]
-"19
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[u S3028 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-[s S3031 _IO_FILE 11 `S3028 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.5S3031  1 p 1 2 ]
-"24
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memcpy.c
-[v _memcpy memcpy `(*.6v  1 e 2 0 ]
-{
-[v memcpy@d1 d1 `*.6v  1 a 1 wreg ]
-"8
-[v memcpy@s s `*.6DCuc  1 a 1 7 ]
-"7
-[v memcpy@d d `*.6uc  1 a 1 6 ]
-"9
-[v memcpy@tmp tmp `uc  1 a 1 4 ]
-"4
-[v memcpy@d1 d1 `*.6v  1 a 1 wreg ]
-[v memcpy@s1 s1 `*.6DCv  1 p 1 0 ]
-[v memcpy@n n `ui  1 p 2 1 ]
-"11
-[v memcpy@d1 d1 `*.6v  1 a 1 5 ]
-"18
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\labs.c
-[v _labs labs `(l  1 e 4 0 ]
-{
-[v labs@a a `l  1 p 4 0 ]
-"4
-} 0
-"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\floorf.c
-[v _floorf floorf `(f  1 e 4 0 ]
-{
-[u S3197 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
-"5
-[v floorf@u u `S3197  1 a 4 74 ]
-"7
-[v floorf@m m `ul  1 a 4 68 ]
-"6
-[v floorf@e e `i  1 a 2 72 ]
-"3
-[v floorf@x x `f  1 p 4 58 ]
-"4
-[v floorf@F521 F521 `S3197  1 s 4 F521 ]
-"27
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__fpclassifyf.c
-[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
-{
-[u S3197 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
-"6
-[v ___fpclassifyf@u u `S3197  1 a 4 2 ]
-"7
-[v ___fpclassifyf@e e `i  1 a 2 0 ]
-"4
-[v ___fpclassifyf@x x `f  1 p 4 0 ]
-"5
-[v ___fpclassifyf@F465 F465 `S3197  1 s 4 F465 ]
-"11
-} 0
-"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-{
-"45
-[v ___fltol@exp1 exp1 `uc  1 a 1 9 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 8 ]
-"43
-[v ___fltol@f1 f1 `d  1 p 4 0 ]
-"70
-} 0
-"242 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
-[v ___flsub __flsub `(d  1 e 4 0 ]
-{
-[v ___flsub@a a `d  1 p 4 32 ]
-[v ___flsub@b b `d  1 p 4 36 ]
-"250
-} 0
-"10
-[v ___fladd __fladd `(d  1 e 4 0 ]
-{
-"17
-[v ___fladd@grs grs `uc  1 a 1 11 ]
-"15
-[v ___fladd@bexp bexp `uc  1 a 1 10 ]
-"16
-[v ___fladd@aexp aexp `uc  1 a 1 9 ]
-"13
-[v ___fladd@signs signs `uc  1 a 1 8 ]
-"10
-[v ___fladd@b b `d  1 p 4 0 ]
-[v ___fladd@a a `d  1 p 4 4 ]
-"237
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\flneg.c
-[v ___flneg __flneg `(d  1 e 4 0 ]
-{
-[v ___flneg@f1 f1 `d  1 p 4 0 ]
-"20
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S2881 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S2886 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2889 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2881 1 fAsBytes 4 0 `S2886 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2889  1 a 4 26 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 20 ]
-[s S2958 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S2961 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2958 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2961  1 a 2 30 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 25 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 24 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 19 ]
-"8
-[v ___flmul@b b `d  1 p 4 6 ]
-[v ___flmul@a a `d  1 p 4 10 ]
-"205
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul8_16.c
-[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-{
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v __Umul8_16@word_mpld word_mpld `us  1 a 2 6 ]
-"5
-[v __Umul8_16@product product `us  1 a 2 4 ]
-"4
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
-[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
-[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
-"60
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-{
-[v ___flge@ff1 ff1 `d  1 p 4 32 ]
-[v ___flge@ff2 ff2 `d  1 p 4 36 ]
-"19
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
-[v ___fleq __fleq `(b  1 e 0 0 ]
-{
-[v ___fleq@ff1 ff1 `d  1 p 4 0 ]
-[v ___fleq@ff2 ff2 `d  1 p 4 4 ]
-"12
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 4 0 ]
-{
-"21
-[v ___fldiv@grs grs `ul  1 a 4 52 ]
-"22
-[v ___fldiv@rem rem `ul  1 a 4 45 ]
-"20
-[v ___fldiv@new_exp new_exp `s  1 a 2 50 ]
-"19
-[v ___fldiv@aexp aexp `uc  1 a 1 57 ]
-"18
-[v ___fldiv@bexp bexp `uc  1 a 1 56 ]
-"16
-[v ___fldiv@sign sign `uc  1 a 1 49 ]
-"8
-[v ___fldiv@a a `d  1 p 4 32 ]
-[v ___fldiv@b b `d  1 p 4 36 ]
-"185
-} 0
-"90 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\I2C_LCD.c
-[v _LCD_Write_String LCD_Write_String `(v  1 e 1 0 ]
-{
-"92
-[v LCD_Write_String@i i `i  1 a 2 9 ]
-"90
-[v LCD_Write_String@Str Str `*.26uc  1 p 2 6 ]
-"94
-} 0
-"84
-[v _LCD_Write_Char LCD_Write_Char `(v  1 e 1 0 ]
-{
-[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
-[v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
-"86
-[v LCD_Write_Char@Data Data `uc  1 a 1 5 ]
-"89
-} 0
-"95
-[v _LCD_Set_Cursor LCD_Set_Cursor `(v  1 e 1 0 ]
-{
-[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
-[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 wreg ]
-[v LCD_Set_Cursor@COL COL `uc  1 p 1 6 ]
-[v LCD_Set_Cursor@ROW ROW `uc  1 a 1 7 ]
-"112
-} 0
-"133
-[v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
-{
-"137
-} 0
-"78
-[v i1_LCD_CMD LCD_CMD `(v  1 e 1 0 ]
-{
-[v i1LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
-[v i1LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
-"80
-[v i1LCD_CMD@CMD CMD `uc  1 a 1 5 ]
+[v i1CCP1_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
 "83
 } 0
-"70
-[v i1_LCD_Write_4Bit LCD_Write_4Bit `(v  1 e 1 0 ]
+"177 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\main.c
+[v _control_motors_with_uart control_motors_with_uart `(v  1 e 1 0 ]
 {
-[v i1LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
-[v i1LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 wreg ]
-"73
-[v i1LCD_Write_4Bit@Nibble Nibble `uc  1 a 1 3 ]
-"77
+[v control_motors_with_uart@code code `uc  1 a 1 wreg ]
+"179
+[v control_motors_with_uart@dir dir `E10681  1 a 1 8 ]
+"177
+[v control_motors_with_uart@code code `uc  1 a 1 wreg ]
+"179
+[v control_motors_with_uart@code code `uc  1 a 1 7 ]
+"205
 } 0
-"113
-[v _Backlight Backlight `(v  1 e 1 0 ]
+"233
+[v i1_shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
 {
-"117
+[v i1shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
+"235
+[v i1shift_out_to_motors@i i `uc  1 a 1 4 ]
+"233
+[v i1shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
+"235
+[v i1shift_out_to_motors@byte byte `uc  1 a 1 3 ]
+"259
 } 0
-"63
-[v i1_IO_Expander_Write IO_Expander_Write `(v  1 e 1 0 ]
+"67 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/pwm/src/ccp2.c
+[v i1_CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v i1IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
-[v i1IO_Expander_Write@Data Data `uc  1 a 1 wreg ]
-"65
-[v i1IO_Expander_Write@Data Data `uc  1 a 1 1 ]
-"69
-} 0
-"29
-[v i1_I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
-{
-[v i1I2C_Master_Write@data data `uc  1 a 1 wreg ]
-[v i1I2C_Master_Write@data data `uc  1 a 1 wreg ]
-"31
-[v i1I2C_Master_Write@data data `uc  1 a 1 0 ]
-"36
-} 0
-"24
-[v i1_I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-{
-"28
-} 0
-"19
-[v i1_I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-{
-"23
-} 0
-"15
-[v i1_I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
-{
-"18
+[v i1CCP2_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"83
 } 0
 "323 C:\Users\baptc\Downloads\Test_Curiosity_PRJ\Test_Curiosity.X\mcc_generated_files/uart/src/eusart.c
 [v _EUSART_DefaultOverrunErrorCallback EUSART_DefaultOverrunErrorCallback `(v  1 s 1 EUSART_DefaultOverrunErrorCallback ]

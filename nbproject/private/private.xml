@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/system/src/interrupt.c</file>
             <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/system/pins.h</file>
+            <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/uart/src/eusart.c</file>
             <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/system/interrupt.h</file>
             <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/timer/tmr0.h</file>
+            <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/timer/src/tmr0.c</file>
             <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/main.c</file>
+            <file>file:/C:/Users/baptc/Downloads/Test_Curiosity_PRJ/Test_Curiosity.X/mcc_generated_files/system/src/system.c</file>
         </group>
     </open-files>
 </project-private>

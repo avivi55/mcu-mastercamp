@@ -69,7 +69,8 @@ void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
 uint8_t get_distance_from_supersonic();
 
-int SPEED = 350;
+#define AUTO_SPEED 350
+int SPEED = AUTO_SPEED;
 
 uint8_t auto_mode = 1;
 uint8_t password_validation_index = 0;
@@ -133,6 +134,10 @@ int main(void)
     {
         if (auto_mode)
             auto_drive();
+        else{
+            get_distance_from_supersonic();
+            __delay_ms(10);
+        }
     }
 }
 
@@ -318,14 +323,18 @@ void UART_Custom_ISR(uint8_t Rx_Code)
         return;
     
     auto_mode = 0;
-    char buffer[16];
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-    sprintf(buffer, "%d", Rx_Code);
-    LCD_Write_String(buffer);
     control_speed(Rx_Code);
     control_motors_with_uart(Rx_Code);
     control_servo(Rx_Code);
+    
+    if (Rx_Code == 0b11111111)
+    {
+        auto_mode = 1;
+        SPEED = AUTO_SPEED;
+        SERVO_FRONT;
+        DRIVE_FORWARD(SPEED);
+    }
+        
     __delay_ms(5);
 }
 
