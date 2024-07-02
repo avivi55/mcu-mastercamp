@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Test_Curiosity.X.production.hex">
+  <executable name="dist/default/production/mcu-mastercamp.production.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>
-      <used>3996</used>
-      <free>4196</free>
+      <used>5703</used>
+      <free>2489</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1024</length>
-      <used>387</used>
-      <free>637</free>
+      <used>444</used>
+      <free>580</free>
     </memory>
   </executable>
 </project>

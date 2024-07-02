@@ -10,7 +10,7 @@
  * @version TMR0 Driver Version 2.0.0
 */
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+ï¿½ [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -46,7 +46,7 @@ const struct TMR_INTERFACE Timer0 = {
 
 static void (*Timer0_OverflowCallback)(void);
 static void Timer0_DefaultOverflowCallback(void);
-extern void TMR0_Custom_ISR(void);
+// extern void TMR0_Custom_ISR(void);
 
 void Timer0_Initialize(void)
 {
@@ -127,5 +127,5 @@ static void Timer0_DefaultOverflowCallback(void)
 {
   //Add your interrupt code here or
   //Use Timer0_OverflowCallbackRegister function to use Custom ISR
-    TMR0_Custom_ISR();
+  //TMR0_Custom_ISR();
 }

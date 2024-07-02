@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Test_Curiosity.X
+PROJECTNAME=mcu-mastercamp
 
 # Active Configuration
 DEFAULTCONF=default

@@ -1,4 +1,4 @@
-<config configName="default" projectName="Test_Curiosity" configVersion="1.1" device="PIC16F1619" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.7.0">
+<config configName="default" projectName="Test_Curiosity" configVersion="1.1" device="PIC16F1619" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.7.1">
    <usedPackages class="java.util.ArrayList">
       <package packageName="@mchp-mcc/i2c-host-driver" version="1.0.4" contentType="MELODY">
          <modules class="java.util.ArrayList"/>
