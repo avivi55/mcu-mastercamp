@@ -1,35 +1,3 @@
- /*
- * MAIN Generated Driver File
- * 
- * @file main.c
- * 
- * @defgroup main MAIN
- * 
- * @brief This is the generated driver implementation file for the MAIN driver.
- *
- * @version MAIN Driver Version 1.0.0
-*/
-
-/*
-� [2024] Microchip Technology Inc. and its subsidiaries.
-
-    Subject to your compliance with these terms, you may use Microchip 
-    software and any derivatives exclusively with Microchip products. 
-    You are responsible for complying with 3rd party license terms  
-    applicable to your use of 3rd party software (including open source  
-    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? 
-    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS 
-    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  
-    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT 
-    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY 
-    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF 
-    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE 
-    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S 
-    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT 
-    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
-    THIS SOFTWARE.
-*/
 #include "mcc_generated_files/system/system.h"
 #include "I2C_LCD.h"
 
@@ -91,14 +59,29 @@
                                             | MOTOR_BACK_LEFT_AVANCER | MOTOR_BACK_LEFT_RECULER\
                                             );\
                                 CCP2_LoadDutyValue(pwm);} while(0)
-
-
+#define SERVO_LEFT do {CCP1_LoadDutyValue(68);} while(0)
+#define SERVO_RIGHT do {CCP1_LoadDutyValue(20);} while(0)
+#define SERVO_FRONT do {CCP1_LoadDutyValue(42);} while(0)
 
 void TMR0_Custom_ISR(void);
+void auto_drive();
 void UART_Custom_ISR(uint8_t Rx_Code);
 void shift_out_to_motors(uint8_t byte);
+uint8_t get_distance_from_supersonic();
 
-#define SPEED 300
+int SPEED = 350;
+
+uint8_t auto_mode = 1;
+uint8_t password_validation_index = 0;
+
+#define PASSWORD_LEN 5
+uint8_t password[PASSWORD_LEN] = {
+    0x6a,
+    0x7c,
+    0xee,
+    0xe0,
+    0xb0
+};
 
 typedef enum {
     DRIVE_FORWARD = 0,
@@ -131,52 +114,69 @@ int main(void)
     //INTERRUPT_PeripheralInterruptDisable(); 
     PIE1bits.SSP1IE = 0; 
     PIE2bits.BCL1IE = 0;
-    INTCONbits.TMR0IE = 0;
+
     I2C_Master_Init();
     LCD_Init(0x4E); // Initialize LCD module with I2C address = 0x4E
     Backlight();
     LCD_Clear();
     LCD_Set_Cursor(1, 1);
     LCD_Write_String("Master Camp 2024");
-    LCD_Set_Cursor(2, 1);
-    LCD_Write_String("Les nuls");
-    __delay_ms(6000);
     
-    INTCONbits.TMR0IE = 1;
+    INTCONbits.TMR0IE = 0;
     SR_DATA_SetLow();
     SR_SEND_SetLow();
     SR_CLOCK_SetLow();
-    CCP2_LoadDutyValue(300);
-    CCP1_LoadDutyValue(45);
-    
+    CCP2_LoadDutyValue(500);
+    CCP1_LoadDutyValue(42);
+    DRIVE_FORWARD(SPEED);
     while(1)
-    {    
-        // //DRIVE_FORWARD(700);
-        // DRIVE_FORWARD(SPEED);
-        // __delay_ms(700);
-        // DRIVE_BACKWARDS(SPEED);
-        // __delay_ms(700);
-        // DRIVE_RIGHTWARDS(SPEED);
-        // __delay_ms(700);
-        // DRIVE_LEFTWARDS(SPEED);
-        // __delay_ms(700);
-        // TURN_LEFT(SPEED);
-        // __delay_ms(700);
-        // TURN_RIGHT(SPEED);
-        // __delay_ms(700);
+    {
+        if (auto_mode)
+            auto_drive();
     }
 }
 
 
-void control_motors_with_uart(DIRECTIONS dir)
+void speed_motor(uint8_t speed){
+    SPEED = (uint16_t) (speed*128);
+}
+
+void auto_drive(){
+    uint16_t distance = get_distance_from_supersonic();
+    if (distance < 30){
+        STOP(SPEED);
+        SERVO_LEFT;
+        __delay_ms(1500);
+        uint16_t distance_l = get_distance_from_supersonic();
+        __delay_ms(100);
+        SERVO_RIGHT;
+        __delay_ms(1500);
+        uint16_t distance_r = get_distance_from_supersonic();
+        __delay_ms(100);
+        SERVO_FRONT;
+        if (distance_l < distance_r){
+            TURN_LEFT(SPEED);
+            __delay_ms(300);
+            STOP(SPEED);
+        }else{
+            TURN_RIGHT(SPEED);
+            __delay_ms(300);
+            STOP(SPEED);
+        }
+        __delay_ms(700);
+        DRIVE_FORWARD(SPEED);
+    }
+    __delay_ms(10);
+}
+
+void control_motors_with_uart(uint8_t code)
 {
+    DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+    
     switch (dir)
     {
         case DRIVE_FORWARD:
             DRIVE_FORWARD(SPEED);
-            LCD_Clear();
-            LCD_Set_Cursor(1, 1);
-            LCD_Write_String("Les nuls !");
             break;
         case DRIVE_BACKWARDS:
             DRIVE_BACKWARDS(SPEED);
@@ -195,6 +195,32 @@ void control_motors_with_uart(DIRECTIONS dir)
             break;
         default:
             STOP(SPEED);
+            break;
+    }
+}
+
+void control_speed(uint8_t code)
+{
+    uint8_t speed = code >> 3;
+    speed &= 0b00000111;
+    speed_motor(speed);
+}
+
+void control_servo(uint8_t code)
+{
+    auto angle = code >> 6;
+    switch (angle)
+    {
+        case 0b00:
+            SERVO_LEFT;
+            break;
+        case 0b01:
+            SERVO_FRONT;
+            break;
+        case 0b10:
+            SERVO_RIGHT;
+            break;
+        default:
             break;
     }
 }
@@ -244,8 +270,23 @@ uint8_t get_distance_from_supersonic()
     // Stop the timer 
     TMR1_Stop();
     // Estimate the distance in CM
-    uint8_t distance_in_cm = (uint8_t)(((TMR1H<<8) + TMR1L)/58.82);
-    
+    uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
+    char buffer[16];
+    if(distance_in_cm >= 2 && distance_in_cm <= 250) // Check whether the result is valid or not
+    { 
+        LCD_Clear();
+        LCD_Set_Cursor(1, 1);
+        sprintf(buffer, "Dist.: %d cm", distance_in_cm);
+        LCD_Write_String(buffer);  // Display the distance on the LCD
+        EUSART_Write((uint16_t) distance_in_cm);
+    }
+    else 
+    {
+        distance_in_cm = 700;
+        LCD_Clear();
+        LCD_Set_Cursor(1, 1);
+        LCD_Write_String("Out of Range");
+    }
     return distance_in_cm;
 }
 
@@ -255,36 +296,40 @@ float get_temperature()
     return temperature_in_c;
 }
 
+uint8_t verify_password(uint8_t password_part)
+{
+    if (password_validation_index == PASSWORD_LEN)
+    {
+        password_validation_index = 0;
+        return 1;
+    }
+    
+    if (password_part == password[password_validation_index])
+        password_validation_index++;
+    else
+        password_validation_index = 0;
+    
+    return 0;
+}
+
 void UART_Custom_ISR(uint8_t Rx_Code)
 {
+    if (!verify_password(Rx_Code))
+        return;
+    
+    auto_mode = 0;
     char buffer[16];
     LCD_Clear();
     LCD_Set_Cursor(1, 1);
     sprintf(buffer, "%d", Rx_Code);
     LCD_Write_String(buffer);
-    control_motors_with_uart((DIRECTIONS) Rx_Code);
-    __delay_ms(1000);
+    control_speed(Rx_Code);
+    control_motors_with_uart(Rx_Code);
+    control_servo(Rx_Code);
+    __delay_ms(5);
 }
-
-
 
 void TMR0_Custom_ISR(void)
 {
-    char buffer[16];
-
-    uint8_t distance = get_distance_from_supersonic();
-
-    if(distance >= 2 && distance <= 250) // Check whether the result is valid or not
-    { 
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        sprintf(buffer, "Dist.: %d cm", distance);
-        LCD_Write_String(buffer);  // Display the distance on the LCD
-    }
-    else 
-    {
-        LCD_Clear();
-        LCD_Set_Cursor(1, 1);
-        LCD_Write_String("Out of Range");
-    }    
+    return;
 }
