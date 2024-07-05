@@ -22,4 +22,9 @@ mcc_generated_files/system/../timer/tmr1.h  \
 mcc_generated_files/system/../timer/tmr2.h  \
 mcc_generated_files/system/../timer/tmr4.h  \
 mcc_generated_files/system/../system/interrupt.h  \
-I2C_LCD.h 
+lcd.h  \
+I2C_LCD.h  \
+motors.h  \
+servo.h  \
+ultrasonic.h  \
+password.h 

@@ -111,8 +111,8 @@ TMR4_CLC4OUT 12
 TMR4_PWM3OUT 13
 TMR4_PWM4OUT 14
 ]
-"123 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
-[e E10687 . `uc
+"109 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
+[e E10683 . `uc
 DRIVE_FORWARD 0
 DRIVE_BACKWARDS 1
 DRIVE_RIGHTWARDS 2
@@ -121,6 +121,40 @@ TURN_LEFT 4
 TURN_RIGHT 5
 STOP 6
 ]
+"114
+[e E10673 . `uc
+FRONT_RIGHT_FORWARD 16
+FRONT_RIGHT_BACKWARD 32
+BACK_RIGHT_FORWARD 128
+BACK_RIGHT_BACKWARD 64
+FRONT_LEFT_FORWARD 2
+FRONT_LEFT_BACKWARD 1
+BACK_LEFT_FORWARD 4
+BACK_LEFT_BACKWARD 8
+]
+"17 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/servo.h
+[e E10703 . `uc
+LEFT 0
+CENTER 1
+RIGHT 2
+]
+"8 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/lcd.h
+[v _print_distance print_distance `(v  1 e 1 0 ]
+[v i1_print_distance print_distance `(v  1 e 1 0 ]
+"84 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
+[v _shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
+[v i1_shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
+"107
+[v _control_motors_with_uart control_motors_with_uart `(v  1 e 1 0 ]
+"137
+[v _control_speed control_speed `(v  1 e 1 0 ]
+"15 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/password.h
+[v _verify_password verify_password `(uc  1 e 1 0 ]
+"15 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/servo.h
+[v _control_servo control_servo `(v  1 e 1 0 ]
+"4 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/ultrasonic.h
+[v _get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
+[v i1_get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
 "1 /opt/microchip/xc8/v2.46/pic/sources/c99/common/abs.c
 [v _abs abs `(i  1 e 2 0 ]
 [v i1_abs abs `(i  1 e 2 0 ]
@@ -199,28 +233,11 @@ STOP 6
 "133
 [v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
 [v i1_LCD_Clear LCD_Clear `(v  1 e 1 0 ]
-"16 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"5 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
 [v _main main `(i  1 e 2 0 ]
-"55
-[v _print_distance print_distance `(v  1 e 1 0 ]
-[v i1_print_distance print_distance `(v  1 e 1 0 ]
-"72
+"44
 [v _auto_drive auto_drive `(v  1 e 1 0 ]
-"114
-[v _control_speed control_speed `(v  1 e 1 0 ]
-"121
-[v _control_motors_with_uart control_motors_with_uart `(v  1 e 1 0 ]
-"151
-[v _control_servo control_servo `(v  1 e 1 0 ]
-"171
-[v _shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
-[v i1_shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
-"191
-[v _get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
-[v i1_get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
-"216
-[v _verify_password verify_password `(uc  1 e 1 0 ]
-"232
+"86
 [v _UART_Custom_ISR UART_Custom_ISR `(v  1 e 1 0 ]
 "53 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/mcc_generated_files/adc/src/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -427,8 +444,16 @@ STOP 6
 [v _EUSART_OverrunErrorCallbackRegister EUSART_OverrunErrorCallbackRegister `(v  1 e 1 0 ]
 "346
 [v _EUSART_RxCompleteCallbackRegister EUSART_RxCompleteCallbackRegister `(v  1 e 1 0 ]
+"6 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/lcd.h
+[v _buffer buffer `[16]uc  1 e 16 0 ]
 "324 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/mcc_generated_files/uart/eusart.h
 [v _EUSART_RxInterruptHandler EUSART_RxInterruptHandler `*.37(v  1 e 2 0 ]
+"82 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
+[v _SPEED SPEED `us  1 e 2 0 ]
+"4 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/password.h
+[v _password_validation_index password_validation_index `uc  1 e 1 0 ]
+"7
+[v _password password `[5]uc  1 e 5 0 ]
 [s S1003 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -446,7 +471,7 @@ STOP 6
 ]
 [u S1017 . 1 `S1003 1 . 1 0 `S1012 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES1017  1 e 1 @11 ]
-[s S2628 . 1 `uc 1 RC0 1 0 :1:0 
+[s S2577 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -456,8 +481,8 @@ STOP 6
 `uc 1 RC7 1 0 :1:7 
 ]
 "535
-[u S2637 . 1 `S2628 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES2637  1 e 1 @14 ]
+[u S2586 . 1 `S2577 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES2586  1 e 1 @14 ]
 [s S27 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -693,18 +718,18 @@ STOP 6
 [v _LATA LATA `VEuc  1 e 1 @268 ]
 "2681
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S2553 . 1 `uc 1 . 1 0 :4:0 
+[s S2514 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LATB4 1 0 :1:4 
 `uc 1 LATB5 1 0 :1:5 
 `uc 1 LATB6 1 0 :1:6 
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2695
-[u S2559 . 1 `S2553 1 . 1 0 ]
-[v _LATBbits LATBbits `VES2559  1 e 1 @269 ]
+[u S2520 . 1 `S2514 1 . 1 0 ]
+[v _LATBbits LATBbits `VES2520  1 e 1 @269 ]
 "2720
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S2607 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S2556 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -714,8 +739,8 @@ STOP 6
 `uc 1 LATC7 1 0 :1:7 
 ]
 "2737
-[u S2616 . 1 `S2607 1 . 1 0 ]
-[v _LATCbits LATCbits `VES2616  1 e 1 @270 ]
+[u S2565 . 1 `S2556 1 . 1 0 ]
+[v _LATCbits LATCbits `VES2565  1 e 1 @270 ]
 "3056
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
 "3331
@@ -1027,13 +1052,7 @@ STOP 6
 [v _i2c_add i2c_add `uc  1 e 1 0 ]
 [v _BackLight_State BackLight_State `uc  1 e 1 0 ]
 "3 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
-[v _SPEED SPEED `us  1 e 2 0 ]
-"4
-[v _auto_mode auto_mode `uc  1 e 1 0 ]
-"5
-[v _password_validation_index password_validation_index `uc  1 e 1 0 ]
-"8
-[v _password password `[5]uc  1 e 5 0 ]
+[v _auto_mode auto_mode `a  1 e 1 0 ]
 "95 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/mcc_generated_files/i2c_host/src/mssp.c
 [v _I2C1_Callback I2C1_Callback `*.37(v  1 s 2 I2C1_Callback ]
 [s S231 . 14 `a 1 busy 1 0 `us 1 address 2 1 `*.39uc 1 writePtr 2 3 `ui 1 writeLength 2 5 `*.39uc 1 readPtr 2 7 `ui 1 readLength 2 9 `a 1 switchToRead 1 11 `E10201 1 errorState 1 12 `E10210 1 state 1 13 ]
@@ -1083,108 +1102,107 @@ STOP 6
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 e 2 0 ]
 "95
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 e 2 0 ]
-"16 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"5 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"53
+"42
 } 0
-"72
+"44
 [v _auto_drive auto_drive `(v  1 e 1 0 ]
 {
-"95
-[v auto_drive@distance_r distance_r `us  1 a 2 76 ]
-"87
-[v auto_drive@distance_l distance_l `us  1 a 2 74 ]
-"75
-[v auto_drive@distance distance `us  1 a 2 72 ]
-"112
+"67
+[v auto_drive@distance_r distance_r `us  1 a 2 63 ]
+"59
+[v auto_drive@distance_l distance_l `us  1 a 2 61 ]
+"47
+[v auto_drive@distance distance `us  1 a 2 59 ]
+"84
 } 0
-"171
+"84 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
 [v _shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
 {
 [v shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"173
-[v shift_out_to_motors@i i `uc  1 a 1 4 ]
-"171
+"88
+[v shift_out_to_motors@bit_mask bit_mask `uc  1 a 1 2 ]
+"86
+[v shift_out_to_motors@i i `uc  1 a 1 3 ]
+"84
 [v shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"173
-[v shift_out_to_motors@byte byte `uc  1 a 1 3 ]
-"189
+"86
+[v shift_out_to_motors@byte byte `uc  1 a 1 1 ]
+"105
 } 0
-"55
+"8 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/lcd.h
 [v _print_distance print_distance `(v  1 e 1 0 ]
 {
 [v print_distance@distance distance `uc  1 a 1 wreg ]
-"57
-[v print_distance@buffer buffer `[16]uc  1 a 16 53 ]
-"55
 [v print_distance@distance distance `uc  1 a 1 wreg ]
-"58
-[v print_distance@distance distance `uc  1 a 1 69 ]
-"70
+"10
+[v print_distance@distance distance `uc  1 a 1 53 ]
+"22
 } 0
 "9 /opt/microchip/xc8/v2.46/pic/sources/c99/common/nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[v sprintf@s s `*.4uc  1 a 1 wreg ]
-[u S3035 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[v sprintf@s s `*.5uc  1 a 1 wreg ]
+[u S3042 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
 "13
-[s S3038 _IO_FILE 11 `S3035 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S3038  1 a 11 40 ]
+[s S3045 _IO_FILE 11 `S3042 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S3045  1 a 11 40 ]
 "12
 [v sprintf@ap ap `[1]*.4v  1 a 1 38 ]
 "9
-[v sprintf@s s `*.4uc  1 a 1 wreg ]
+[v sprintf@s s `*.5uc  1 a 1 wreg ]
 [v sprintf@fmt fmt `*.25DCuc  1 p 2 33 ]
 "15
-[v sprintf@s s `*.4uc  1 a 1 39 ]
+[v sprintf@s s `*.5uc  1 a 1 39 ]
 "23
 } 0
 "1817 /opt/microchip/xc8/v2.46/pic/sources/c99/common/doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S3070 _IO_FILE 0 ]
-[v vfprintf@fp fp `*.4S3070  1 a 1 wreg ]
+[s S3077 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.4S3077  1 a 1 wreg ]
 "1820
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 31 ]
 "1817
-[v vfprintf@fp fp `*.4S3070  1 a 1 wreg ]
+[v vfprintf@fp fp `*.4S3077  1 a 1 wreg ]
 [v vfprintf@fmt fmt `*.25DCuc  1 p 2 26 ]
 [v vfprintf@ap ap `*.4*.4v  1 p 1 28 ]
 "1822
 "1817
-[v vfprintf@fp fp `*.4S3070  1 a 1 30 ]
+[v vfprintf@fp fp `*.4S3077  1 a 1 30 ]
 "1840
 } 0
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[s S3070 _IO_FILE 0 ]
-[v vfpfcnvrt@fp fp `*.4S3070  1 a 1 wreg ]
-[u S3083 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[s S3077 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.4S3077  1 a 1 wreg ]
+[u S3090 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S3083  1 a 4 21 ]
+[v vfpfcnvrt@convarg convarg `S3090  1 a 4 21 ]
 "1179
 [v vfpfcnvrt@cp cp `*.25uc  1 a 2 19 ]
 [v vfpfcnvrt@c c `uc  1 a 1 25 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 17 ]
 "1177
-[v vfpfcnvrt@fp fp `*.4S3070  1 a 1 wreg ]
+[v vfpfcnvrt@fp fp `*.4S3077  1 a 1 wreg ]
 [v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 12 ]
 "1201
 "1177
-[v vfpfcnvrt@fp fp `*.4S3070  1 a 1 18 ]
+[v vfpfcnvrt@fp fp `*.4S3077  1 a 1 18 ]
 "1814
 } 0
 "8 /opt/microchip/xc8/v2.46/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S3035 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-[s S3038 _IO_FILE 11 `S3035 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.4S3038  1 p 1 2 ]
+[u S3042 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[s S3045 _IO_FILE 11 `S3042 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.4S3045  1 p 1 2 ]
 "24
 } 0
 "7 /opt/microchip/xc8/v2.46/pic/sources/c99/common/putch.c
@@ -1260,12 +1278,12 @@ STOP 6
 [v EUSART_Write@txData txData `uc  1 p 1 0 ]
 "316
 } 0
-"191 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"4 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/ultrasonic.h
 [v _get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
 {
-"207
+"20
 [v get_distance_from_supersonic@distance_in_cm distance_in_cm `us  1 a 2 55 ]
-"214
+"27
 } 0
 "10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -1726,94 +1744,91 @@ STOP 6
 [v _EUSART_ReceiveISR EUSART_ReceiveISR `(v  1 e 1 0 ]
 {
 "272
-[v EUSART_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 63 ]
+[v EUSART_ReceiveISR@tempRxHead tempRxHead `uc  1 a 1 50 ]
 "271
-[v EUSART_ReceiveISR@regValue regValue `uc  1 a 1 62 ]
+[v EUSART_ReceiveISR@regValue regValue `uc  1 a 1 49 ]
 "311
 } 0
-"232 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"86 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
 [v _UART_Custom_ISR UART_Custom_ISR `(v  1 e 1 0 ]
 {
 [v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 wreg ]
 [v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 wreg ]
-"234
-[v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 57 ]
-"253
+"88
+[v UART_Custom_ISR@Rx_Code Rx_Code `uc  1 a 1 44 ]
+"107
 } 0
-"55
+"8 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/lcd.h
 [v i1_print_distance print_distance `(v  1 e 1 0 ]
 {
 [v i1print_distance@distance distance `uc  1 a 1 wreg ]
-"57
-[v i1print_distance@buffer buffer `[16]uc  1 a 16 39 ]
-"55
 [v i1print_distance@distance distance `uc  1 a 1 wreg ]
-"58
-[v i1print_distance@distance distance `uc  1 a 1 55 ]
-"70
+"10
+[v i1print_distance@distance distance `uc  1 a 1 39 ]
+"22
 } 0
 "9 /opt/microchip/xc8/v2.46/pic/sources/c99/common/nf_sprintf.c
 [v i1_sprintf sprintf `(i  1 e 2 0 ]
 {
-[v i1sprintf@s s `*.4uc  1 a 1 wreg ]
-[u S3035 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[v i1sprintf@s s `*.5uc  1 a 1 wreg ]
+[u S3042 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
 "13
-[s S3038 _IO_FILE 11 `S3035 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v i1sprintf@f f `S3038  1 a 11 26 ]
+[s S3045 _IO_FILE 11 `S3042 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v i1sprintf@f f `S3045  1 a 11 26 ]
 "12
 [v i1sprintf@ap ap `[1]*.4v  1 a 1 24 ]
 "9
-[v i1sprintf@s s `*.4uc  1 a 1 wreg ]
+[v i1sprintf@s s `*.5uc  1 a 1 wreg ]
 [v i1sprintf@fmt fmt `*.25DCuc  1 p 2 19 ]
 "15
-[v i1sprintf@s s `*.4uc  1 a 1 25 ]
+[v i1sprintf@s s `*.5uc  1 a 1 25 ]
 "23
 } 0
 "1817 /opt/microchip/xc8/v2.46/pic/sources/c99/common/doprnt.c
 [v i1_vfprintf vfprintf `(i  1 e 2 0 ]
 {
-[s S3070 _IO_FILE 0 ]
-[v i1vfprintf@fp fp `*.4S3070  1 a 1 wreg ]
+[s S3077 _IO_FILE 0 ]
+[v i1vfprintf@fp fp `*.4S3077  1 a 1 wreg ]
 "1820
 [v i1vfprintf@cfmt cfmt `*.25uc  1 a 2 17 ]
 "1817
-[v i1vfprintf@fp fp `*.4S3070  1 a 1 wreg ]
+[v i1vfprintf@fp fp `*.4S3077  1 a 1 wreg ]
 [v i1vfprintf@fmt fmt `*.25DCuc  1 p 2 13 ]
 [v i1vfprintf@ap ap `*.4*.4v  1 p 1 15 ]
 "1822
 "1817
-[v i1vfprintf@fp fp `*.4S3070  1 a 1 16 ]
+[v i1vfprintf@fp fp `*.4S3077  1 a 1 16 ]
 "1840
 } 0
 "1177
 [v i1_vfpfcnvrt vfpfcnvrt `(v  1 s 1 i1_vfpfcnvrt ]
 {
-[s S3070 _IO_FILE 0 ]
-[v i1vfpfcnvrt@fp fp `*.4S3070  1 a 1 wreg ]
-[u S3083 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[s S3077 _IO_FILE 0 ]
+[v i1vfpfcnvrt@fp fp `*.4S3077  1 a 1 wreg ]
+[u S3090 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v i1vfpfcnvrt@convarg convarg `S3083  1 a 4 8 ]
+[v i1vfpfcnvrt@convarg convarg `S3090  1 a 4 8 ]
 "1179
 [v i1vfpfcnvrt@cp cp `*.25uc  1 a 2 6 ]
 [v i1vfpfcnvrt@c c `uc  1 a 1 12 ]
 "1180
 [v i1vfpfcnvrt@done done `a  1 a 1 4 ]
 "1177
-[v i1vfpfcnvrt@fp fp `*.4S3070  1 a 1 wreg ]
+[v i1vfpfcnvrt@fp fp `*.4S3077  1 a 1 wreg ]
 [v i1vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 11 ]
 [v i1vfpfcnvrt@ap ap `*.4*.4v  1 p 1 12 ]
 "1201
 "1177
-[v i1vfpfcnvrt@fp fp `*.4S3070  1 a 1 5 ]
+[v i1vfpfcnvrt@fp fp `*.4S3077  1 a 1 5 ]
 "1814
 } 0
 "8 /opt/microchip/xc8/v2.46/pic/sources/c99/common/nf_fputc.c
 [v i1_fputc fputc `(i  1 e 2 0 ]
 {
 [v i1fputc@c c `i  1 p 2 0 ]
-[u S3035 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
-[s S3038 _IO_FILE 11 `S3035 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v i1fputc@fp fp `*.4S3038  1 p 1 2 ]
+[u S3042 . 2 `*.39uc 1 buffer 2 0 `*.39DCuc 1 source 2 0 ]
+[s S3045 _IO_FILE 11 `S3042 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v i1fputc@fp fp `*.4S3045  1 p 1 2 ]
 "24
 } 0
 "7 /opt/microchip/xc8/v2.46/pic/sources/c99/common/putch.c
@@ -1940,12 +1955,12 @@ STOP 6
 [v i1EUSART_Write@txData txData `uc  1 p 1 0 ]
 "316
 } 0
-"191 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"4 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/ultrasonic.h
 [v i1_get_distance_from_supersonic get_distance_from_supersonic `(uc  1 e 1 0 ]
 {
-"207
+"20
 [v i1get_distance_from_supersonic@distance_in_cm distance_in_cm `us  1 a 2 41 ]
-"214
+"27
 } 0
 "10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/xxtofl.c
 [v i1___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -2002,38 +2017,38 @@ STOP 6
 {
 "84
 } 0
-"216 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"15 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/password.h
 [v _verify_password verify_password `(uc  1 e 1 0 ]
 {
 [v verify_password@password_part password_part `uc  1 a 1 wreg ]
 [v verify_password@password_part password_part `uc  1 a 1 wreg ]
-"218
+"17
 [v verify_password@password_part password_part `uc  1 a 1 1 ]
-"230
+"29
 } 0
-"114
+"137 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
 [v _control_speed control_speed `(v  1 e 1 0 ]
 {
 [v control_speed@code code `uc  1 a 1 wreg ]
-"116
+"139
 [v control_speed@speed speed `uc  1 a 1 3 ]
-"114
+"137
 [v control_speed@code code `uc  1 a 1 wreg ]
-"116
+"139
 [v control_speed@code code `uc  1 a 1 2 ]
-"119
+"142
 } 0
-"151
+"15 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/servo.h
 [v _control_servo control_servo `(v  1 e 1 0 ]
 {
 [v control_servo@code code `uc  1 a 1 wreg ]
-"153
+"17
 [v control_servo@angle angle `uc  1 a 1 4 ]
-"151
+"15
 [v control_servo@code code `uc  1 a 1 wreg ]
-"153
+"17
 [v control_servo@code code `uc  1 a 1 3 ]
-"169
+"33
 } 0
 "67 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/mcc_generated_files/pwm/src/ccp1.c
 [v i1_CCP1_LoadDutyValue CCP1_LoadDutyValue `(v  1 e 1 0 ]
@@ -2041,29 +2056,31 @@ STOP 6
 [v i1CCP1_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
 "83
 } 0
-"121 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/main.c
+"107 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/motors.h
 [v _control_motors_with_uart control_motors_with_uart `(v  1 e 1 0 ]
 {
 [v control_motors_with_uart@code code `uc  1 a 1 wreg ]
-"123
-[v control_motors_with_uart@dir dir `E10687  1 a 1 8 ]
-"121
+"109
+[v control_motors_with_uart@dir dir `E10683  1 a 1 7 ]
+"107
 [v control_motors_with_uart@code code `uc  1 a 1 wreg ]
-"123
-[v control_motors_with_uart@code code `uc  1 a 1 7 ]
-"149
+"109
+[v control_motors_with_uart@code code `uc  1 a 1 6 ]
+"135
 } 0
-"171
+"84
 [v i1_shift_out_to_motors shift_out_to_motors `(v  1 e 1 0 ]
 {
 [v i1shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"173
-[v i1shift_out_to_motors@i i `uc  1 a 1 4 ]
-"171
+"86
+[v i1shift_out_to_motors@i i `uc  1 a 1 3 ]
+"88
+[v i1shift_out_to_motors@bit_mask bit_mask `uc  1 a 1 2 ]
+"84
 [v i1shift_out_to_motors@byte byte `uc  1 a 1 wreg ]
-"173
-[v i1shift_out_to_motors@byte byte `uc  1 a 1 3 ]
-"189
+"86
+[v i1shift_out_to_motors@byte byte `uc  1 a 1 1 ]
+"105
 } 0
 "67 /home/jacques/Documents/EFREI/S6/mastercamp/solution-factory/mcu-mastercamp/mcc_generated_files/pwm/src/ccp2.c
 [v i1_CCP2_LoadDutyValue CCP2_LoadDutyValue `(v  1 e 1 0 ]

@@ -18464,6 +18464,10 @@ void INT_DefaultInterruptHandler(void);
 # 63 "./mcc_generated_files/system/../uart/../system/system.h"
 void SYSTEM_Initialize(void);
 # 5 "./main.h" 2
+# 1 "./lcd.h" 1
+
+
+
 # 1 "./I2C_LCD.h" 1
 # 27 "./I2C_LCD.h"
 void I2C_Master_Init(void);
@@ -18485,19 +18489,42 @@ void noBacklight(void);
 void LCD_SR(void);
 void LCD_SL(void);
 void LCD_Clear(void);
-# 6 "./main.h" 2
+# 5 "./lcd.h" 2
 
-void TMR0_Custom_ISR(void);
-void UART_Custom_ISR(uint8_t Rx_Code);
-void auto_drive();
-void shift_out_to_motors(uint8_t byte);
-uint8_t get_distance_from_supersonic();
-void print_distance(uint8_t distance);
-void control_motors_with_uart(uint8_t code);
-void control_speed(uint8_t code);
-void control_servo(uint8_t code);
-uint8_t verify_password(uint8_t password_part);
-# 80 "./main.h"
+char buffer[16];
+
+void print_distance(uint8_t distance)
+{
+    LCD_Clear();
+    LCD_Set_Cursor(1, 1);
+
+
+    if(distance >= 2 && distance <= 250)
+    {
+        sprintf(buffer, "Dist.: %d cm", distance);
+        LCD_Write_String(buffer);
+        EUSART_Write((uint16_t) distance);
+    }
+    else
+        LCD_Write_String("Out of Range");
+}
+# 6 "./main.h" 2
+# 1 "./motors.h" 1
+# 58 "./motors.h"
+typedef enum {
+    FRONT_RIGHT_FORWARD = 0b00010000,
+    FRONT_RIGHT_BACKWARD = 0b00100000,
+
+    BACK_RIGHT_FORWARD = 0b10000000,
+    BACK_RIGHT_BACKWARD = 0b01000000,
+
+    FRONT_LEFT_FORWARD = 0b00000010,
+    FRONT_LEFT_BACKWARD = 0b00000001,
+
+    BACK_LEFT_FORWARD = 0b00000100,
+    BACK_LEFT_BACKWARD = 0b00001000
+} MOTORS;
+
 typedef enum {
     DRIVE_FORWARD = 0,
     DRIVE_BACKWARDS = 1,
@@ -18507,11 +18534,137 @@ typedef enum {
     TURN_RIGHT = 5,
     STOP = 6
 } DIRECTIONS;
-# 1 "main.c" 2
+
+uint16_t SPEED = 250;
+
+void shift_out_to_motors(uint8_t byte)
+{
+    for (uint8_t i=0; i < 8; i++){
+
+        uint8_t bit_mask = 1 << i;
+        if (byte & bit_mask)
+            do { LATBbits.LATB4 = 1; } while(0);
+        else
+            do { LATBbits.LATB4 = 0; } while(0);
+
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+        do { LATBbits.LATB6 = 1; } while(0);
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+        do { LATBbits.LATB6 = 0; } while(0);
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+    }
+
+    do { LATBbits.LATB5 = 1; } while(0);
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+    do { LATBbits.LATB5 = 0; } while(0);
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+}
+
+void control_motors_with_uart(uint8_t code)
+{
+    DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+
+    switch (dir)
+    {
+        case DRIVE_FORWARD:
+            do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_BACKWARDS:
+            do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_RIGHTWARDS:
+            do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case DRIVE_LEFTWARDS:
+            do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case TURN_LEFT:
+            do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        case TURN_RIGHT:
+            do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+        default:
+            do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
+            break;
+    }
+}
+
+void control_speed(uint8_t code)
+{
+    uint8_t speed = code >> 3;
+    speed &= 0b00000111;
+    SPEED = (uint16_t) (speed*128);
+}
+# 7 "./main.h" 2
+# 1 "./servo.h" 1
 
 
-uint16_t SPEED = 350;
-uint8_t auto_mode = 1;
+
+
+
+
+
+typedef enum {
+    LEFT = 0,
+    CENTER = 1,
+    RIGHT = 2
+} SERVO_ANGLE;
+
+
+void control_servo(uint8_t code)
+{
+    uint8_t angle = (SERVO_ANGLE) (code >> 6);
+
+    switch (angle)
+    {
+        case LEFT:
+            CCP1_LoadDutyValue(68);
+            break;
+        case CENTER:
+            CCP1_LoadDutyValue(42);
+            break;
+        case RIGHT:
+            CCP1_LoadDutyValue(20);
+            break;
+        default:
+            break;
+    }
+}
+# 8 "./main.h" 2
+# 1 "./ultrasonic.h" 1
+
+
+
+uint8_t get_distance_from_supersonic()
+{
+    TMR1H = 0x00;
+    TMR1L = 0x00;
+
+
+    do { LATCbits.LATC2 = 1; } while(0);
+    _delay((unsigned long)((10)*(4000000/4000000.0)));
+    do { LATCbits.LATC2 = 0; } while(0);
+
+
+    while(PORTCbits.RC1 == 0);
+    TMR1_Start();
+    while(PORTCbits.RC1 == 1);
+    TMR1_Stop();
+
+    uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
+
+
+    if (distance_in_cm < 2 || distance_in_cm > 250)
+        distance_in_cm = 700;
+
+    return distance_in_cm;
+}
+# 9 "./main.h" 2
+# 1 "./password.h" 1
+
+
+
 uint8_t password_validation_index = 0;
 
 
@@ -18522,6 +18675,31 @@ uint8_t password[5] = {
     0xe0,
     0xb0
 };
+
+uint8_t verify_password(uint8_t password_part)
+{
+    if (password_validation_index == 5)
+    {
+        password_validation_index = 0;
+        return 1;
+    }
+
+    if (password_part == password[password_validation_index])
+        password_validation_index++;
+    else
+        password_validation_index = 0;
+
+    return 0;
+}
+# 10 "./main.h" 2
+
+void UART_Custom_ISR(uint8_t Rx_Code);
+void auto_drive();
+uint8_t verify_password(uint8_t password_part);
+# 1 "main.c" 2
+
+
+_Bool auto_mode = 0;
 
 int main(void)
 {
@@ -18550,7 +18728,7 @@ int main(void)
     CCP2_LoadDutyValue(500);
     CCP1_LoadDutyValue(42);
 
-    do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+    do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
     while(1)
     {
         if (auto_mode)
@@ -18560,23 +18738,6 @@ int main(void)
             _delay((unsigned long)((150)*(4000000/4000.0)));
         }
     }
-}
-
-void print_distance(uint8_t distance)
-{
-    char buffer[16];
-    LCD_Clear();
-    LCD_Set_Cursor(1, 1);
-
-
-    if(distance >= 2 && distance <= 250)
-    {
-        sprintf(buffer, "Dist.: %d cm", distance);
-        LCD_Write_String(buffer);
-        EUSART_Write((uint16_t) distance);
-    }
-    else
-        LCD_Write_String("Out of Range");
 }
 
 void auto_drive()
@@ -18589,8 +18750,8 @@ void auto_drive()
     if (distance >= 30)
         return;
 
-    do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
-    CCP1_LoadDutyValue(68);;
+    do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
+    CCP1_LoadDutyValue(68);
 
     _delay((unsigned long)((1000)*(4000000/4000.0)));
 
@@ -18598,7 +18759,7 @@ void auto_drive()
     print_distance(distance_l);
     _delay((unsigned long)((500)*(4000000/4000.0)));
 
-    CCP1_LoadDutyValue(20);;
+    CCP1_LoadDutyValue(20);
 
     _delay((unsigned long)((1000)*(4000000/4000.0)));
 
@@ -18606,137 +18767,19 @@ void auto_drive()
     print_distance(distance_r);
     _delay((unsigned long)((500)*(4000000/4000.0)));
 
-    CCP1_LoadDutyValue(42);;
+    CCP1_LoadDutyValue(42);
 
     if (distance_l < distance_r)
-        do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
+        do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
     else
-        do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+        do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
 
-    _delay((unsigned long)((300)*(4000000/4000.0)));
-    do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
+    _delay((unsigned long)((320)*(4000000/4000.0)));
+    do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
 
     _delay((unsigned long)((700)*(4000000/4000.0)));
-    do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+    do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
     _delay((unsigned long)((10)*(4000000/4000.0)));
-}
-
-void control_speed(uint8_t code)
-{
-    uint8_t speed = code >> 3;
-    speed &= 0b00000111;
-    SPEED = (uint16_t) (speed*128);
-}
-
-void control_motors_with_uart(uint8_t code)
-{
-    DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
-
-    switch (dir)
-    {
-        case DRIVE_FORWARD:
-            do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        case DRIVE_BACKWARDS:
-            do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        case DRIVE_RIGHTWARDS:
-            do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        case DRIVE_LEFTWARDS:
-            do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        case TURN_LEFT:
-            do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        case TURN_RIGHT:
-            do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-        default:
-            do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
-            break;
-    }
-}
-
-void control_servo(uint8_t code)
-{
-    uint8_t angle = code >> 6;
-
-    switch (angle)
-    {
-        case 0b00:
-            CCP1_LoadDutyValue(68);;
-            break;
-        case 0b01:
-            CCP1_LoadDutyValue(42);;
-            break;
-        case 0b10:
-            CCP1_LoadDutyValue(20);;
-            break;
-        default:
-            break;
-    }
-}
-
-void shift_out_to_motors(uint8_t byte)
-{
-    for (uint8_t i=0; i < 8; i++){
-        LATBbits.LATB4 = (byte & (1 << i)) >> i;
-
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-        do { LATBbits.LATB6 = 1; } while(0);
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-
-        do { LATBbits.LATB4 = 1; } while(0);
-        do { LATBbits.LATB6 = 0; } while(0);
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-    }
-
-    do { LATBbits.LATB5 = 1; } while(0);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-    do { LATBbits.LATB5 = 0; } while(0);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-}
-
-uint8_t get_distance_from_supersonic()
-{
-    TMR1H = 0x00;
-    TMR1L = 0x00;
-
-
-    do { LATCbits.LATC2 = 1; } while(0);
-    _delay((unsigned long)((10)*(4000000/4000000.0)));
-    do { LATCbits.LATC2 = 0; } while(0);
-
-
-    while(PORTCbits.RC1 == 0);
-    TMR1_Start();
-    while(PORTCbits.RC1 == 1);
-    TMR1_Stop();
-
-    uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
-
-
-    if (distance_in_cm < 2 || distance_in_cm > 250)
-        distance_in_cm = 700;
-
-    return distance_in_cm;
-}
-
-uint8_t verify_password(uint8_t password_part)
-{
-    if (password_validation_index == 5)
-    {
-        password_validation_index = 0;
-        return 1;
-    }
-
-    if (password_part == password[password_validation_index])
-        password_validation_index++;
-    else
-        password_validation_index = 0;
-
-    return 0;
 }
 
 void UART_Custom_ISR(uint8_t Rx_Code)
@@ -18754,9 +18797,9 @@ void UART_Custom_ISR(uint8_t Rx_Code)
     if (Rx_Code == 0b11111111)
     {
         auto_mode = 1;
-        SPEED = 350;
-        CCP1_LoadDutyValue(42);;
-        do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
+        SPEED = 250;
+        CCP1_LoadDutyValue(42);
+        do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
     }
 
     _delay((unsigned long)((10)*(4000000/4000.0)));

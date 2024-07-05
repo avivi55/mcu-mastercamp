@@ -1,5 +1,87 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F10363 `(v ~T0 @X0 0 tf ]
+"45 ./I2C_LCD.h
+[; ;./I2C_LCD.h: 45: void LCD_Clear(void);
+[v _LCD_Clear `(v ~T0 @X0 0 ef ]
+"38
+[; ;./I2C_LCD.h: 38: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
+[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"121 /opt/microchip/xc8/v2.46/pic/include/c99/stdio.h
+[; ;/opt/microchip/xc8/v2.46/pic/include/c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"40 ./I2C_LCD.h
+[; ;./I2C_LCD.h: 40: void LCD_Write_String(char*);
+[v _LCD_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+"299 ./mcc_generated_files/system/../uart/eusart.h
+[; ;./mcc_generated_files/system/../uart/eusart.h: 299: void EUSART_Write(uint8_t txData);
+[v _EUSART_Write `(v ~T0 @X0 0 ef1`uc ]
+"2687 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2687:     struct {
+[s S139 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . . LATB4 LATB5 LATB6 LATB7 ]
+"2686
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2686: typedef union {
+[u S138 `S139 1 ]
+[n S138 . . ]
+"2695
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2695: extern volatile LATBbits_t LATBbits __attribute__((address(0x10D)));
+[v _LATBbits `VS138 ~T0 @X0 0 e@269 ]
+[v F202 `(v ~T0 @X0 1 tf1`ul ]
+"20 /opt/microchip/xc8/v2.46/pic/include/builtins.h
+[v __delay `JF202 ~T0 @X0 0 e ]
+[p i __delay ]
+"109 ./motors.h
+[; ;./motors.h: 109:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+[c E10683 0 1 2 3 4 5 6 .. ]
+[n E10683 . DRIVE_FORWARD DRIVE_BACKWARDS DRIVE_RIGHTWARDS DRIVE_LEFTWARDS TURN_LEFT TURN_RIGHT STOP  ]
+"114
+[; ;./motors.h: 114:             do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[c E10673 16 32 128 64 2 1 4 8 .. ]
+[n E10673 . FRONT_RIGHT_FORWARD FRONT_RIGHT_BACKWARD BACK_RIGHT_FORWARD BACK_RIGHT_BACKWARD FRONT_LEFT_FORWARD FRONT_LEFT_BACKWARD BACK_LEFT_FORWARD BACK_LEFT_BACKWARD  ]
+"62 ./mcc_generated_files/system/../pwm/ccp2.h
+[; ;./mcc_generated_files/system/../pwm/ccp2.h: 62: void CCP2_LoadDutyValue(uint16_t dutyValue);
+[v _CCP2_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"17 ./servo.h
+[; ;./servo.h: 17:     uint8_t angle = (SERVO_ANGLE) (code >> 6);
+[c E10703 0 1 2 .. ]
+[n E10703 . LEFT CENTER RIGHT  ]
+"62 ./mcc_generated_files/system/../pwm/ccp1.h
+[; ;./mcc_generated_files/system/../pwm/ccp1.h: 62: void CCP1_LoadDutyValue(uint16_t dutyValue);
+[v _CCP1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"915 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 915: extern volatile unsigned char TMR1H __attribute__((address(0x017)));
+[v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
+"895
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 895: extern volatile unsigned char TMR1L __attribute__((address(0x016)));
+[v _TMR1L `Vuc ~T0 @X0 0 e@22 ]
+"2726
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2726:     struct {
+[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S141 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2725
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2725: typedef union {
+[u S140 `S141 1 ]
+[n S140 . . ]
+"2737
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2737: extern volatile LATCbits_t LATCbits __attribute__((address(0x10E)));
+[v _LATCbits `VS140 ~T0 @X0 0 e@270 ]
+"524
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 524:     struct {
+[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S38 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"523
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 523: typedef union {
+[u S37 `S38 1 ]
+[n S37 . . ]
+"535
+[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 535: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x00E)));
+[v _PORTCbits `VS37 ~T0 @X0 0 e@14 ]
+"65 ./mcc_generated_files/system/../timer/tmr1.h
+[; ;./mcc_generated_files/system/../timer/tmr1.h: 65: void TMR1_Start(void);
+[v _TMR1_Start `(v ~T0 @X0 0 ef ]
+"74
+[; ;./mcc_generated_files/system/../timer/tmr1.h: 74: void TMR1_Stop(void);
+[v _TMR1_Stop `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "63 ./mcc_generated_files/system/../uart/../system/system.h
 [; ;./mcc_generated_files/system/../uart/../system/system.h: 63: void SYSTEM_Initialize(void);
@@ -50,92 +132,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "41
 [; ;./I2C_LCD.h: 41: void Backlight(void);
 [v _Backlight `(v ~T0 @X0 0 ef ]
-"45
-[; ;./I2C_LCD.h: 45: void LCD_Clear(void);
-[v _LCD_Clear `(v ~T0 @X0 0 ef ]
-"38
-[; ;./I2C_LCD.h: 38: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
-[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"40
-[; ;./I2C_LCD.h: 40: void LCD_Write_String(char*);
-[v _LCD_Write_String `(v ~T0 @X0 0 ef1`*uc ]
-"2687 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2687:     struct {
-[s S139 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S139 . . LATB4 LATB5 LATB6 LATB7 ]
-"2686
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2686: typedef union {
-[u S138 `S139 1 ]
-[n S138 . . ]
-"2695
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2695: extern volatile LATBbits_t LATBbits __attribute__((address(0x10D)));
-[v _LATBbits `VS138 ~T0 @X0 0 e@269 ]
-"62 ./mcc_generated_files/system/../pwm/ccp2.h
-[; ;./mcc_generated_files/system/../pwm/ccp2.h: 62: void CCP2_LoadDutyValue(uint16_t dutyValue);
-[v _CCP2_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
-"62 ./mcc_generated_files/system/../pwm/ccp1.h
-[; ;./mcc_generated_files/system/../pwm/ccp1.h: 62: void CCP1_LoadDutyValue(uint16_t dutyValue);
-[v _CCP1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
-"10 ./main.h
-[; ;./main.h: 10: void shift_out_to_motors(uint8_t byte);
-[v _shift_out_to_motors `(v ~T0 @X0 0 ef1`uc ]
-"9
-[; ;./main.h: 9: void auto_drive();
+"12 ./main.h
+[; ;./main.h: 12: void auto_drive();
 [v _auto_drive `(v ~T0 @X0 0 e? ]
-"12
-[; ;./main.h: 12: void print_distance(uint8_t distance);
-[v _print_distance `(v ~T0 @X0 0 ef1`uc ]
-"11
-[; ;./main.h: 11: uint8_t get_distance_from_supersonic();
-[v _get_distance_from_supersonic `(uc ~T0 @X0 0 e? ]
-[v F202 `(v ~T0 @X0 1 tf1`ul ]
-"20 /opt/microchip/xc8/v2.46/pic/include/builtins.h
-[v __delay `JF202 ~T0 @X0 0 e ]
-[p i __delay ]
-"121 /opt/microchip/xc8/v2.46/pic/include/c99/stdio.h
-[; ;/opt/microchip/xc8/v2.46/pic/include/c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"299 ./mcc_generated_files/system/../uart/eusart.h
-[; ;./mcc_generated_files/system/../uart/eusart.h: 299: void EUSART_Write(uint8_t txData);
-[v _EUSART_Write `(v ~T0 @X0 0 ef1`uc ]
-"123 main.c
-[; ;main.c: 123:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
-[c E10687 0 1 2 3 4 5 6 .. ]
-[n E10687 . DRIVE_FORWARD DRIVE_BACKWARDS DRIVE_RIGHTWARDS DRIVE_LEFTWARDS TURN_LEFT TURN_RIGHT STOP  ]
-"915 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 915: extern volatile unsigned char TMR1H __attribute__((address(0x017)));
-[v _TMR1H `Vuc ~T0 @X0 0 e@23 ]
-"895
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 895: extern volatile unsigned char TMR1L __attribute__((address(0x016)));
-[v _TMR1L `Vuc ~T0 @X0 0 e@22 ]
-"2726
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2726:     struct {
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2725
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2725: typedef union {
-[u S140 `S141 1 ]
-[n S140 . . ]
-"2737
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 2737: extern volatile LATCbits_t LATCbits __attribute__((address(0x10E)));
-[v _LATCbits `VS140 ~T0 @X0 0 e@270 ]
-"524
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 524:     struct {
-[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S38 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"523
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 523: typedef union {
-[u S37 `S38 1 ]
-[n S37 . . ]
-"535
-[; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 535: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x00E)));
-[v _PORTCbits `VS37 ~T0 @X0 0 e@14 ]
-"65 ./mcc_generated_files/system/../timer/tmr1.h
-[; ;./mcc_generated_files/system/../timer/tmr1.h: 65: void TMR1_Start(void);
-[v _TMR1_Start `(v ~T0 @X0 0 ef ]
-"74
-[; ;./mcc_generated_files/system/../timer/tmr1.h: 74: void TMR1_Stop(void);
-[v _TMR1_Stop `(v ~T0 @X0 0 ef ]
+"13
+[; ;./main.h: 13: uint8_t verify_password(uint8_t password_part);
+[v _verify_password `(uc ~T0 @X0 0 ef1`uc ]
 "54 /opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h
 [; ;/opt/microchip/mplabx/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8/pic/include/proc/pic16f1619.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1477,26 +1479,479 @@ Version 4.0 HI-TECH Software Intermediate Code
 "324 ./mcc_generated_files/system/../uart/eusart.h
 [; ;./mcc_generated_files/system/../uart/eusart.h: 324: void (*EUSART_RxInterruptHandler)(void);
 [v _EUSART_RxInterruptHandler `*F10363 ~T0 @X0 1 e ]
-"3 main.c
-[; ;main.c: 3: uint16_t SPEED = 350;
+"6 ./lcd.h
+[; ;./lcd.h: 6: char buffer[16];
+[v _buffer `uc ~T0 @X0 -> 16 `i e ]
+"8
+[; ;./lcd.h: 8: void print_distance(uint8_t distance)
+[v _print_distance `(v ~T0 @X0 1 ef1`uc ]
+"9
+[; ;./lcd.h: 9: {
+{
+[e :U _print_distance ]
+"8
+[; ;./lcd.h: 8: void print_distance(uint8_t distance)
+[v _distance `uc ~T0 @X0 1 r1 ]
+"9
+[; ;./lcd.h: 9: {
+[f ]
+"10
+[; ;./lcd.h: 10:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"11
+[; ;./lcd.h: 11:     LCD_Set_Cursor(1, 1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"14
+[; ;./lcd.h: 14:     if(distance >= 2 && distance <= 250)
+[e $ ! && >= -> _distance `i -> 2 `i <= -> _distance `i -> 250 `i 1280  ]
+"15
+[; ;./lcd.h: 15:     {
+{
+"16
+[; ;./lcd.h: 16:         sprintf(buffer, "Dist.: %d cm", distance);
+[e ( _sprintf (1 , (. , &U _buffer :s 1C -> _distance `i ]
+"17
+[; ;./lcd.h: 17:         LCD_Write_String(buffer);
+[e ( _LCD_Write_String (1 &U _buffer ]
+"18
+[; ;./lcd.h: 18:         EUSART_Write((uint16_t) distance);
+[e ( _EUSART_Write (1 -> -> _distance `us `uc ]
+"19
+[; ;./lcd.h: 19:     }
+}
+[e $U 1281  ]
+"20
+[; ;./lcd.h: 20:     else
+[e :U 1280 ]
+"21
+[; ;./lcd.h: 21:         LCD_Write_String("Out of Range");
+[e ( _LCD_Write_String (1 :s 2C ]
+[e :U 1281 ]
+"22
+[; ;./lcd.h: 22: }
+[e :UE 1279 ]
+}
+"82 ./motors.h
+[; ;./motors.h: 82: uint16_t SPEED = 250;
 [v _SPEED `us ~T0 @X0 1 e ]
 [i _SPEED
--> -> 350 `i `us
+-> -> 250 `i `us
 ]
-"4
-[; ;main.c: 4: uint8_t auto_mode = 1;
-[v _auto_mode `uc ~T0 @X0 1 e ]
-[i _auto_mode
--> -> 1 `i `uc
-]
+"84
+[; ;./motors.h: 84: void shift_out_to_motors(uint8_t byte)
+[v _shift_out_to_motors `(v ~T0 @X0 1 ef1`uc ]
+"85
+[; ;./motors.h: 85: {
+{
+[e :U _shift_out_to_motors ]
+"84
+[; ;./motors.h: 84: void shift_out_to_motors(uint8_t byte)
+[v _byte `uc ~T0 @X0 1 r1 ]
+"85
+[; ;./motors.h: 85: {
+[f ]
+"86
+[; ;./motors.h: 86:     for (uint8_t i=0; i < 8; i++){
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 1283  ]
+[e $U 1284  ]
+[e :U 1283 ]
+{
+"88
+[; ;./motors.h: 88:         uint8_t bit_mask = 1 << i;
+[v _bit_mask `uc ~T0 @X0 1 a ]
+[e = _bit_mask -> << -> 1 `i -> _i `i `uc ]
+"89
+[; ;./motors.h: 89:         if (byte & bit_mask)
+[e $ ! != & -> _byte `i -> _bit_mask `i -> 0 `i 1286  ]
+"90
+[; ;./motors.h: 90:             do { LATBbits.LATB4 = 1; } while(0);
+[e :U 1289 ]
+{
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 1288 ]
+[e $U 1290  ]
+"91
+[; ;./motors.h: 91:         else
+[e :U 1286 ]
+"92
+[; ;./motors.h: 92:             do { LATBbits.LATB4 = 0; } while(0);
+[e :U 1293 ]
+{
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 1292 ]
+[e :U 1290 ]
+"94
+[; ;./motors.h: 94:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"95
+[; ;./motors.h: 95:         do { LATBbits.LATB6 = 1; } while(0);
+[e :U 1296 ]
+{
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+}
+[e :U 1295 ]
+"96
+[; ;./motors.h: 96:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"97
+[; ;./motors.h: 97:         do { LATBbits.LATB6 = 0; } while(0);
+[e :U 1299 ]
+{
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+}
+[e :U 1298 ]
+"98
+[; ;./motors.h: 98:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"99
+[; ;./motors.h: 99:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 1283  ]
+[e :U 1284 ]
+}
+"101
+[; ;./motors.h: 101:     do { LATBbits.LATB5 = 1; } while(0);
+[e :U 1302 ]
+{
+[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 1301 ]
+"102
+[; ;./motors.h: 102:     _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"103
+[; ;./motors.h: 103:     do { LATBbits.LATB5 = 0; } while(0);
+[e :U 1305 ]
+{
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 1304 ]
+"104
+[; ;./motors.h: 104:     _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"105
+[; ;./motors.h: 105: }
+[e :UE 1282 ]
+}
+"107
+[; ;./motors.h: 107: void control_motors_with_uart(uint8_t code)
+[v _control_motors_with_uart `(v ~T0 @X0 1 ef1`uc ]
+"108
+[; ;./motors.h: 108: {
+{
+[e :U _control_motors_with_uart ]
+"107
+[; ;./motors.h: 107: void control_motors_with_uart(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"108
+[; ;./motors.h: 108: {
+[f ]
+"109
+[; ;./motors.h: 109:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
+[v _dir `E10683 ~T0 @X0 1 a ]
+[e = _dir -> & -> _code `i -> 7 `i `E10683 ]
+"111
+[; ;./motors.h: 111:     switch (dir)
+[e $U 1308  ]
+"112
+[; ;./motors.h: 112:     {
+{
+"113
+[; ;./motors.h: 113:         case DRIVE_FORWARD:
+[e :U 1309 ]
+"114
+[; ;./motors.h: 114:             do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1312 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 4 `i -> . `E10673 2 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1311 ]
+"115
+[; ;./motors.h: 115:             break;
+[e $U 1307  ]
+"116
+[; ;./motors.h: 116:         case DRIVE_BACKWARDS:
+[e :U 1313 ]
+"117
+[; ;./motors.h: 117:             do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1316 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 1 `i -> . `E10673 5 `i -> . `E10673 3 `i -> . `E10673 7 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1315 ]
+"118
+[; ;./motors.h: 118:             break;
+[e $U 1307  ]
+"119
+[; ;./motors.h: 119:         case DRIVE_RIGHTWARDS:
+[e :U 1317 ]
+"120
+[; ;./motors.h: 120:             do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1320 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 5 `i -> . `E10673 2 `i -> . `E10673 7 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1319 ]
+"121
+[; ;./motors.h: 121:             break;
+[e $U 1307  ]
+"122
+[; ;./motors.h: 122:         case DRIVE_LEFTWARDS:
+[e :U 1321 ]
+"123
+[; ;./motors.h: 123:             do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1324 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 3 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1323 ]
+"124
+[; ;./motors.h: 124:             break;
+[e $U 1307  ]
+"125
+[; ;./motors.h: 125:         case TURN_LEFT:
+[e :U 1325 ]
+"126
+[; ;./motors.h: 126:             do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1328 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 2 `i -> . `E10673 7 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1327 ]
+"127
+[; ;./motors.h: 127:             break;
+[e $U 1307  ]
+"128
+[; ;./motors.h: 128:         case TURN_RIGHT:
+[e :U 1329 ]
+"129
+[; ;./motors.h: 129:             do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1332 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 5 `i -> . `E10673 3 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1331 ]
+"130
+[; ;./motors.h: 130:             break;
+[e $U 1307  ]
+"131
+[; ;./motors.h: 131:         default:
+[e :U 1333 ]
+"132
+[; ;./motors.h: 132:             do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1336 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> . `E10673 0 `i -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 5 `i -> . `E10673 2 `i -> . `E10673 3 `i -> . `E10673 6 `i -> . `E10673 7 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1335 ]
+"133
+[; ;./motors.h: 133:             break;
+[e $U 1307  ]
+"134
+[; ;./motors.h: 134:     }
+}
+[e $U 1307  ]
+[e :U 1308 ]
+[e [\ -> _dir `ui , $ -> . `E10683 0 `ui 1309
+ , $ -> . `E10683 1 `ui 1313
+ , $ -> . `E10683 2 `ui 1317
+ , $ -> . `E10683 3 `ui 1321
+ , $ -> . `E10683 4 `ui 1325
+ , $ -> . `E10683 5 `ui 1329
+ 1333 ]
+[e :U 1307 ]
+"135
+[; ;./motors.h: 135: }
+[e :UE 1306 ]
+}
+"137
+[; ;./motors.h: 137: void control_speed(uint8_t code)
+[v _control_speed `(v ~T0 @X0 1 ef1`uc ]
+"138
+[; ;./motors.h: 138: {
+{
+[e :U _control_speed ]
+"137
+[; ;./motors.h: 137: void control_speed(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"138
+[; ;./motors.h: 138: {
+[f ]
+"139
+[; ;./motors.h: 139:     uint8_t speed = code >> 3;
+[v _speed `uc ~T0 @X0 1 a ]
+[e = _speed -> >> -> _code `i -> 3 `i `uc ]
+"140
+[; ;./motors.h: 140:     speed &= 0b00000111;
+[e =& _speed -> -> 7 `i `uc ]
+"141
+[; ;./motors.h: 141:     SPEED = (uint16_t) (speed*128);
+[e = _SPEED -> * -> _speed `i -> 128 `i `us ]
+"142
+[; ;./motors.h: 142: }
+[e :UE 1337 ]
+}
+"15 ./servo.h
+[; ;./servo.h: 15: void control_servo(uint8_t code)
+[v _control_servo `(v ~T0 @X0 1 ef1`uc ]
+"16
+[; ;./servo.h: 16: {
+{
+[e :U _control_servo ]
+"15
+[; ;./servo.h: 15: void control_servo(uint8_t code)
+[v _code `uc ~T0 @X0 1 r1 ]
+"16
+[; ;./servo.h: 16: {
+[f ]
+"17
+[; ;./servo.h: 17:     uint8_t angle = (SERVO_ANGLE) (code >> 6);
+[v _angle `uc ~T0 @X0 1 a ]
+[e = _angle -> -> >> -> _code `i -> 6 `i `E10703 `uc ]
+"19
+[; ;./servo.h: 19:     switch (angle)
+[e $U 1340  ]
+"20
+[; ;./servo.h: 20:     {
+{
+"21
+[; ;./servo.h: 21:         case LEFT:
+[e :U 1341 ]
+"22
+[; ;./servo.h: 22:             CCP1_LoadDutyValue(68);
+[e ( _CCP1_LoadDutyValue (1 -> -> 68 `i `us ]
+"23
+[; ;./servo.h: 23:             break;
+[e $U 1339  ]
+"24
+[; ;./servo.h: 24:         case CENTER:
+[e :U 1342 ]
+"25
+[; ;./servo.h: 25:             CCP1_LoadDutyValue(42);
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+"26
+[; ;./servo.h: 26:             break;
+[e $U 1339  ]
+"27
+[; ;./servo.h: 27:         case RIGHT:
+[e :U 1343 ]
+"28
+[; ;./servo.h: 28:             CCP1_LoadDutyValue(20);
+[e ( _CCP1_LoadDutyValue (1 -> -> 20 `i `us ]
+"29
+[; ;./servo.h: 29:             break;
+[e $U 1339  ]
+"30
+[; ;./servo.h: 30:         default:
+[e :U 1344 ]
+"31
+[; ;./servo.h: 31:             break;
+[e $U 1339  ]
+"32
+[; ;./servo.h: 32:     }
+}
+[e $U 1339  ]
+[e :U 1340 ]
+[e [\ _angle , $ . `E10703 0 1341
+ , $ . `E10703 1 1342
+ , $ . `E10703 2 1343
+ 1344 ]
+[e :U 1339 ]
+"33
+[; ;./servo.h: 33: }
+[e :UE 1338 ]
+}
+"4 ./ultrasonic.h
+[; ;./ultrasonic.h: 4: uint8_t get_distance_from_supersonic()
+[v _get_distance_from_supersonic `(uc ~T0 @X0 1 ef ]
 "5
-[; ;main.c: 5: uint8_t password_validation_index = 0;
+[; ;./ultrasonic.h: 5: {
+{
+[e :U _get_distance_from_supersonic ]
+[f ]
+"6
+[; ;./ultrasonic.h: 6:     TMR1H = 0x00;
+[e = _TMR1H -> -> 0 `i `uc ]
+"7
+[; ;./ultrasonic.h: 7:     TMR1L = 0x00;
+[e = _TMR1L -> -> 0 `i `uc ]
+"10
+[; ;./ultrasonic.h: 10:     do { LATCbits.LATC2 = 1; } while(0);
+[e :U 1348 ]
+{
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 1347 ]
+"11
+[; ;./ultrasonic.h: 11:     _delay((unsigned long)((10)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"12
+[; ;./ultrasonic.h: 12:     do { LATCbits.LATC2 = 0; } while(0);
+[e :U 1351 ]
+{
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 1350 ]
+"15
+[; ;./ultrasonic.h: 15:     while(PORTCbits.RC1 == 0);
+[e $U 1352  ]
+[e :U 1353 ]
+[e :U 1352 ]
+[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 1353  ]
+[e :U 1354 ]
+"16
+[; ;./ultrasonic.h: 16:     TMR1_Start();
+[e ( _TMR1_Start ..  ]
+"17
+[; ;./ultrasonic.h: 17:     while(PORTCbits.RC1 == 1);
+[e $U 1355  ]
+[e :U 1356 ]
+[e :U 1355 ]
+[e $ == -> . . _PORTCbits 0 1 `i -> 1 `i 1356  ]
+[e :U 1357 ]
+"18
+[; ;./ultrasonic.h: 18:     TMR1_Stop();
+[e ( _TMR1_Stop ..  ]
+"20
+[; ;./ultrasonic.h: 20:     uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
+[v _distance_in_cm `us ~T0 @X0 1 a ]
+[e = _distance_in_cm -> / -> + << -> _TMR1H `i -> 8 `i -> _TMR1L `i `d .58.82 `us ]
+"23
+[; ;./ultrasonic.h: 23:     if (distance_in_cm < 2 || distance_in_cm > 250)
+[e $ ! || < -> _distance_in_cm `ui -> -> 2 `i `ui > -> _distance_in_cm `ui -> -> 250 `i `ui 1358  ]
+"24
+[; ;./ultrasonic.h: 24:         distance_in_cm = 700;
+[e = _distance_in_cm -> -> 700 `i `us ]
+[e :U 1358 ]
+"26
+[; ;./ultrasonic.h: 26:     return distance_in_cm;
+[e ) -> _distance_in_cm `uc ]
+[e $UE 1345  ]
+"27
+[; ;./ultrasonic.h: 27: }
+[e :UE 1345 ]
+}
+"4 ./password.h
+[; ;./password.h: 4: uint8_t password_validation_index = 0;
 [v _password_validation_index `uc ~T0 @X0 1 e ]
 [i _password_validation_index
 -> -> 0 `i `uc
 ]
-"8
-[; ;main.c: 8: uint8_t password[5] = {
+"7
+[; ;./password.h: 7: uint8_t password[5] = {
 [v _password `uc ~T0 @X0 -> 5 `i e ]
 [i _password
 :U ..
@@ -1507,809 +1962,372 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 176 `i `uc
 ..
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"15
+[; ;./password.h: 15: uint8_t verify_password(uint8_t password_part)
+[v _verify_password `(uc ~T0 @X0 1 ef1`uc ]
 "16
-[; ;main.c: 16: int main(void)
-[v _main `(i ~T0 @X0 1 ef ]
+[; ;./password.h: 16: {
+{
+[e :U _verify_password ]
+"15
+[; ;./password.h: 15: uint8_t verify_password(uint8_t password_part)
+[v _password_part `uc ~T0 @X0 1 r1 ]
+"16
+[; ;./password.h: 16: {
+[f ]
 "17
-[; ;main.c: 17: {
+[; ;./password.h: 17:     if (password_validation_index == 5)
+[e $ ! == -> _password_validation_index `i -> 5 `i 1360  ]
+"18
+[; ;./password.h: 18:     {
+{
+"19
+[; ;./password.h: 19:         password_validation_index = 0;
+[e = _password_validation_index -> -> 0 `i `uc ]
+"20
+[; ;./password.h: 20:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 1359  ]
+"21
+[; ;./password.h: 21:     }
+}
+[e :U 1360 ]
+"23
+[; ;./password.h: 23:     if (password_part == password[password_validation_index])
+[e $ ! == -> _password_part `i -> *U + &U _password * -> _password_validation_index `ux -> -> # *U &U _password `ui `ux `i 1361  ]
+"24
+[; ;./password.h: 24:         password_validation_index++;
+[e ++ _password_validation_index -> -> 1 `i `uc ]
+[e $U 1362  ]
+"25
+[; ;./password.h: 25:     else
+[e :U 1361 ]
+"26
+[; ;./password.h: 26:         password_validation_index = 0;
+[e = _password_validation_index -> -> 0 `i `uc ]
+[e :U 1362 ]
+"28
+[; ;./password.h: 28:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1359  ]
+"29
+[; ;./password.h: 29: }
+[e :UE 1359 ]
+}
+"3 main.c
+[; ;main.c: 3: _Bool auto_mode = 0;
+[v _auto_mode `a ~T0 @X0 1 e ]
+[i _auto_mode
+-> -> 0 `i `a
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"5
+[; ;main.c: 5: int main(void)
+[v _main `(i ~T0 @X0 1 ef ]
+"6
+[; ;main.c: 6: {
 {
 [e :U _main ]
 [f ]
-"18
-[; ;main.c: 18:     SYSTEM_Initialize();
+"7
+[; ;main.c: 7:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"21
-[; ;main.c: 21:     PIE1bits.SSP1IE = 0;
+"10
+[; ;main.c: 10:     PIE1bits.SSP1IE = 0;
 [e = . . _PIE1bits 0 3 -> -> 0 `i `uc ]
-"22
-[; ;main.c: 22:     PIE2bits.BCL1IE = 0;
+"11
+[; ;main.c: 11:     PIE2bits.BCL1IE = 0;
 [e = . . _PIE2bits 0 3 -> -> 0 `i `uc ]
-"24
-[; ;main.c: 24:     (INTCONbits.GIE = 1);
+"13
+[; ;main.c: 13:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"25
-[; ;main.c: 25:     (INTCONbits.PEIE = 1);
+"14
+[; ;main.c: 14:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"27
-[; ;main.c: 27:     I2C_Master_Init();
+"16
+[; ;main.c: 16:     I2C_Master_Init();
 [e ( _I2C_Master_Init ..  ]
-"28
-[; ;main.c: 28:     LCD_Init(0x4E);
+"17
+[; ;main.c: 17:     LCD_Init(0x4E);
 [e ( _LCD_Init (1 -> -> 78 `i `uc ]
-"29
-[; ;main.c: 29:     Backlight();
+"18
+[; ;main.c: 18:     Backlight();
 [e ( _Backlight ..  ]
-"30
-[; ;main.c: 30:     LCD_Clear();
+"19
+[; ;main.c: 19:     LCD_Clear();
 [e ( _LCD_Clear ..  ]
-"31
-[; ;main.c: 31:     LCD_Set_Cursor(1, 1);
+"20
+[; ;main.c: 20:     LCD_Set_Cursor(1, 1);
 [e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"32
-[; ;main.c: 32:     LCD_Write_String("Master Camp 2024");
-[e ( _LCD_Write_String (1 :s 1C ]
-"34
-[; ;main.c: 34:     INTCONbits.TMR0IE = 0;
+"21
+[; ;main.c: 21:     LCD_Write_String("Master Camp 2024");
+[e ( _LCD_Write_String (1 :s 3C ]
+"23
+[; ;main.c: 23:     INTCONbits.TMR0IE = 0;
 [e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-"36
-[; ;main.c: 36:     do { LATBbits.LATB4 = 0; } while(0);
-[e :U 1282 ]
+"25
+[; ;main.c: 25:     do { LATBbits.LATB4 = 0; } while(0);
+[e :U 1366 ]
 {
 [e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 1281 ]
-"37
-[; ;main.c: 37:     do { LATBbits.LATB5 = 0; } while(0);
-[e :U 1285 ]
+[e :U 1365 ]
+"26
+[; ;main.c: 26:     do { LATBbits.LATB5 = 0; } while(0);
+[e :U 1369 ]
 {
 [e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 1284 ]
-"38
-[; ;main.c: 38:     do { LATBbits.LATB6 = 0; } while(0);
-[e :U 1288 ]
+[e :U 1368 ]
+"27
+[; ;main.c: 27:     do { LATBbits.LATB6 = 0; } while(0);
+[e :U 1372 ]
 {
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 1287 ]
-"40
-[; ;main.c: 40:     CCP2_LoadDutyValue(500);
+[e :U 1371 ]
+"29
+[; ;main.c: 29:     CCP2_LoadDutyValue(500);
 [e ( _CCP2_LoadDutyValue (1 -> -> 500 `i `us ]
-"41
-[; ;main.c: 41:     CCP1_LoadDutyValue(42);
+"30
+[; ;main.c: 30:     CCP1_LoadDutyValue(42);
 [e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
-"43
-[; ;main.c: 43:     do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1291 ]
+"32
+[; ;main.c: 32:     do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1375 ]
 {
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> . `E10673 0 `i -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 5 `i -> . `E10673 2 `i -> . `E10673 3 `i -> . `E10673 6 `i -> . `E10673 7 `i `uc ]
 [e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
-[e :U 1290 ]
-"44
-[; ;main.c: 44:     while(1)
-[e :U 1293 ]
-"45
-[; ;main.c: 45:     {
+[e :U 1374 ]
+"33
+[; ;main.c: 33:     while(1)
+[e :U 1377 ]
+"34
+[; ;main.c: 34:     {
 {
-"46
-[; ;main.c: 46:         if (auto_mode)
-[e $ ! != -> _auto_mode `i -> 0 `i 1295  ]
-"47
-[; ;main.c: 47:             auto_drive();
+"35
+[; ;main.c: 35:         if (auto_mode)
+[e $ ! != -> _auto_mode `i -> 0 `i 1379  ]
+"36
+[; ;main.c: 36:             auto_drive();
 [e ( _auto_drive ..  ]
-[e $U 1296  ]
-"48
-[; ;main.c: 48:         else{
-[e :U 1295 ]
+[e $U 1380  ]
+"37
+[; ;main.c: 37:         else{
+[e :U 1379 ]
 {
-"49
-[; ;main.c: 49:             print_distance(get_distance_from_supersonic());
+"38
+[; ;main.c: 38:             print_distance(get_distance_from_supersonic());
 [e ( _print_distance (1 ( _get_distance_from_supersonic ..  ]
-"50
-[; ;main.c: 50:             _delay((unsigned long)((150)*(4000000/4000.0)));
+"39
+[; ;main.c: 39:             _delay((unsigned long)((150)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"51
-[; ;main.c: 51:         }
+"40
+[; ;main.c: 40:         }
 }
-[e :U 1296 ]
-"52
-[; ;main.c: 52:     }
+[e :U 1380 ]
+"41
+[; ;main.c: 41:     }
 }
-[e :U 1292 ]
-[e $U 1293  ]
-[e :U 1294 ]
-"53
-[; ;main.c: 53: }
-[e :UE 1279 ]
+[e :U 1376 ]
+[e $U 1377  ]
+[e :U 1378 ]
+"42
+[; ;main.c: 42: }
+[e :UE 1363 ]
 }
-"55
-[; ;main.c: 55: void print_distance(uint8_t distance)
-[v _print_distance `(v ~T0 @X0 1 ef1`uc ]
-"56
-[; ;main.c: 56: {
-{
-[e :U _print_distance ]
-"55
-[; ;main.c: 55: void print_distance(uint8_t distance)
-[v _distance `uc ~T0 @X0 1 r1 ]
-"56
-[; ;main.c: 56: {
-[f ]
-"57
-[; ;main.c: 57:     char buffer[16];
-[v _buffer `uc ~T0 @X0 -> 16 `i a ]
-"58
-[; ;main.c: 58:     LCD_Clear();
-[e ( _LCD_Clear ..  ]
-"59
-[; ;main.c: 59:     LCD_Set_Cursor(1, 1);
-[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"62
-[; ;main.c: 62:     if(distance >= 2 && distance <= 250)
-[e $ ! && >= -> _distance `i -> 2 `i <= -> _distance `i -> 250 `i 1298  ]
-"63
-[; ;main.c: 63:     {
-{
-"64
-[; ;main.c: 64:         sprintf(buffer, "Dist.: %d cm", distance);
-[e ( _sprintf (1 , (. , &U _buffer :s 2C -> _distance `i ]
-"65
-[; ;main.c: 65:         LCD_Write_String(buffer);
-[e ( _LCD_Write_String (1 &U _buffer ]
-"66
-[; ;main.c: 66:         EUSART_Write((uint16_t) distance);
-[e ( _EUSART_Write (1 -> -> _distance `us `uc ]
-"67
-[; ;main.c: 67:     }
-}
-[e $U 1299  ]
-"68
-[; ;main.c: 68:     else
-[e :U 1298 ]
-"69
-[; ;main.c: 69:         LCD_Write_String("Out of Range");
-[e ( _LCD_Write_String (1 :s 3C ]
-[e :U 1299 ]
-"70
-[; ;main.c: 70: }
-[e :UE 1297 ]
-}
-"72
-[; ;main.c: 72: void auto_drive()
+"44
+[; ;main.c: 44: void auto_drive()
 [v _auto_drive `(v ~T0 @X0 1 ef ]
-"73
-[; ;main.c: 73: {
+"45
+[; ;main.c: 45: {
 {
 [e :U _auto_drive ]
 [f ]
-"74
-[; ;main.c: 74:     _delay((unsigned long)((100)*(4000000/4000.0)));
+"46
+[; ;main.c: 46:     _delay((unsigned long)((100)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"75
-[; ;main.c: 75:     uint16_t distance = get_distance_from_supersonic();
+"47
+[; ;main.c: 47:     uint16_t distance = get_distance_from_supersonic();
 [v _distance `us ~T0 @X0 1 a ]
 [e = _distance -> ( _get_distance_from_supersonic ..  `us ]
-"77
-[; ;main.c: 77:     print_distance(distance);
+"49
+[; ;main.c: 49:     print_distance(distance);
 [e ( _print_distance (1 -> _distance `uc ]
-"79
-[; ;main.c: 79:     if (distance >= 30)
-[e $ ! >= -> _distance `ui -> -> 30 `i `ui 1301  ]
-"80
-[; ;main.c: 80:         return;
-[e $UE 1300  ]
-[e :U 1301 ]
-"82
-[; ;main.c: 82:     do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1304 ]
+"51
+[; ;main.c: 51:     if (distance >= 30)
+[e $ ! >= -> _distance `ui -> -> 30 `i `ui 1382  ]
+"52
+[; ;main.c: 52:         return;
+[e $UE 1381  ]
+[e :U 1382 ]
+"54
+[; ;main.c: 54:     do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1385 ]
 {
-[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> . `E10673 0 `i -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 5 `i -> . `E10673 2 `i -> . `E10673 3 `i -> . `E10673 6 `i -> . `E10673 7 `i `uc ]
 [e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
-[e :U 1303 ]
-"83
-[; ;main.c: 83:     CCP1_LoadDutyValue(68);;
+[e :U 1384 ]
+"55
+[; ;main.c: 55:     CCP1_LoadDutyValue(68);
 [e ( _CCP1_LoadDutyValue (1 -> -> 68 `i `us ]
-"85
-[; ;main.c: 85:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+"57
+[; ;main.c: 57:     _delay((unsigned long)((1000)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"87
-[; ;main.c: 87:     uint16_t distance_l = get_distance_from_supersonic();
+"59
+[; ;main.c: 59:     uint16_t distance_l = get_distance_from_supersonic();
 [v _distance_l `us ~T0 @X0 1 a ]
 [e = _distance_l -> ( _get_distance_from_supersonic ..  `us ]
-"88
-[; ;main.c: 88:     print_distance(distance_l);
+"60
+[; ;main.c: 60:     print_distance(distance_l);
 [e ( _print_distance (1 -> _distance_l `uc ]
-"89
-[; ;main.c: 89:     _delay((unsigned long)((500)*(4000000/4000.0)));
+"61
+[; ;main.c: 61:     _delay((unsigned long)((500)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:     CCP1_LoadDutyValue(20);;
+"63
+[; ;main.c: 63:     CCP1_LoadDutyValue(20);
 [e ( _CCP1_LoadDutyValue (1 -> -> 20 `i `us ]
-"93
-[; ;main.c: 93:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+"65
+[; ;main.c: 65:     _delay((unsigned long)((1000)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"95
-[; ;main.c: 95:     uint16_t distance_r = get_distance_from_supersonic();
+"67
+[; ;main.c: 67:     uint16_t distance_r = get_distance_from_supersonic();
 [v _distance_r `us ~T0 @X0 1 a ]
 [e = _distance_r -> ( _get_distance_from_supersonic ..  `us ]
-"96
-[; ;main.c: 96:     print_distance(distance_r);
+"68
+[; ;main.c: 68:     print_distance(distance_r);
 [e ( _print_distance (1 -> _distance_r `uc ]
-"97
-[; ;main.c: 97:     _delay((unsigned long)((500)*(4000000/4000.0)));
+"69
+[; ;main.c: 69:     _delay((unsigned long)((500)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"99
-[; ;main.c: 99:     CCP1_LoadDutyValue(42);;
+"71
+[; ;main.c: 71:     CCP1_LoadDutyValue(42);
 [e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
-"101
-[; ;main.c: 101:     if (distance_l < distance_r)
-[e $ ! < -> _distance_l `ui -> _distance_r `ui 1305  ]
-"102
-[; ;main.c: 102:         do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1308 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 128 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1307 ]
-[e $U 1309  ]
-"103
-[; ;main.c: 103:     else
-[e :U 1305 ]
-"104
-[; ;main.c: 104:         do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1312 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 64 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1311 ]
-[e :U 1309 ]
-"106
-[; ;main.c: 106:     _delay((unsigned long)((300)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"107
-[; ;main.c: 107:     do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1315 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1314 ]
-"109
-[; ;main.c: 109:     _delay((unsigned long)((700)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:     do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1318 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1317 ]
-"111
-[; ;main.c: 111:     _delay((unsigned long)((10)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"112
-[; ;main.c: 112: }
-[e :UE 1300 ]
-}
-"114
-[; ;main.c: 114: void control_speed(uint8_t code)
-[v _control_speed `(v ~T0 @X0 1 ef1`uc ]
-"115
-[; ;main.c: 115: {
-{
-[e :U _control_speed ]
-"114
-[; ;main.c: 114: void control_speed(uint8_t code)
-[v _code `uc ~T0 @X0 1 r1 ]
-"115
-[; ;main.c: 115: {
-[f ]
-"116
-[; ;main.c: 116:     uint8_t speed = code >> 3;
-[v _speed `uc ~T0 @X0 1 a ]
-[e = _speed -> >> -> _code `i -> 3 `i `uc ]
-"117
-[; ;main.c: 117:     speed &= 0b00000111;
-[e =& _speed -> -> 7 `i `uc ]
-"118
-[; ;main.c: 118:     SPEED = (uint16_t) (speed*128);
-[e = _SPEED -> * -> _speed `i -> 128 `i `us ]
-"119
-[; ;main.c: 119: }
-[e :UE 1319 ]
-}
-"121
-[; ;main.c: 121: void control_motors_with_uart(uint8_t code)
-[v _control_motors_with_uart `(v ~T0 @X0 1 ef1`uc ]
-"122
-[; ;main.c: 122: {
-{
-[e :U _control_motors_with_uart ]
-"121
-[; ;main.c: 121: void control_motors_with_uart(uint8_t code)
-[v _code `uc ~T0 @X0 1 r1 ]
-"122
-[; ;main.c: 122: {
-[f ]
-"123
-[; ;main.c: 123:     DIRECTIONS dir = (DIRECTIONS) (code & 0b111);
-[v _dir `E10687 ~T0 @X0 1 a ]
-[e = _dir -> & -> _code `i -> 7 `i `E10687 ]
-"125
-[; ;main.c: 125:     switch (dir)
-[e $U 1322  ]
-"126
-[; ;main.c: 126:     {
-{
-"127
-[; ;main.c: 127:         case DRIVE_FORWARD:
-[e :U 1323 ]
-"128
-[; ;main.c: 128:             do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1326 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1325 ]
-"129
-[; ;main.c: 129:             break;
-[e $U 1321  ]
-"130
-[; ;main.c: 130:         case DRIVE_BACKWARDS:
-[e :U 1327 ]
-"131
-[; ;main.c: 131:             do { shift_out_to_motors(0b00100000 | 0b00000001 | 0b01000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1330 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 1 `i -> 64 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1329 ]
-"132
-[; ;main.c: 132:             break;
-[e $U 1321  ]
-"133
-[; ;main.c: 133:         case DRIVE_RIGHTWARDS:
-[e :U 1331 ]
-"134
-[; ;main.c: 134:             do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1334 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 128 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1333 ]
-"135
-[; ;main.c: 135:             break;
-[e $U 1321  ]
-"136
-[; ;main.c: 136:         case DRIVE_LEFTWARDS:
-[e :U 1335 ]
-"137
-[; ;main.c: 137:             do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1338 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 64 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1337 ]
-"138
-[; ;main.c: 138:             break;
-[e $U 1321  ]
-"139
-[; ;main.c: 139:         case TURN_LEFT:
-[e :U 1339 ]
-"140
-[; ;main.c: 140:             do { shift_out_to_motors(0b00100000 | 0b00000010 | 0b10000000 | 0b00001000); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1342 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 32 `i -> 2 `i -> 128 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1341 ]
-"141
-[; ;main.c: 141:             break;
-[e $U 1321  ]
-"142
-[; ;main.c: 142:         case TURN_RIGHT:
-[e :U 1343 ]
-"143
-[; ;main.c: 143:             do { shift_out_to_motors(0b00010000 | 0b00000001 | 0b01000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1346 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 1 `i -> 64 `i -> 4 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1345 ]
-"144
-[; ;main.c: 144:             break;
-[e $U 1321  ]
-"145
-[; ;main.c: 145:         default:
-[e :U 1347 ]
-"146
-[; ;main.c: 146:             do { shift_out_to_motors(0b00010000 | 0b00100000 | 0b00000010 | 0b00000001 | 0b10000000 | 0b01000000 | 0b00000100 | 0b00001000 ); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1350 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | | | | | -> 16 `i -> 32 `i -> 2 `i -> 1 `i -> 128 `i -> 64 `i -> 4 `i -> 8 `i `uc ]
-[e ( _CCP2_LoadDutyValue (1 _SPEED ]
-}
-[e :U 1349 ]
-"147
-[; ;main.c: 147:             break;
-[e $U 1321  ]
-"148
-[; ;main.c: 148:     }
-}
-[e $U 1321  ]
-[e :U 1322 ]
-[e [\ -> _dir `ui , $ -> . `E10687 0 `ui 1323
- , $ -> . `E10687 1 `ui 1327
- , $ -> . `E10687 2 `ui 1331
- , $ -> . `E10687 3 `ui 1335
- , $ -> . `E10687 4 `ui 1339
- , $ -> . `E10687 5 `ui 1343
- 1347 ]
-[e :U 1321 ]
-"149
-[; ;main.c: 149: }
-[e :UE 1320 ]
-}
-"151
-[; ;main.c: 151: void control_servo(uint8_t code)
-[v _control_servo `(v ~T0 @X0 1 ef1`uc ]
-"152
-[; ;main.c: 152: {
-{
-[e :U _control_servo ]
-"151
-[; ;main.c: 151: void control_servo(uint8_t code)
-[v _code `uc ~T0 @X0 1 r1 ]
-"152
-[; ;main.c: 152: {
-[f ]
-"153
-[; ;main.c: 153:     uint8_t angle = code >> 6;
-[v _angle `uc ~T0 @X0 1 a ]
-[e = _angle -> >> -> _code `i -> 6 `i `uc ]
-"155
-[; ;main.c: 155:     switch (angle)
-[e $U 1353  ]
-"156
-[; ;main.c: 156:     {
-{
-"157
-[; ;main.c: 157:         case 0b00:
-[e :U 1354 ]
-"158
-[; ;main.c: 158:             CCP1_LoadDutyValue(68);;
-[e ( _CCP1_LoadDutyValue (1 -> -> 68 `i `us ]
-"159
-[; ;main.c: 159:             break;
-[e $U 1352  ]
-"160
-[; ;main.c: 160:         case 0b01:
-[e :U 1355 ]
-"161
-[; ;main.c: 161:             CCP1_LoadDutyValue(42);;
-[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
-"162
-[; ;main.c: 162:             break;
-[e $U 1352  ]
-"163
-[; ;main.c: 163:         case 0b10:
-[e :U 1356 ]
-"164
-[; ;main.c: 164:             CCP1_LoadDutyValue(20);;
-[e ( _CCP1_LoadDutyValue (1 -> -> 20 `i `us ]
-"165
-[; ;main.c: 165:             break;
-[e $U 1352  ]
-"166
-[; ;main.c: 166:         default:
-[e :U 1357 ]
-"167
-[; ;main.c: 167:             break;
-[e $U 1352  ]
-"168
-[; ;main.c: 168:     }
-}
-[e $U 1352  ]
-[e :U 1353 ]
-[e [\ _angle , $ -> 0 `i 1354
- , $ -> 1 `i 1355
- , $ -> 2 `i 1356
- 1357 ]
-[e :U 1352 ]
-"169
-[; ;main.c: 169: }
-[e :UE 1351 ]
-}
-"171
-[; ;main.c: 171: void shift_out_to_motors(uint8_t byte)
-[v _shift_out_to_motors `(v ~T0 @X0 1 ef1`uc ]
-"172
-[; ;main.c: 172: {
-{
-[e :U _shift_out_to_motors ]
-"171
-[; ;main.c: 171: void shift_out_to_motors(uint8_t byte)
-[v _byte `uc ~T0 @X0 1 r1 ]
-"172
-[; ;main.c: 172: {
-[f ]
-"173
-[; ;main.c: 173:     for (uint8_t i=0; i < 8; i++){
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1359  ]
-[e $U 1360  ]
-[e :U 1359 ]
-{
-"174
-[; ;main.c: 174:         LATBbits.LATB4 = (byte & (1 << i)) >> i;
-[e = . . _LATBbits 0 1 -> >> & -> _byte `i << -> 1 `i -> _i `i -> _i `i `uc ]
-"176
-[; ;main.c: 176:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"177
-[; ;main.c: 177:         do { LATBbits.LATB6 = 1; } while(0);
-[e :U 1364 ]
-{
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-}
-[e :U 1363 ]
-"178
-[; ;main.c: 178:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"180
-[; ;main.c: 180:         do { LATBbits.LATB4 = 1; } while(0);
-[e :U 1367 ]
-{
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-}
-[e :U 1366 ]
-"181
-[; ;main.c: 181:         do { LATBbits.LATB6 = 0; } while(0);
-[e :U 1370 ]
-{
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 1369 ]
-"182
-[; ;main.c: 182:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"183
-[; ;main.c: 183:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1359  ]
-[e :U 1360 ]
-}
-"185
-[; ;main.c: 185:     do { LATBbits.LATB5 = 1; } while(0);
-[e :U 1373 ]
-{
-[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 1372 ]
-"186
-[; ;main.c: 186:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"187
-[; ;main.c: 187:     do { LATBbits.LATB5 = 0; } while(0);
-[e :U 1376 ]
-{
-[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 1375 ]
-"188
-[; ;main.c: 188:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"189
-[; ;main.c: 189: }
-[e :UE 1358 ]
-}
-"191
-[; ;main.c: 191: uint8_t get_distance_from_supersonic()
-[v _get_distance_from_supersonic `(uc ~T0 @X0 1 ef ]
-"192
-[; ;main.c: 192: {
-{
-[e :U _get_distance_from_supersonic ]
-[f ]
-"193
-[; ;main.c: 193:     TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
-"194
-[; ;main.c: 194:     TMR1L = 0x00;
-[e = _TMR1L -> -> 0 `i `uc ]
-"197
-[; ;main.c: 197:     do { LATCbits.LATC2 = 1; } while(0);
-[e :U 1380 ]
-{
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 1379 ]
-"198
-[; ;main.c: 198:     _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"199
-[; ;main.c: 199:     do { LATCbits.LATC2 = 0; } while(0);
-[e :U 1383 ]
-{
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 1382 ]
-"202
-[; ;main.c: 202:     while(PORTCbits.RC1 == 0);
-[e $U 1384  ]
-[e :U 1385 ]
-[e :U 1384 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 0 `i 1385  ]
-[e :U 1386 ]
-"203
-[; ;main.c: 203:     TMR1_Start();
-[e ( _TMR1_Start ..  ]
-"204
-[; ;main.c: 204:     while(PORTCbits.RC1 == 1);
-[e $U 1387  ]
-[e :U 1388 ]
-[e :U 1387 ]
-[e $ == -> . . _PORTCbits 0 1 `i -> 1 `i 1388  ]
+"73
+[; ;main.c: 73:     if (distance_l < distance_r)
+[e $ ! < -> _distance_l `ui -> _distance_r `ui 1386  ]
+"74
+[; ;main.c: 74:         do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
 [e :U 1389 ]
-"205
-[; ;main.c: 205:     TMR1_Stop();
-[e ( _TMR1_Stop ..  ]
-"207
-[; ;main.c: 207:     uint16_t distance_in_cm = (uint16_t)(((TMR1H<<8) + TMR1L)/58.82);
-[v _distance_in_cm `us ~T0 @X0 1 a ]
-[e = _distance_in_cm -> / -> + << -> _TMR1H `i -> 8 `i -> _TMR1L `i `d .58.82 `us ]
-"210
-[; ;main.c: 210:     if (distance_in_cm < 2 || distance_in_cm > 250)
-[e $ ! || < -> _distance_in_cm `ui -> -> 2 `i `ui > -> _distance_in_cm `ui -> -> 250 `i `ui 1390  ]
-"211
-[; ;main.c: 211:         distance_in_cm = 700;
-[e = _distance_in_cm -> -> 700 `i `us ]
-[e :U 1390 ]
-"213
-[; ;main.c: 213:     return distance_in_cm;
-[e ) -> _distance_in_cm `uc ]
-[e $UE 1377  ]
-"214
-[; ;main.c: 214: }
-[e :UE 1377 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 5 `i -> . `E10673 3 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
-"216
-[; ;main.c: 216: uint8_t verify_password(uint8_t password_part)
-[v _verify_password `(uc ~T0 @X0 1 ef1`uc ]
-"217
-[; ;main.c: 217: {
+[e :U 1388 ]
+[e $U 1390  ]
+"75
+[; ;main.c: 75:     else
+[e :U 1386 ]
+"76
+[; ;main.c: 76:         do { shift_out_to_motors(FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_BACKWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1393 ]
 {
-[e :U _verify_password ]
-"216
-[; ;main.c: 216: uint8_t verify_password(uint8_t password_part)
-[v _password_part `uc ~T0 @X0 1 r1 ]
-"217
-[; ;main.c: 217: {
-[f ]
-"218
-[; ;main.c: 218:     if (password_validation_index == 5)
-[e $ ! == -> _password_validation_index `i -> 5 `i 1392  ]
-"219
-[; ;main.c: 219:     {
-{
-"220
-[; ;main.c: 220:         password_validation_index = 0;
-[e = _password_validation_index -> -> 0 `i `uc ]
-"221
-[; ;main.c: 221:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1391  ]
-"222
-[; ;main.c: 222:     }
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 2 `i -> . `E10673 7 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
 [e :U 1392 ]
-"224
-[; ;main.c: 224:     if (password_part == password[password_validation_index])
-[e $ ! == -> _password_part `i -> *U + &U _password * -> _password_validation_index `ux -> -> # *U &U _password `ui `ux `i 1393  ]
-"225
-[; ;main.c: 225:         password_validation_index++;
-[e ++ _password_validation_index -> -> 1 `i `uc ]
-[e $U 1394  ]
-"226
-[; ;main.c: 226:     else
-[e :U 1393 ]
-"227
-[; ;main.c: 227:         password_validation_index = 0;
-[e = _password_validation_index -> -> 0 `i `uc ]
-[e :U 1394 ]
-"229
-[; ;main.c: 229:     return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1391  ]
-"230
-[; ;main.c: 230: }
-[e :UE 1391 ]
-}
-"232
-[; ;main.c: 232: void UART_Custom_ISR(uint8_t Rx_Code)
-[v _UART_Custom_ISR `(v ~T0 @X0 1 ef1`uc ]
-"233
-[; ;main.c: 233: {
-{
-[e :U _UART_Custom_ISR ]
-"232
-[; ;main.c: 232: void UART_Custom_ISR(uint8_t Rx_Code)
-[v _Rx_Code `uc ~T0 @X0 1 r1 ]
-"233
-[; ;main.c: 233: {
-[f ]
-"234
-[; ;main.c: 234:     if (!verify_password(Rx_Code))
-[e $ ! ! != -> ( _verify_password (1 _Rx_Code `i -> 0 `i 1396  ]
-"235
-[; ;main.c: 235:         return;
-[e $UE 1395  ]
+[e :U 1390 ]
+"78
+[; ;main.c: 78:     _delay((unsigned long)((320)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 320 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"79
+[; ;main.c: 79:     do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_RIGHT_BACKWARD | FRONT_LEFT_FORWARD | FRONT_LEFT_BACKWARD | BACK_RIGHT_FORWARD | BACK_RIGHT_BACKWARD | BACK_LEFT_FORWARD | BACK_LEFT_BACKWARD ); CCP2_LoadDutyValue(SPEED);} while(0);
 [e :U 1396 ]
-"237
-[; ;main.c: 237:     print_distance(get_distance_from_supersonic());
-[e ( _print_distance (1 ( _get_distance_from_supersonic ..  ]
-"239
-[; ;main.c: 239:     auto_mode = 0;
-[e = _auto_mode -> -> 0 `i `uc ]
-"240
-[; ;main.c: 240:     control_servo(Rx_Code);
-[e ( _control_servo (1 _Rx_Code ]
-"241
-[; ;main.c: 241:     control_speed(Rx_Code);
-[e ( _control_speed (1 _Rx_Code ]
-"242
-[; ;main.c: 242:     control_motors_with_uart(Rx_Code);
-[e ( _control_motors_with_uart (1 _Rx_Code ]
-"244
-[; ;main.c: 244:     if (Rx_Code == 0b11111111)
-[e $ ! == -> _Rx_Code `i -> 255 `i 1397  ]
-"245
-[; ;main.c: 245:     {
 {
-"246
-[; ;main.c: 246:         auto_mode = 1;
-[e = _auto_mode -> -> 1 `i `uc ]
-"247
-[; ;main.c: 247:         SPEED = 350;
-[e = _SPEED -> -> 350 `i `us ]
-"248
-[; ;main.c: 248:         CCP1_LoadDutyValue(42);;
-[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
-"249
-[; ;main.c: 249:         do { shift_out_to_motors(0b00010000 | 0b00000010 | 0b10000000 | 0b00000100); CCP2_LoadDutyValue(SPEED);} while(0);
-[e :U 1400 ]
-{
-[e ( _shift_out_to_motors (1 -> | | | -> 16 `i -> 2 `i -> 128 `i -> 4 `i `uc ]
+[e ( _shift_out_to_motors (1 -> | | | | | | | -> . `E10673 0 `i -> . `E10673 1 `i -> . `E10673 4 `i -> . `E10673 5 `i -> . `E10673 2 `i -> . `E10673 3 `i -> . `E10673 6 `i -> . `E10673 7 `i `uc ]
 [e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
+[e :U 1395 ]
+"81
+[; ;main.c: 81:     _delay((unsigned long)((700)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"82
+[; ;main.c: 82:     do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
 [e :U 1399 ]
-"250
-[; ;main.c: 250:     }
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 4 `i -> . `E10673 2 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
 }
-[e :U 1397 ]
-"252
-[; ;main.c: 252:     _delay((unsigned long)((10)*(4000000/4000.0)));
+[e :U 1398 ]
+"83
+[; ;main.c: 83:     _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"253
-[; ;main.c: 253: }
-[e :UE 1395 ]
+"84
+[; ;main.c: 84: }
+[e :UE 1381 ]
+}
+"86
+[; ;main.c: 86: void UART_Custom_ISR(uint8_t Rx_Code)
+[v _UART_Custom_ISR `(v ~T0 @X0 1 ef1`uc ]
+"87
+[; ;main.c: 87: {
+{
+[e :U _UART_Custom_ISR ]
+"86
+[; ;main.c: 86: void UART_Custom_ISR(uint8_t Rx_Code)
+[v _Rx_Code `uc ~T0 @X0 1 r1 ]
+"87
+[; ;main.c: 87: {
+[f ]
+"88
+[; ;main.c: 88:     if (!verify_password(Rx_Code))
+[e $ ! ! != -> ( _verify_password (1 _Rx_Code `i -> 0 `i 1401  ]
+"89
+[; ;main.c: 89:         return;
+[e $UE 1400  ]
+[e :U 1401 ]
+"91
+[; ;main.c: 91:     print_distance(get_distance_from_supersonic());
+[e ( _print_distance (1 ( _get_distance_from_supersonic ..  ]
+"93
+[; ;main.c: 93:     auto_mode = 0;
+[e = _auto_mode -> -> 0 `i `a ]
+"94
+[; ;main.c: 94:     control_servo(Rx_Code);
+[e ( _control_servo (1 _Rx_Code ]
+"95
+[; ;main.c: 95:     control_speed(Rx_Code);
+[e ( _control_speed (1 _Rx_Code ]
+"96
+[; ;main.c: 96:     control_motors_with_uart(Rx_Code);
+[e ( _control_motors_with_uart (1 _Rx_Code ]
+"98
+[; ;main.c: 98:     if (Rx_Code == 0b11111111)
+[e $ ! == -> _Rx_Code `i -> 255 `i 1402  ]
+"99
+[; ;main.c: 99:     {
+{
+"100
+[; ;main.c: 100:         auto_mode = 1;
+[e = _auto_mode -> -> 1 `i `a ]
+"101
+[; ;main.c: 101:         SPEED = 250;
+[e = _SPEED -> -> 250 `i `us ]
+"102
+[; ;main.c: 102:         CCP1_LoadDutyValue(42);
+[e ( _CCP1_LoadDutyValue (1 -> -> 42 `i `us ]
+"103
+[; ;main.c: 103:         do { shift_out_to_motors(FRONT_RIGHT_FORWARD | FRONT_LEFT_FORWARD | BACK_RIGHT_FORWARD | BACK_LEFT_FORWARD); CCP2_LoadDutyValue(SPEED);} while(0);
+[e :U 1405 ]
+{
+[e ( _shift_out_to_motors (1 -> | | | -> . `E10673 0 `i -> . `E10673 4 `i -> . `E10673 2 `i -> . `E10673 6 `i `uc ]
+[e ( _CCP2_LoadDutyValue (1 _SPEED ]
+}
+[e :U 1404 ]
+"104
+[; ;main.c: 104:     }
+}
+[e :U 1402 ]
+"106
+[; ;main.c: 106:     _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"107
+[; ;main.c: 107: }
+[e :UE 1400 ]
 }
 [p f _sprintf 8388736 ]
-[a 2C 68 105 115 116 46 58 32 37 100 32 99 109 0 ]
-[a 3C 79 117 116 32 111 102 32 82 97 110 103 101 0 ]
-[a 1C 77 97 115 116 101 114 32 67 97 109 112 32 50 48 50 52 0 ]
+[a 1C 68 105 115 116 46 58 32 37 100 32 99 109 0 ]
+[a 2C 79 117 116 32 111 102 32 82 97 110 103 101 0 ]
+[a 3C 77 97 115 116 101 114 32 67 97 109 112 32 50 48 50 52 0 ]
